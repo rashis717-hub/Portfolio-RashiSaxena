@@ -1,120 +1,373 @@
 ---
 title: "SalesPulze"
 slug: "salespulze"
-tagline: "Meeting intelligence that every level of a sales organisation can trust."
-summary: "Field and market intelligence platform defining information architecture for a unified shell with role-based dashboards across a five-level sales hierarchy, evidence-linked AI insights, and human review. Live with 100+ sales teams at MYK."
-role: "UX Lead"
-platforms:
-  - "Web"
-  - "Responsive Mobile"
-timeline: "[YOUR INPUT: e.g. 8 months]"
+tagline: "Meeting intelligence that every level of a sales organisation can trust, designed for a white-label enterprise deployment"
+summary: "Sales organisations hold thousands of meetings and learn very little from them. I led the UX for SalesPulze, a platform that turns meetings into signals, actions and scores, shows each level of the hierarchy the view it needs, and makes every AI output reviewable, so a regional manager and a managing director can trust the same numbers."
+company: "Covasant Technologies"
+role: "UX Lead: information architecture, role-based dashboards, AI trust patterns, responsive and white-label design"
+platformType: "Enterprise web platform with mobile web and tablet views, deployed white-label"
+platforms: ["Web", "Mobile web", "Tablet"]
+timeline: "[YOUR INPUT: months and year]"
 year: 2026
-cover: "/work/salespulze/cover.jpg"
-order: 4
+team: "[YOUR INPUT: who you worked with, for example product, engineering, data and your designers]"
+deliverables:
+  - "Information architecture and role-based navigation"
+  - "Role-based dashboards by hierarchy level"
+  - "AI trust patterns: confidence, evidence and review"
+  - "Admin console: users, scopes, cost insights, business segments"
+  - "Mobile web and tablet views"
+  - "White-label branding and login"
+  - "In-app tour and user guide outline"
+status: "Live with MYK, used by 100+ sales teams, and deployed with other companies"
+cover: "/work/salespulze/screens/figma/01-intel-hub.webp"
+video: "/work/salespulze/video/salespulze-motion.mp4"
+poster: "/work/salespulze/video/poster.jpg"
+videoCredit: "Rashi Saxena"
+order: 3
 visibility: "public"
 redact: false
-tags:
-  - "Meeting Intelligence"
-  - "Enterprise Sales AI"
-  - "Role-Based Dashboards"
-  - "Evidence-Linked Insights"
+tags: ["Enterprise SaaS", "Meeting intelligence", "Dashboards", "AI trust"]
 metrics:
-  - value: "100"
-    suffix: "+"
-    label: "sales teams at MYK"
+  - { value: "100", suffix: "+", label: "Sales teams at MYK use SalesPulze" }
+  - { value: "9", label: "Core modules, from the intelligence hub to cost insights" }
+  - { value: "3", label: "AI trust patterns: confidence, evidence and human review" }
+links:
+  figma: "https://www.figma.com/design/eTTERRCpQrCMmfhZLds4wr/SalesPulze"
 ---
 
-<Section number="01" label="The Challenge" title="Turning raw meeting transcripts into actionable intelligence that every sales tier trusts">
+{/* The header, project details, three metrics and the hero video come from the frontmatter above. The video credit reads "Video: Rashi Saxena". */}
 
-Sales teams conduct thousands of customer conversations every week. Valuable market signals, objection patterns, competitor mentions, and deal risks get buried in audio recordings and raw AI transcription dumps.
+<Section n="01" title="Context & Business Problem" headline="Sales meetings produce talk, not signal">
 
-Generic summarization fails in enterprise sales because different roles need entirely different views of the same call. Field sales reps need immediate follow-up action items, regional managers need pipeline risk summaries, and vice presidents need aggregated market trends. Furthermore, when AI summaries make mistakes, teams lose trust immediately unless every insight is verifiable.
+### The enterprise landscape
 
-</Section>
+A large sales organisation runs on meetings: weekly regional reviews, area reviews, product discussions, follow-ups. They are where plans are made, blockers are raised and commitments are given. But the organisation is also a hierarchy: a managing director, segment heads, regional and zonal managers, branch managers and field sales managers, each needing a different view of the same activity.
 
-<Section number="02" label="Who Uses It" title="Five distinct hierarchy tiers, from territory reps to executive leadership">
+SalesPulze is an enterprise meeting intelligence and execution platform for sales organisations. It takes what happens in meetings and turns it into insight, actions and scores that each level can use.
 
-I designed SalesPulze to adapt seamlessly across a 5-level sales hierarchy: Sales Representative, Territory Manager, Area Manager, Regional Business Manager, and Vice President.
+### The core problem
 
-<Stakeholders>
-  <Stakeholder
-    team="Field Sales Representatives"
-    heard="[YOUR INPUT: what reps told you about fast post-call action logging and mobile usability]"
-    shaped="Rapid mobile-first call debrief cards with pre-filled action items and 1-tap CRM syncing."
-  />
-  <Stakeholder
-    team="Territory & Area Managers"
-    heard="[YOUR INPUT: what managers needed to spot deal stalling without listening to hours of audio]"
-    shaped="Exception-based coaching dashboards highlighting unaddressed customer objections and sentiment shifts."
-  />
-  <Stakeholder
-    team="Regional Business Managers"
-    heard="[YOUR INPUT: what regional leads needed for territory forecast confidence]"
-    shaped="Aggregated pipeline health indicators linked to real customer conversation evidence."
-  />
-  <Stakeholder
-    team="Executive Leadership (VP Sales)"
-    heard="[YOUR INPUT: what executive leaders required for macro competitor and pricing insights]"
-    shaped="Cross-territory trend dashboards summarizing market shifts, competitor mentions, and discount pressures."
-  />
-</Stakeholders>
+- **Nobody sees the pattern.** Each meeting is a one-off. Whether a regional review is getting healthier, or the same blocker keeps returning, is invisible.
+- **Actions disappear.** Commitments made in a meeting are not tracked in one place, so follow-through depends on memory.
+- **One view does not fit every level.** A managing director needs the health of the whole field. A manager needs their own team and their next meeting.
+- **AI summaries are hard to trust.** If a tool states that a meeting went badly, a manager needs to know where that came from and what to do if it is wrong.
+- **Meetings have a cost.** Nobody sees what the time spent in meetings costs.
 
-</Section>
+| What people experience | What it costs the business |
+|---|---|
+| Meetings are held and forgotten | Repeated blockers and slow follow-through |
+| The same dashboard for everyone | Leaders buried in detail, managers missing what is theirs |
+| AI outputs with no source | Mistrust, and the tool is ignored |
+| Actions tracked in separate places | Missed commitments |
+| No view of meeting cost | Time spent without being measured |
 
-<Section number="03" label="Information Architecture" title="A unified shell that personalizes from role, node, and hierarchy depth">
-
-Rather than building separate tools for each role, I established a unified shell architecture. The interface dynamically computes the user's role, hierarchy depth, and geographic node to render appropriate data visualizations and actions.
-
-<Annotated
-  caption="[YOUR INPUT: SalesPulze unified dashboard layout showing hierarchy switcher, sentiment breakdown, and action feed]"
-  notes={[
-    "[YOUR INPUT: Five-level hierarchy navigation breadcrumb allowing managers to drill down from region to individual rep]",
-    "[YOUR INPUT: Pipeline risk overview highlighting deals with negative sentiment or overdue follow-ups]",
-    "[YOUR INPUT: Competitor intelligence tracker aggregating mentions across customer meetings]",
-    "[YOUR INPUT: Action item verification panel for immediate sales rep execution]",
-  ]}
-/>
-
-</Section>
-
-<Section number="04" label="Trust in AI" title="Evidence-linked insights with human review and audit trails">
-
-To build enduring user trust, SalesPulze treats AI insights as hypotheses rather than unquestionable truths. Every generated insight, risk flag, and action item is directly linked to an exact timestamp and audio quote in the meeting transcript.
-
-<Callout title="The Evidence-Link Principle">
-
-No AI conclusion stands alone. Clicking any generated insight highlights the exact transcript segment, shows the confidence band, and allows a human operator to confirm, edit, or revert the extraction with a logged audit trail.
-
-</Callout>
-
-<Annotated
-  caption="[YOUR INPUT: Transcript inspection screen showing highlighted evidence quote, confidence indicator, and human edit modal]"
-  notes={[
-    "[YOUR INPUT: Timestamped transcript player synchronized with key insight markers]",
-    "[YOUR INPUT: Transparent confidence score with visual indicator for low-certainty extractions]",
-    "[YOUR INPUT: In-line correction drawer allowing reps to adjust AI-extracted commitments before CRM sync]",
-    "[YOUR INPUT: Complete audit history showing who verified or edited each insight]",
-  ]}
-/>
-
-</Section>
-
-<Section number="05" label="Admin and Scale" title="Deploying to 100+ sales teams with centralized governance">
-
-Scaling across 100+ enterprise sales teams required intuitive administration for territory re-mapping, CRM integration management, and model sensitivity controls.
+<MetricStrip items={[
+  { value: "100+", label: "sales teams at MYK use SalesPulze" },
+  { value: "9", label: "core modules" },
+  { value: "6", label: "role-based dashboards: national, zonal, area, marketing, finance and admin" },
+  { value: "3", label: "AI trust patterns" }
+]} />
 
 <Figure
-  src="/work/salespulze/admin.jpg"
-  alt="SalesPulze Admin and Territory Configuration Console"
-  caption="[YOUR INPUT: administrative console managing sales hierarchy mapping, CRM sync rules, and tenant configurations]"
+  src="/work/salespulze/diagrams/d01-meeting-to-action"
+  themed
+  size="wide"
+  alt="Diagram: a meeting becomes signals, scores and actions, shown at the right level of the hierarchy"
+  caption="From a meeting to a signal, a score and an action, shown at the right level."
 />
 
 </Section>
 
-<Section number="06" label="Outcome & Reflection" title="Deployed across 100+ sales teams at MYK">
+<Section n="02" title="Role & Constraints" headline="I owned the experience across web, mobile web and tablet, inside a white-label deployment">
 
-SalesPulze is live across more than 100 sales teams at MYK, transforming meeting conversations into dependable intelligence across every level of the enterprise.
+### My role and team
 
-[YOUR INPUT: takeaways, reflections on designing for sales hierarchies, and how human-in-the-loop review drove adoption]
+I led the UX for SalesPulze: the information architecture, the role-based dashboards, the AI trust patterns, the admin console, and the mobile web and tablet views, and I planned the UX programme that brought the screens into line with the design system. I also worked directly with the customer, MYK, on the product. My team: {/* [YOUR INPUT: who you worked with and who you led] */}.
+
+### Constraints, and what each one meant for the design
+
+<CardGrid cols={2} items={[
+  { title: "A deep, multi-level hierarchy", text: "From the managing director down to field sales managers. Every dashboard had to be correct for the level of the person looking, and the structure had to flex for each customer's own hierarchy." },
+  { title: "White-label deployment", text: "The product carries the customer's logo and brand name, with Covasant attribution only at the login boundary. The design could not depend on SalesPulze's own identity." },
+  { title: "AI outputs must be reviewable", text: "Summaries, scores and insights come from AI. Every one needed a confidence level, a source and a way to correct it." },
+  { title: "One design system", text: "The screens had to align with Covasant's design system, so the platform feels like part of the same family as the rest of the suite." },
+  { title: "Web, mobile web and tablet", text: "Managers are often on the move. The same product had to work on a phone and a tablet, not just at a desk." },
+  { title: "Regulatory exposure", text: "Meeting intelligence involves AI interacting with people. I mapped the EU AI Act transparency obligations to the product and flagged where an AI-human interaction disclosure was needed." }
+]} />
+
+</Section>
+
+<Section n="03" title="Research & Discovery" headline="Mapping the hierarchy, and what each level needs to see">
+
+### How I researched
+
+I worked out the structure of the organisation first, because everything in the product depends on it. I mapped the hierarchy from the top level to the field, and for each level I wrote down the decisions it makes and the information it needs. I then analysed the existing screens in Figma and produced an outline for an 11-chapter user guide, which doubled as an audit of what the product already did. {/* [YOUR INPUT: any customer conversations, workshops or other research you ran, and AI-assisted research if you used it] */}
+
+### What each level needs
+
+{/* [YOUR INPUT: confirm the hierarchy. The notes list five levels, while the Figma level selector shows Level 2 to Level 8 for a deeper customer hierarchy. Say which to show.] */}
+
+| Level | The question they ask | What they need to see |
+|---|---|---|
+| Managing director and president | Where is the field healthy, and where is it not? | The whole field at a glance, with the weakest parts surfaced |
+| Segment manager | Which products and regions are driving results? | Performance by segment and product coverage |
+| Regional and zonal managers | Is my region executing well? | Their regions, their meetings and their open actions |
+| Branch managers | Is my team following the process? | Hygiene, attendance and follow-through |
+| Field sales managers | What do I need to do next? | Their next meeting, their actions and their blockers |
+
+### What shaped the design
+
+1. **The hierarchy is the interface.** The same hub should answer the right question for each level, by changing its scope and not its layout.
+2. **A score must explain itself.** A number is only trusted if the person can see what drives it. Positive and negative drivers sit next to every score.
+3. **AI must show its working.** Confidence, evidence and a way to flag a result are part of every AI output, not extras.
+
+{/* DRAFT: written from the product structure and the screens. Edit to match how you reached these. */}
+
+</Section>
+
+<Section n="04" title="Strategy & Information Architecture" headline="One hub that changes with the person, and AI you can question">
+
+### Core principles
+
+<CardGrid cols={2} items={[
+  { title: "Role-based by hierarchy", text: "Dashboards are detected from the person's functional role, node type and hierarchy level, covering national, zonal, area, marketing, finance and admin views." },
+  { title: "Explain every score", text: "A hygiene score combines attendance, duration and frequency. A capability score is weighted across five levers. Each shows its drivers." },
+  { title: "AI you can question", text: "Confidence bands (high at 90% and above, medium from 70 to 89, low below 70), evidence linked to the moment in the transcript, and a review step with revert and an audit trail." },
+  { title: "From signal to action", text: "Every insight leads somewhere: an action item, an owner and a date, tracked in an action centre." },
+  { title: "Cost made visible", text: "Meeting cost is calculated from duration and a cost per minute, with budget alerts, so the time spent in meetings can be managed." },
+  { title: "Brandable and responsive", text: "The same product carries each customer's brand and works on web, mobile web and tablet." }
+]} />
+
+### Information architecture
+
+The product is organised into four groups in a persistent sidebar.
+
+| Group | Contents |
+|---|---|
+| Platform | Intel Hub, Meeting Repository, Action Center |
+| Administration | Admin Dashboard, Unassigned Meetings, Users and Roles, Scopes and Structure, Cost Insights, Business Segments |
+| Settings | System Configuration |
+| Info | Setup Requirements |
+
+<Figure
+  src="/work/salespulze/diagrams/d02-information-architecture"
+  themed
+  size="wide"
+  alt="Information architecture of SalesPulze: sidebar groups Platform, Administration, Settings and Info, and the modules in each"
+  caption="Four sidebar groups. Everything a manager needs lives in Platform; everything an administrator configures lives in Administration."
+/>
+
+The nine core modules behind it are: the Sales Intel Hub, the total Meeting Repository, overall sales action items, meeting hygiene, capability building, meeting intelligence pages, cross-functional intelligence for finance and marketing, action and task management, and cost insights.
+
+<Figure
+  src="/work/salespulze/diagrams/d03-hierarchy-dashboards"
+  themed
+  size="wide"
+  alt="Diagram showing how the sales hierarchy maps to dashboards, from national down to field level"
+  caption="The hierarchy decides the dashboard: the same hub, scoped to the level of the person looking."
+/>
+
+### How the scores work
+
+<Figure
+  src="/work/salespulze/diagrams/d05-score-model"
+  themed
+  size="wide"
+  alt="How the hygiene score, capability score and cost insights are calculated"
+  caption="Hygiene combines attendance, duration and frequency. Capability is weighted across five levers. Cost is duration times a cost per minute."
+/>
+
+| Score | How it is built |
+|---|---|
+| Meeting hygiene | Attendance, duration and frequency |
+| Capability building | Reach expansion 25%, throughput and revenue recovery 25%, action item quality 20%, decisions made 15%, sentiment and engagement 15% |
+| Meeting cost | Duration multiplied by cost per minute, with a configurable default |
+
+### How AI earns trust
+
+<Figure
+  src="/work/salespulze/diagrams/d04-ai-trust"
+  themed
+  size="wide"
+  alt="The AI trust model: confidence scoring bands, evidence linking to transcript timestamps, and human review with revert and audit trail"
+  caption="Three patterns carry every AI output: a confidence level, linked evidence, and a human review step."
+/>
+
+<Decision
+  title="One hub, or one dashboard per role"
+  context="Each level of the hierarchy needs a different view of the same activity."
+  options={["A separate dashboard per role", "One hub that changes by scope", "A configurable dashboard each person builds"]}
+  chosen="One hub that changes by scope"
+  why="One hub keeps the product learnable and consistent, and the scope selector lets each level see what is theirs without a different product to learn."
+  tradeoffs={{
+    "A separate dashboard per role": "Tailored to each role, but every dashboard must be built and maintained, and the product feels like many products.",
+    "One hub that changes by scope": "One structure to learn and maintain, with the scope and the data adapting to the person.",
+    "A configurable dashboard each person builds": "Flexible, but most people never configure it, and results are inconsistent across the organisation."
+  }}
+/>
+
+{/* DRAFT: confirm this decision and its trade-offs match what you weighed. */}
+
+### Role-based views and edge cases
+
+| Scenario | How the design handles it |
+|---|---|
+| A meeting is not mapped to a node | An Unassigned Meetings area where an administrator assigns it, with a preview and a log |
+| A customer's hierarchy differs | A Scopes and Structure area that defines the structure, with a node-level scope selector in the hub |
+| AI is not confident | A visible low-confidence label, and the evidence to check it |
+| A result is wrong | A flag on the series, review, revert and an audit trail |
+| Meeting names are inconsistent | Meeting name mapping with a preview, built from node, product, title or any text |
+| Cost goes over a limit | Budget alerts in Cost Insights |
+| A different brand per customer | Client logo and brand name, with attribution at the login boundary |
+
+</Section>
+
+<Section n="05" title="Final Solutions" headline="The right view for each level, and a reason to trust every number">
+
+<SubSection n="01" title="Intel Hub: the whole field at a glance">
+
+**The problem it solves:** leaders cannot see where the field is healthy and where it is not.
+
+**What I designed:** a hub that opens with the numbers that matter, such as meetings ahead, open tasks, the hygiene score and capability building. Beneath them are AI executive insights with a confidence label and a field operations heat map. Each cell is one entity at the chosen level, coloured by status, and a person can move between levels, scope the view, and filter to critical areas. Operational status, performance over time, business dimensions and product discussion coverage follow.
+
+<Figure src="/work/salespulze/screens/figma/01-intel-hub.webp" size="full" alt="The Intel Hub with KPI cards, AI executive insights, a field operations health heat map and performance charts" caption="The hub: key numbers, AI insights with a confidence label, and a health map of the field." zoom />
+
+</SubSection>
+
+<SubSection n="02" title="Meeting Repository: one series, understood">
+
+**The problem it solves:** a meeting series is judged by memory.
+
+**What I designed:** a page for each meeting series with an overview, attendance, meetings, action items and blockers. It shows execution health over time, the positive and negative drivers behind the score, a calendar and a prep pack for the next meeting with a focus note. AI-inferred and confidence badges sit beside the title, and a person can flag the series if something looks wrong.
+
+<Figure src="/work/salespulze/screens/figma/02-meeting-series.webp" size="full" alt="A weekly regional sales review page with execution health over time, drivers, a calendar and a meeting prep pack" caption="One series: health over time, the drivers behind it, and what to focus on in the next meeting." zoom />
+
+</SubSection>
+
+<SubSection n="03" title="Role-based dashboards: the same hub, for each level">
+
+<Figure src="/work/salespulze/screens/figma/03-nsm-dashboard-a.webp" size="full" alt="National sales manager dashboard" caption="The national sales manager's view." zoom />
+
+<Figure src="/work/salespulze/screens/figma/04-nsm-dashboard-b.webp" size="full" alt="National sales manager dashboard, another state" caption="The same dashboard in another state." zoom />
+
+</SubSection>
+
+<SubSection n="04" title="Administration: structure, people and cost">
+
+**The problem it solves:** the organisation's hierarchy, people and spend need to be configured by administrators without developer help.
+
+**What I designed:** an admin dashboard, unassigned meetings, users and roles, scopes and structure, cost insights with budget alerts, business segments and email reports.
+
+<Figure src="/work/salespulze/screens/figma/05-admin-dashboard.webp" size="full" alt="Admin dashboard" caption="The admin dashboard." zoom />
+
+<Figure src="/work/salespulze/screens/figma/06-cost-insights.webp" size="full" alt="Cost insights screen" caption="Cost insights: what meetings cost, from duration and cost per minute." zoom />
+
+<Figure src="/work/salespulze/screens/figma/07-budget-alert.webp" size="full" alt="New budget alert screen" caption="Budget alerts." zoom />
+
+<Figure src="/work/salespulze/screens/figma/08-business-segments.webp" size="full" alt="Business segments with tags" caption="Business segments and tags." zoom />
+
+<Figure src="/work/salespulze/screens/figma/09-users-and-roles.webp" size="full" alt="Users and roles" caption="Users and roles." zoom />
+
+<Figure src="/work/salespulze/screens/figma/10-scopes-and-structure.webp" size="full" alt="Scopes and structure" caption="Scopes and structure." zoom />
+
+</SubSection>
+
+<SubSection n="05" title="Action Center: from insight to action">
+
+**The problem it solves:** commitments made in meetings disappear.
+
+**What I designed:** a single place for every action item, with owners, status and follow-up, so an insight always leads to something someone owns.
+
+<Figure src="/work/salespulze/screens/figma/11-action-center.webp" size="full" alt="Action center" caption="Every action in one place, with an owner and a status." zoom />
+
+</SubSection>
+
+<SubSection n="06" title="White-label branding and login">
+
+**The problem it solves:** each customer wants the product to feel like their own.
+
+**What I designed:** a login and a shell that carry the customer's logo and brand name, with "Powered by Covasant" attribution at the edge. For MYK this became a platform name of its own, with SalesPulze as the product inside it.
+
+<Figure src="/work/salespulze/screens/figma/12-login.webp" size="full" alt="Branded login screen" caption="Login, carrying the customer's brand." zoom />
+
+<Figure src="/work/salespulze/screens/figma/13-branded-dashboard.webp" size="full" alt="Dashboard with client logo and branding name" caption="The shell with the client's logo and brand name." zoom />
+
+</SubSection>
+
+<SubSection n="07" title="Mobile web and tablet">
+
+**The problem it solves:** managers are often away from a desk.
+
+**What I designed:** mobile web and tablet versions of the hub and the action items, with the same hierarchy and the same trust patterns.
+
+<Figure src="/work/salespulze/screens/figma/14-mobile-intel-hub.webp" size="column" alt="Mobile web Intel Hub" caption="Mobile web: the hub." zoom />
+
+<Figure src="/work/salespulze/screens/figma/15-mobile-action-item.webp" size="column" alt="Mobile web action item" caption="Mobile web: an action item." zoom />
+
+<Figure src="/work/salespulze/screens/figma/16-tablet-intel-hub.webp" size="full" alt="Tablet view of the Intel Hub" caption="Tablet." zoom />
+
+</SubSection>
+
+### Interactive prototype and design system
+
+{/* [YOUR INPUT: a link to your Figma prototype if you have one, and one paragraph on how the screens align with the Covasant design system] */}
+
+</Section>
+
+<Section n="06" title="Validation & Testing" headline="What the design is built to change, and how I would measure it">
+
+### How I validated the design
+
+{/* [YOUR INPUT: how you validated the design: customer reviews with MYK, user sessions, stakeholder reviews, a pilot. Say plainly what you did and what changed because of it.] */}
+
+{/* DRAFT: this is the safe default. Replace it with one of these only if it is true:
+   A) "I reviewed the designs with MYK and refined them from their feedback."
+   B) "I ran sessions with [N] sales managers, and [what you learned]."
+   C) "The product went through a pilot with [teams], and [what changed]." */}
+
+### Before and with SalesPulze
+
+This comparison shows what the design is built to change. These are design intentions, not measured results.
+
+| Dimension | Before | With SalesPulze |
+|---|---|---|
+| Seeing patterns in meetings | Meetings held and forgotten | Execution health over time and the drivers behind it |
+| The view for each level | One report for everyone | The hierarchy decides the view |
+| Trusting AI output | Summaries with no source | Confidence, evidence and a review step |
+| Follow-through | Actions in separate places | One action centre with owners |
+| Meeting cost | Unmeasured | Calculated, with budget alerts |
+
+### What I would measure
+
+How often managers open the hub each week; the share of meeting series with a hygiene score above target; the share of AI outputs reviewed or flagged; action items completed on time; and the cost of meetings against budget.
+
+</Section>
+
+<Section n="07" title="Impact & Takeaways" headline="A platform that sales leaders can trust at every level">
+
+### Business impact
+
+SalesPulze is live with MYK and used by more than 100 sales teams there, and it has been deployed with other companies. It is delivered white-label, so each customer sees their own brand.
+
+<MetricStrip items={[
+  { value: "100+", label: "sales teams at MYK" },
+  { value: "9", label: "core modules" },
+  { value: "3", label: "AI trust patterns" },
+  { value: "3", label: "surfaces: web, mobile web and tablet" }
+]} />
+
+### What comes next
+
+A four-phase UX programme brings the product into line with the design system, converts it for mobile and tablet, standardises the interface for Indian standard time, and adds an onboarding tour, a dark theme and a user guide. {/* [YOUR INPUT: where this stands now] */}
+
+### Reflections and learnings
+
+The hardest part was not any single screen. It was keeping one product honest across five levels of the same organisation, and making sure a number on a managing director's screen could be traced to a manager's meeting.
+
+The other lesson was about trust. People will forgive an AI that is sometimes wrong if it shows how sure it is, where it got its answer, and how to correct it. That is what the confidence label, the evidence and the flag are for.
+
+{/* DRAFT: written from the product and the screens. Edit in your own words, and add what you would do differently. */}
+
+<Takeaways quote="A number is only as useful as the trust behind it." />
 
 </Section>

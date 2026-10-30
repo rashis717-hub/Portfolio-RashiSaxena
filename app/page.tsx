@@ -12,7 +12,8 @@ import { resumeHref } from "@/lib/site-files";
 export default async function Home() {
   const allProjects = await getAllProjects();
   const projects = allProjects.filter(
-    (project) => site.work.showPrivateInList || project.visibility !== "private"
+    (project) =>
+      project.visibility !== "private" || site.work.showPrivateInList || project.showPrivateInList
   );
 
   return (

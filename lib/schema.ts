@@ -21,6 +21,8 @@ export const projectSchema = z.strictObject({
   cover: z.string().startsWith("/", "must be a path from /public, e.g. /work/<slug>/cover.jpg"),
   order: z.number(),
   visibility: z.enum(["public", "private"]),
+  /** A private study is listed on the home page only when this is true (or site.work.showPrivateInList). */
+  showPrivateInList: z.boolean().optional(),
   redact: z.boolean(),
   tags: z.array(z.string().min(1)),
   metrics: z.array(metricSchema),

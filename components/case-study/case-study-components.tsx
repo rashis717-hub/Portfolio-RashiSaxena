@@ -149,12 +149,6 @@ export function Figure({
     lightMeta = manifest[lightFileName];
     darkMeta = manifest[darkFileName];
 
-    if (!lightMeta || !darkMeta) {
-      throw new Error(
-        `[Figure] Build error: Themed figure "${src}" does not exist in manifest. Checked "${lightFileName}" and "${darkFileName}".`
-      );
-    }
-
     lightSrc = `${src}.light.png`;
     darkSrc = `${src}.dark.png`;
   }
@@ -173,7 +167,8 @@ export function Figure({
 
   const maxRenderedWidth = lightMeta ? Math.round(lightMeta.width / 2) : undefined;
 
-  if (missing) {
+  // A themed diagram not in a manifest yet shows the same labelled placeholder as a missing image.
+  if (missing || (themed && (!lightMeta || !darkMeta))) {
     return (
       <figure className={`my-10 flex flex-col gap-3.5 ${sizeClasses}`}>
         {caption && (

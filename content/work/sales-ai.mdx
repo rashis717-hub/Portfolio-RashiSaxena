@@ -1,57 +1,240 @@
 ---
-title: "Sales AI Platform"
+title: "Sales AI"
 slug: "sales-ai"
-tagline: "Enterprise autonomous sales intelligence and territory execution engine."
-summary: "Private case study detailing enterprise sales automation, territory action planning, and AI recommendation engines."
-role: "UX Lead"
-platforms:
-  - "Web"
-timeline: "[YOUR INPUT: e.g. 6 months]"
+tagline: "Four AI sales tools, one persona-based cockpit: a demo built with BCG on a Covasant design system"
+summary: "A sales team does not want four AI tools with four dashboards. Working with BCG, I led the UX for a single persona-based layer that brings meeting intelligence, sales health, market action planning and pitch support together, so each person opens one cockpit built around their role."
+company: "Covasant Technologies, in partnership with BCG"
+role: "UX Lead: requirements with BCG, persona-based information architecture, UX steering with data and development teams"
+platformType: "Enterprise sales cockpit (web demo), built on Untitled UI and the Covasant Design System"
+platforms: ["Web"]
+timeline: "[YOUR INPUT: months and year]"
 year: 2026
-cover: "/work/sales-ai/cover.jpg"
-order: 5
+team: "[YOUR INPUT: BCG colleagues and Covasant colleagues you are comfortable naming, with their roles]"
+deliverables:
+  - "Requirements and scope with BCG"
+  - "Persona-based information architecture"
+  - "Unified cockpit design across four tools"
+  - "UX steering with the data and development teams"
+status: "Demo built with BCG on a fictional company"
+cover: "/work/sales-ai/screens/01-asm-home.webp"
+video: "/work/sales-ai/video/sales-ai-motion.mp4"
+poster: "/work/sales-ai/video/poster.jpg"
+videoCredit: "Rashi Saxena"
+order: 4
 visibility: "private"
-redact: true
-tags:
-  - "Sales AI"
-  - "Territory Planning"
-  - "Private"
-  - "Confidential"
-metrics: []
+showPrivateInList: false
+redact: false
+tags: ["Enterprise AI", "Sales", "Persona-based UX", "Partnership"]
+metrics:
+  - { value: "4", label: "AI sales tools brought into one layer" }
+  - { value: "1", label: "Persona-based cockpit instead of four dashboards" }
+  - { value: "2", label: "Tools built by BCG, integrated with Covasant's" }
 ---
 
-<Section number="01" label="Overview" title="Private Case Study: Enterprise Sales AI & Territory Execution">
+{/* PRIVATE CASE STUDY. This page is built with BCG and is published as an unlisted link (noindex, excluded from the home list and the sitemap). The company in the demo, Bondex, is fictional. Header, details, metrics and the hero video come from the frontmatter above. The video credit reads "Video: Rashi Saxena". */}
 
-*This case study is shared under non-disclosure by private invitation. Specific client names, sensitive revenue metrics, and proprietary screenshots are redacted.*
+<Section n="01" title="Context & Business Problem" headline="Every sales AI tool solved one problem and added one more dashboard">
 
-[YOUR INPUT: executive problem summary, business context, and operational objectives for this engagement]
+### The landscape
+
+Sales organisations are being offered AI tools from every direction. One listens to meetings. One reads the health of the sales pipeline. One helps plan actions in a market. One helps prepare a pitch. Each is useful. Together they are four logins, four ways of navigating, and four different ideas of what a sales manager needs.
+
+This work was a demonstration, built with BCG, of what it looks like when those tools stop being separate apps. The company in the demo is a fictional waterproofing-chemicals business called Bondex, so the data is safe to show and the story is easy to follow.
+
+### The four tools
+
+| Tool | What it does | Built by |
+|---|---|---|
+| Huddle.AI | Meeting intelligence: turns meetings into insights, actions and scores. This is SalesPulze. | Covasant |
+| Insights.AI | A sales thermometer: the health of sales activity at a glance | Covasant |
+| MAP.AI | Market Action Planner: plans actions for a market | BCG |
+| Pitch.AI | A pitch agent: helps prepare a pitch | BCG |
+
+A fifth tool, Churn.AI, was considered and then dropped from the scope.
+
+### The core problem
+
+- **Four tools, four mental models.** Each one organises information differently.
+- **The person is lost between them.** A sales manager's day does not follow the boundaries between tools.
+- **Signals do not travel.** What one tool learns does not reach the next.
+- **A demo of four dashboards proves nothing.** It shows four products. It does not show a better way to work.
+
+| What people experience | What it costs the business |
+|---|---|
+| Four apps for one job | Switching, missed signals and low adoption |
+| Dashboards built around the tool, not the person | Managers search for what is theirs |
+| Insights that stay in their own tool | Good signals never reach the decision |
+
+<MetricStrip items={[
+  { value: "4", label: "AI sales tools" },
+  { value: "1", label: "cockpit built around the person" },
+  { value: "2", label: "of the tools built by BCG" },
+  { value: "1", label: "design system underneath all of it" }
+]} />
+
+### The idea
+
+Start from the person, not the tool. A single layer reads who is signed in and shows the signals, tools and actions that matter for that role, drawing on all four tools underneath.
+
+{/* DRAFT: written from how you described the project. Edit it to match the way you and BCG framed the idea. */}
 
 </Section>
 
-<Section number="02" label="The Challenge" title="High-stakes territory planning across distributed enterprise sales forces">
+<Section n="02" title="Role & Constraints" headline="I led the UX, and steered it across two companies' teams">
 
-[YOUR INPUT: description of the operational challenges, algorithmic complexity, and sales resistance encountered]
+### My role and team
 
-</Section>
+I led the UX for the engagement. I drove the requirement discussions with BCG, alongside others in the room, and steered execution with the data and development teams so the design and the build stayed together. My team: {/* [YOUR INPUT: names and roles you want to show, for example BCG's team who built MAP.AI and Pitch.AI, and your Covasant colleagues] */}.
 
-<Section number="03" label="Information Architecture" title="Cockpit view, territory mapping, and action tracking">
+### Constraints, and what each one meant for the design
 
-[YOUR INPUT: architectural breakdown of the territory cockpit, MAP Studio canvas, and distributor visit logs]
-
-</Section>
-
-<Section number="04" label="Human-in-the-Loop Controls" title="Governing algorithmic recommendations with sales rep confirmation">
-
-<Callout title="Confidential Architecture">
-
-[YOUR INPUT: explanation of the human-in-the-loop review mechanism, confidence bands, and override logic]
-
-</Callout>
+<CardGrid cols={2} items={[
+  { title: "Two companies, four tools", text: "Two of the tools were built by BCG and two by Covasant. The layer had to bring them together without making the seams visible to the user." },
+  { title: "A scope that had to be decided", text: "A fifth tool, Churn.AI, was dropped. Choosing what to leave out kept the story clear." },
+  { title: "A demo, on fictional data", text: "Bondex is a made-up company, so every screen had to tell a believable story without real data." },
+  { title: "One design system", text: "The cockpit is built with Untitled UI and the Covasant Design System, so it looks and behaves as one product." },
+  { title: "Persona first", text: "The experience had to change with the person's role. That ruled out a single generic dashboard." },
+  { title: "A short, shared timeline", text: "{/* [YOUR INPUT: the timeline and the key deadlines for the demo] */}" }
+]} />
 
 </Section>
 
-<Section number="05" label="Outcomes & Business Impact" title="Demonstrated efficiency and territory alignment">
+<Section n="03" title="Research & Discovery" headline="Working out what each role needs from four tools">
 
-[YOUR INPUT: verified adoption metrics, pilot rollout results, and stakeholder feedback]
+### How I researched
+
+Most of the discovery happened in requirement discussions with BCG. {/* [YOUR INPUT: what those sessions covered, who was in them, what you asked, and any other research, for example analysis of the four tools or AI-assisted research] */}
+
+### Who it is for
+
+{/* [YOUR INPUT: the personas in the demo. The app has an Area Sales Manager view; list the others, with what each one needs from the four tools.] */}
+
+| Persona | The question they ask | What they need from the four tools |
+|---|---|---|
+| Area Sales Manager | What needs my attention today? | {/* [YOUR INPUT] */} |
+| {/* [YOUR INPUT: persona] */} | {/* [YOUR INPUT] */} | {/* [YOUR INPUT] */} |
+
+### What shaped the design
+
+1. **Persona first, tool second.** People think in jobs, not in products.
+2. **Signals should travel.** What one tool learns should be visible where the next decision is made.
+3. **One layer, one design language.** The seams between tools, and between two companies, should not show.
+
+{/* DRAFT: written from the shape of the project. Edit to match what you learned in the discussions. */}
+
+</Section>
+
+<Section n="04" title="Strategy & Information Architecture" headline="One persona-based layer over four tools">
+
+### Core principles
+
+<CardGrid cols={2} items={[
+  { title: "Persona before product", text: "The cockpit opens on the person's role, not on a list of tools." },
+  { title: "One layer, not four apps", text: "The four tools sit behind one navigation, one visual language and one place to start." },
+  { title: "Signals move between tools", text: "An insight from one tool becomes an input to the next, so the person acts without switching." },
+  { title: "Fictional data, real story", text: "The Bondex demo was designed to read as a believable day in the life of a sales team." },
+  { title: "Built on a shared system", text: "Untitled UI and the Covasant Design System make four tools feel like one." },
+  { title: "Decide what to leave out", text: "Churn.AI was dropped so that the four that remain tell a clear story." }
+]} />
+
+### The architecture
+
+<Figure
+  src="/work/sales-ai/diagrams/d01-four-tools-one-layer"
+  themed
+  size="wide"
+  alt="Diagram: four tools, Huddle.AI, Insights.AI, MAP.AI and Pitch.AI, brought into one persona-based layer"
+  caption="Four tools, one persona-based layer."
+/>
+
+{/* [YOUR INPUT: how the four tools relate in the cockpit, for example the order a person moves through them, and what is shared between them] */}
+
+### Role-based views and edge cases
+
+| Scenario | How the design handles it |
+|---|---|
+| Different personas, different priorities | The cockpit opens on a view built for the role {/* [YOUR INPUT: confirm and add the personas] */} |
+| A person needs a tool's full detail | They open the tool from the cockpit, in the same design language |
+| Two companies built the tools | Shared design system and navigation hide the seams |
+| Real data cannot be used | A fictional company with a believable storyline |
+
+</Section>
+
+<Section n="05" title="Final Solutions" headline="One cockpit, built around the person">
+
+### The cockpit
+
+Screens below are captured from the working demo. They show the Area Sales Manager view.
+
+<Figure src="/work/sales-ai/screens/01-asm-home.webp" size="full" alt="The Area Sales Manager view of the Sales AI cockpit" caption="The Area Sales Manager's cockpit." zoom />
+
+{/* [YOUR INPUT: add a screen and a short description of what it solves for each important view. For each: the problem it solves, what you designed, and the decision behind it.] */}
+
+<SubSection n="01" title="[YOUR INPUT: first view, for example the persona home]">
+
+**The problem it solves:** {/* [YOUR INPUT] */}
+
+**What I designed:** {/* [YOUR INPUT] */}
+
+</SubSection>
+
+<SubSection n="02" title="[YOUR INPUT: second view, for example how a tool opens from the cockpit]">
+
+**The problem it solves:** {/* [YOUR INPUT] */}
+
+**What I designed:** {/* [YOUR INPUT] */}
+
+</SubSection>
+
+### Interactive prototype
+
+{/* [YOUR INPUT: a link to the working demo, or a recording, if you want to share it. The development link is not public.] */}
+
+</Section>
+
+<Section n="06" title="Validation & Testing" headline="What the demo was built to show">
+
+### How I validated the design
+
+{/* [YOUR INPUT: how the design was reviewed with BCG, and what changed. Say plainly what you did.] */}
+
+{/* DRAFT: this is the safe default. Replace it with one of these only if it is true:
+   A) "I reviewed the design with BCG's team and refined it from their feedback."
+   B) "The demo was shown to [audience], and [feedback]."
+   C) "I tested it with [N] people, and [what you learned]." */}
+
+### Four tools, and with one layer
+
+This comparison shows what the design is built to change. These are design intentions, not measured results.
+
+| Dimension | Four separate tools | One persona-based layer |
+|---|---|---|
+| Where a person starts | Which app to open | Their own role |
+| Moving between tools | Switching and re-orienting | One navigation and one language |
+| Signals | Stay in their own tool | Travel to the next decision |
+| Look and feel | Four styles | One design system |
+
+</Section>
+
+<Section n="07" title="Impact & Takeaways" headline="A partnership demo that shows a better way to work">
+
+### Where it stands
+
+A working demo, built with BCG on a fictional company, that shows four AI sales tools as one persona-based cockpit. {/* [YOUR INPUT: how it was received, and what happened next, if you can share it] */}
+
+<MetricStrip items={[
+  { value: "4", label: "AI sales tools in one layer" },
+  { value: "1", label: "persona-based cockpit" },
+  { value: "2", label: "companies' tools integrated" },
+  { value: "1", label: "design system" }
+]} />
+
+### Reflections and learnings
+
+The lesson was about where to start. Four tools can each be excellent and still make a worse experience than one. Starting from the person's role, and not from the tool, is what turns a collection of products into a way of working.
+
+{/* DRAFT: written from the project. Edit in your own words, and add what you would do differently. */}
+
+<Takeaways quote="Start from the person, not the tool." />
 
 </Section>

@@ -84,7 +84,8 @@ export async function getProject(slug: string): Promise<Project | undefined> {
 
 /** The project after `slug` in order, wrapping to the first. Undefined when there is only one. */
 export async function getNextProject(slug: string): Promise<Project | undefined> {
-  const projects = await getAllProjects();
+  // The next-project bar links through public case studies only.
+  const projects = (await getAllProjects()).filter((project) => project.visibility !== "private");
   const index = projects.findIndex((project) => project.slug === slug);
   if (index === -1 || projects.length < 2) return undefined;
   return projects[(index + 1) % projects.length];
