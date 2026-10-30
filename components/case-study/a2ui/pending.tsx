@@ -16,9 +16,7 @@ function Pending({ name, description }: { name: string; description: string }) {
   );
 }
 
-export function A2UIFlow() {
-  return <Pending name="A2UIFlow" description="Swimlane: person, agent and client, from message to rendered interface and back." />;
-}
+export { A2UIFlow } from "./flow-sequence-diagram";
 
 export function CatalogueMap() {
   return <Pending name="CatalogueMap" description="The six families of conversation components and their designed states." />;

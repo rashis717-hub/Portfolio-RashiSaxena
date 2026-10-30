@@ -1,0 +1,82 @@
+{
+  "01-intel-hub.webp": {
+    "width": 2400,
+    "height": 3318
+  },
+  "02-meeting-series.webp": {
+    "width": 2400,
+    "height": 2265
+  },
+  "03-nsm-dashboard-a.webp": {
+    "width": 2400,
+    "height": 3185
+  },
+  "04-nsm-dashboard-b.webp": {
+    "width": 2400,
+    "height": 3185
+  },
+  "05-admin-dashboard.webp": {
+    "width": 2400,
+    "height": 2343
+  },
+  "06-cost-insights.webp": {
+    "width": 2400,
+    "height": 2228
+  },
+  "07-budget-alert.webp": {
+    "width": 2400,
+    "height": 1692
+  },
+  "08-business-segments.webp": {
+    "width": 2400,
+    "height": 1530
+  },
+  "09-users-and-roles.webp": {
+    "width": 2400,
+    "height": 1733
+  },
+  "10-scopes-and-structure.webp": {
+    "width": 2400,
+    "height": 1867
+  },
+  "11-action-center.webp": {
+    "width": 2400,
+    "height": 1415
+  },
+  "12-login.webp": {
+    "width": 2400,
+    "height": 1600
+  },
+  "13-branded-dashboard.webp": {
+    "width": 2400,
+    "height": 1600
+  },
+  "14-mobile-intel-hub.webp": {
+    "width": 788,
+    "height": 6732
+  },
+  "15-mobile-action-item.webp": {
+    "width": 716,
+    "height": 640
+  },
+  "16-tablet-intel-hub.webp": {
+    "width": 1668,
+    "height": 6124
+  },
+  "17-sidebar-navigation.webp": {
+    "width": 500,
+    "height": 1652
+  },
+  "18-unassigned-meetings.webp": {
+    "width": 2400,
+    "height": 1565
+  },
+  "19-email-reports.webp": {
+    "width": 1280,
+    "height": 4469
+  },
+  "20-meeting-repository.webp": {
+    "width": 2400,
+    "height": 1963
+  }
+}

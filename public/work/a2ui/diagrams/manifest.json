@@ -38,37 +38,5 @@
   "d05-states.dark.png": {
     "width": 2400,
     "height": 1680
-  },
-  "annot-01-end-to-end.light.png": {
-    "width": 2400,
-    "height": 2000
-  },
-  "annot-01-end-to-end.dark.png": {
-    "width": 2400,
-    "height": 2000
-  },
-  "annot-02-permission.light.png": {
-    "width": 2400,
-    "height": 1350
-  },
-  "annot-02-permission.dark.png": {
-    "width": 2400,
-    "height": 1350
-  },
-  "annot-03-plan-v2.light.png": {
-    "width": 2400,
-    "height": 1350
-  },
-  "annot-03-plan-v2.dark.png": {
-    "width": 2400,
-    "height": 1350
-  },
-  "annot-04-question.light.png": {
-    "width": 2400,
-    "height": 1350
-  },
-  "annot-04-question.dark.png": {
-    "width": 2400,
-    "height": 1350
   }
 }

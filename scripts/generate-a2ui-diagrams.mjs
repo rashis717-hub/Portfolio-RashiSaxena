@@ -176,7 +176,7 @@ function getCommonStyles(theme) {
   `;
 }
 
-// 1. d01-a2ui-flow: Swimlane with Person, Agent, Client + catalogue box at bottom
+// 1. d01-a2ui-flow: Sequence diagram (Correction C11-A)
 function renderD01(theme) {
   const t = themeTokens[theme];
   return `<!DOCTYPE html>
@@ -186,259 +186,195 @@ function renderD01(theme) {
   <style>
     ${getCommonStyles(theme)}
     
-    .swimlane-container {
+    .seq-container {
+      width: 100%;
       display: flex;
       flex-direction: column;
       gap: 32px;
-      width: 100%;
     }
 
-    .lanes-grid {
-      display: grid;
-      grid-template-columns: 260px 1fr;
-      gap: 24px;
-      align-items: stretch;
-    }
-
-    .lane-label-col {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .lane-label-card {
-      background: ${t.cardSubtleBg};
+    .seq-diagram-card {
+      background: ${t.cardBg};
       border: 2px solid ${t.border};
-      border-radius: 20px;
-      padding: 32px 28px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 200px;
-    }
-
-    .lane-tag {
-      font-family: 'Geist Mono', monospace;
-      font-size: 20px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: ${t.fgMuted};
-      margin-bottom: 8px;
-    }
-
-    .lane-title {
-      font-size: 32px;
-      font-weight: 500;
-      color: ${t.fg};
-    }
-
-    .lanes-content-col {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
-
-    .lane-row {
-      background: ${t.laneBg};
-      border: 2px solid ${t.border};
-      border-radius: 20px;
-      height: 200px;
-      padding: 24px 36px;
-      display: flex;
-      align-items: center;
+      border-radius: 28px;
+      padding: 60px 80px 48px;
       position: relative;
     }
 
-    .flow-steps-grid {
+    .lifelines-header {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 20px;
-      width: 100%;
-      height: 100%;
-      align-items: center;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 80px;
+      margin-bottom: 24px;
+      text-align: center;
     }
 
-    .step-box {
-      background: ${t.cardBg};
+    .lifeline-pill {
+      background: ${t.pillBg};
       border: 2px solid ${t.border};
-      border-radius: 16px;
-      padding: 20px 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.03);
-    }
-
-    .step-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .step-text {
-      font-size: 22px;
-      line-height: 1.35;
-      font-weight: 400;
-      color: ${t.fg};
-    }
-
-    .catalogue-shared-box {
-      background: ${t.cardSubtleBg};
-      border: 2px dashed ${t.border};
-      border-radius: 24px;
-      padding: 36px 44px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 32px;
-      margin-top: 12px;
-    }
-
-    .catalogue-info {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-width: 500px;
-    }
-
-    .catalogue-heading {
-      font-size: 28px;
-      font-weight: 500;
-      color: ${t.fg};
-    }
-
-    .catalogue-desc {
-      font-size: 22px;
-      color: ${t.fgMuted};
-    }
-
-    .catalogue-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      flex: 1;
-      justify-content: flex-end;
-    }
-
-    .arrow-indicator {
-      display: inline-flex;
-      align-items: center;
-      color: ${t.arrowColor};
+      border-radius: 9999px;
+      padding: 16px 32px;
       font-family: 'Geist Mono', monospace;
-      font-size: 18px;
-      font-weight: 500;
+      font-size: 24px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: ${t.fg};
+      display: inline-block;
+      width: fit-content;
+      margin: 0 auto;
+    }
+
+    .svg-canvas {
+      width: 100%;
+      height: 1060px;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="mono-label">DIAGRAM 01 / PROTOCOL FLOW</div>
-  <h1 class="headline">How an agent sends an interface</h1>
+  <div class="seq-container">
+    <div class="mono-label">A2UI Protocol · Sequence Flow</div>
+    <div class="headline">How an agent describes an interface, and the client renders it safely</div>
 
-  <div class="swimlane-container">
-    <!-- Main 3-Lane Diagram -->
-    <div style="display: grid; grid-template-columns: 280px repeat(6, 1fr); gap: 24px; align-items: stretch;">
-      <!-- Lane Row 1: PERSON -->
-      <div class="lane-label-card" style="height: auto; min-height: 180px;">
-        <div class="lane-tag">Lane 1</div>
-        <div class="lane-title">Person</div>
-      </div>
-      <!-- Step 1 in Person -->
-      <div class="step-box" style="grid-column: 2 / span 1;">
-        <div class="step-header">
-          <div class="step-num">1</div>
-          <span class="arrow-indicator">Sends ➔</span>
-        </div>
-        <div class="step-text">Sends a message</div>
-      </div>
-      <!-- Empty space in Person for steps 2-4 -->
-      <div style="grid-column: 3 / span 3; display: flex; align-items: center; justify-content: center; border-bottom: 1.5px dashed ${t.borderSubtle};">
-        <span style="font-family: 'Geist Mono', monospace; font-size: 18px; color: ${t.fgQuiet}; letter-spacing: 0.05em;">Awaiting response…</span>
-      </div>
-      <!-- Step 5 in Person -->
-      <div class="step-box" style="grid-column: 6 / span 1;">
-        <div class="step-header">
-          <div class="step-num">5</div>
-          <span class="arrow-indicator">Action ➔</span>
-        </div>
-        <div class="step-text">Interacts; the action is sent back to the agent</div>
-      </div>
-      <div style="grid-column: 7 / span 1; border-bottom: 1.5px dashed ${t.borderSubtle};"></div>
-
-      <!-- Lane Row 2: AGENT -->
-      <div class="lane-label-card" style="height: auto; min-height: 220px;">
-        <div class="lane-tag">Lane 2</div>
-        <div class="lane-title">Agent</div>
-      </div>
-      <div style="grid-column: 2 / span 1; display: flex; align-items: center; justify-content: center;">
-        <svg width="60" height="60" viewBox="0 0 60 60"><path d="M30 10 L30 50 M20 40 L30 50 L40 40" stroke="${t.arrowColor}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <!-- Step 2 in Agent -->
-      <div class="step-box" style="grid-column: 3 / span 1;">
-        <div class="step-header">
-          <div class="step-num">2</div>
-          <span class="badge-validated">Validated</span>
-        </div>
-        <div class="step-text">Generates A2UI messages describing the interface (structure and data)</div>
-      </div>
-      <!-- Step 3 in Agent to Client -->
-      <div class="step-box" style="grid-column: 4 / span 1;">
-        <div class="step-header">
-          <div class="step-num">3</div>
-          <span class="arrow-indicator">Stream ➔</span>
-        </div>
-        <div class="step-text">Messages stream to the client</div>
-      </div>
-      <div style="grid-column: 5 / span 1; display: flex; align-items: center; justify-content: center; border-bottom: 1.5px dashed ${t.borderSubtle};">
-        <svg width="60" height="60" viewBox="0 0 60 60"><path d="M50 30 L10 30 M20 20 L10 30 L20 40" stroke="${t.arrowColor}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <!-- Step 6 in Agent -->
-      <div class="step-box" style="grid-column: 6 / span 2; border-color: ${t.emphasisBorder}; background: ${t.cardSubtleBg};">
-        <div class="step-header">
-          <div class="step-num">6</div>
-          <span class="arrow-indicator" style="color: ${t.fg}; font-weight: 600;">↺ Loops back to 4</span>
-        </div>
-        <div class="step-text"><strong>Responds with updated A2UI messages</strong>, streaming new components back to the client</div>
+    <div class="seq-diagram-card">
+      <div class="lifelines-header">
+        <div><div class="lifeline-pill">Person</div></div>
+        <div><div class="lifeline-pill">Client (the app)</div></div>
+        <div><div class="lifeline-pill">Agent</div></div>
       </div>
 
-      <!-- Lane Row 3: CLIENT -->
-      <div class="lane-label-card" style="height: auto; min-height: 200px;">
-        <div class="lane-tag">Lane 3</div>
-        <div class="lane-title">Client</div>
-      </div>
-      <div style="grid-column: 2 / span 3; border-top: 1.5px dashed ${t.borderSubtle};"></div>
-      <!-- Step 4 in Client -->
-      <div class="step-box" style="grid-column: 5 / span 1; border-color: ${t.emphasisBorder};">
-        <div class="step-header">
-          <div class="step-num">4</div>
-          <span class="badge-validated">Validated</span>
-        </div>
-        <div class="step-text">Validates and renders with its own components, from the catalogue</div>
-      </div>
-      <div style="grid-column: 6 / span 1; display: flex; align-items: center; justify-content: center;">
-        <svg width="60" height="60" viewBox="0 0 60 60"><path d="M30 50 L30 10 M20 20 L30 10 L40 20" stroke="${t.arrowColor}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div style="grid-column: 7 / span 1; border-top: 1.5px dashed ${t.borderSubtle};"></div>
-    </div>
+      <svg class="svg-canvas" viewBox="0 0 2040 1060">
+        <defs>
+          <marker id="arrow-r" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="${t.fg}" />
+          </marker>
+          <marker id="arrow-l" viewBox="0 0 10 10" refX="2" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 10 1.5 L 2 5 L 10 8.5 z" fill="${t.fg}" />
+          </marker>
+          <marker id="arrow-u" viewBox="0 0 10 10" refX="5" refY="2" markerWidth="7" markerHeight="7" orient="auto">
+            <path d="M 1.5 10 L 5 2 L 8.5 10 z" fill="${t.fgMuted}" />
+          </marker>
+        </defs>
 
-    <!-- Bottom Shared Box: Catalogue -->
-    <div class="catalogue-shared-box">
-      <div class="catalogue-info">
-        <div class="catalogue-heading">Catalogue: components the agent is allowed to use</div>
-        <div class="catalogue-desc">Pre-approved schema defining structure, data binding, allowed actions, and safe fallbacks.</div>
-      </div>
-      <div class="catalogue-pills">
-        <div class="pill pill-emphasis">Question</div>
-        <div class="pill">Decisions</div>
-        <div class="pill">Plan</div>
-        <div class="pill pill-emphasis">Permission</div>
-        <div class="pill">Form</div>
-        <div class="pill">KPI Cards</div>
-        <div class="pill">Data Table</div>
-        <div class="pill">Charts</div>
-        <div class="pill">Loading Orb</div>
-      </div>
+        <!-- Vertical Lifelines -->
+        <line x1="340" y1="0" x2="340" y2="920" stroke="${t.border}" stroke-width="2" stroke-dasharray="8 8" />
+        <line x1="1020" y1="0" x2="1020" y2="920" stroke="${t.border}" stroke-width="2" stroke-dasharray="8 8" />
+        <line x1="1700" y1="0" x2="1700" y2="920" stroke="${t.border}" stroke-width="2" stroke-dasharray="8 8" />
+
+        <!-- Step 1: Person -> Client -->
+        <g>
+          <circle cx="340" cy="70" r="18" fill="${t.fg}" />
+          <text x="340" y="77" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">1</text>
+          <text x="680" y="56" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="22" font-weight="500" text-anchor="middle">Sends a message</text>
+          <line x1="362" y1="70" x2="1020" y2="70" stroke="${t.fg}" stroke-width="3" marker-end="url(#arrow-r)" />
+        </g>
+
+        <!-- Step 2: Client -> Agent -->
+        <g>
+          <circle cx="1020" cy="160" r="18" fill="${t.fg}" />
+          <text x="1020" y="167" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">2</text>
+          <text x="1360" y="146" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="22" font-weight="500" text-anchor="middle">Forwards the message</text>
+          <line x1="1042" y1="160" x2="1700" y2="160" stroke="${t.fg}" stroke-width="3" marker-end="url(#arrow-r)" />
+        </g>
+
+        <!-- Step 3: Agent -> Client -->
+        <g>
+          <circle cx="1700" cy="250" r="18" fill="${t.fg}" />
+          <text x="1700" y="257" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">3</text>
+          <text x="1360" y="236" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="22" font-weight="500" text-anchor="middle">Streams A2UI messages: structure and data</text>
+          <line x1="1678" y1="250" x2="1020" y2="250" stroke="${t.fg}" stroke-width="3" marker-end="url(#arrow-l)" />
+          <g transform="translate(1040, 235)">
+            <rect width="130" height="30" rx="15" fill="${t.badgeBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="65" y="21" fill="${t.badgeText}" font-family="'Geist Mono', monospace" font-size="14" font-weight="600" text-anchor="middle">✓ Validated</text>
+          </g>
+        </g>
+
+        <!-- Step 4: Client to itself -->
+        <g transform="translate(680, 315)">
+          <rect width="680" height="70" rx="16" fill="${t.cardSubtleBg}" stroke="${t.fg}" stroke-width="2.5" />
+          <circle cx="40" cy="35" r="18" fill="${t.fg}" />
+          <text x="40" y="42" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">4</text>
+          <text x="75" y="42" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="20" font-weight="500">Validates, then renders with its own components, from the catalogue</text>
+          <g transform="translate(525, 20)">
+            <rect width="130" height="30" rx="15" fill="${t.badgeBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="65" y="21" fill="${t.badgeText}" font-family="'Geist Mono', monospace" font-size="14" font-weight="600" text-anchor="middle">✓ Validated</text>
+          </g>
+        </g>
+
+        <!-- Step 5: Client -> Person -->
+        <g>
+          <circle cx="1020" cy="450" r="18" fill="${t.fg}" />
+          <text x="1020" y="457" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">5</text>
+          <text x="680" y="436" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="22" font-weight="500" text-anchor="middle">Shows the interface</text>
+          <line x1="998" y1="450" x2="340" y2="450" stroke="${t.fg}" stroke-width="3" marker-end="url(#arrow-l)" />
+        </g>
+
+        <!-- Step 6: Person -> Client -->
+        <g>
+          <circle cx="340" cy="540" r="18" fill="${t.fg}" />
+          <text x="340" y="547" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">6</text>
+          <text x="680" y="526" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="22" font-weight="500" text-anchor="middle">Interacts: answers, chooses, approves</text>
+          <line x1="362" y1="540" x2="1020" y2="540" stroke="${t.fg}" stroke-width="3" marker-end="url(#arrow-r)" />
+        </g>
+
+        <!-- Step 7: Client -> Agent -->
+        <g>
+          <circle cx="1020" cy="630" r="18" fill="${t.fg}" />
+          <text x="1020" y="637" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">7</text>
+          <text x="1360" y="616" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="22" font-weight="500" text-anchor="middle">Sends the action back</text>
+          <line x1="1042" y1="630" x2="1700" y2="630" stroke="${t.fg}" stroke-width="3" marker-end="url(#arrow-r)" />
+        </g>
+
+        <!-- Step 8: Agent -> Client -->
+        <g>
+          <circle cx="1700" cy="720" r="18" fill="${t.fg}" />
+          <text x="1700" y="727" fill="${theme === 'dark' ? '#15161A' : '#FFFFFF'}" font-family="'Geist Mono', monospace" font-size="16" font-weight="700" text-anchor="middle">8</text>
+          <text x="1360" y="706" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="22" font-weight="500" text-anchor="middle">Responds with updated A2UI messages</text>
+          <line x1="1678" y1="720" x2="1020" y2="720" stroke="${t.fg}" stroke-width="3" marker-end="url(#arrow-l)" />
+        </g>
+
+        <!-- Loopback arrow -->
+        <path d="M 1010 720 C 850 720, 850 430, 960 395" fill="none" stroke="${t.fgMuted}" stroke-width="2.5" stroke-dasharray="6 6" marker-end="url(#arrow-u)" />
+        <text x="810" y="550" fill="${t.fgMuted}" font-family="'Geist Mono', monospace" font-size="18" font-weight="500" text-anchor="middle" transform="rotate(-90, 810, 550)">Repeat from step 4</text>
+
+        <!-- Catalogue Band spanning Client and Agent -->
+        <g transform="translate(800, 820)">
+          <rect width="1120" height="200" rx="20" fill="${t.cardSubtleBg}" stroke="${t.border}" stroke-width="2" stroke-dasharray="8 8" />
+          <text x="560" y="45" fill="${t.fg}" font-family="'Geist', sans-serif" font-size="24" font-weight="600" text-anchor="middle">Catalogue: the components the agent is allowed to use</text>
+          <text x="560" y="78" fill="${t.fgMuted}" font-family="'Geist', sans-serif" font-size="18" text-anchor="middle">Pre-approved schema defining structure, data binding, allowed actions and safe fallbacks</text>
+          
+          <!-- Chips -->
+          <g transform="translate(50, 110)">
+            <rect x="0" y="0" width="100" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="50" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Question</text>
+
+            <rect x="115" y="0" width="105" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="167" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Decisions</text>
+
+            <rect x="235" y="0" width="75" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="272" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Plan</text>
+
+            <rect x="325" y="0" width="115" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="382" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Permission</text>
+
+            <rect x="455" y="0" width="80" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="495" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Form</text>
+
+            <rect x="550" y="0" width="110" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="605" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">KPI Cards</text>
+
+            <rect x="675" y="0" width="115" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="732" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Data Table</text>
+
+            <rect x="805" y="0" width="90" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="850" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Charts</text>
+
+            <rect x="910" y="0" width="115" height="44" rx="22" fill="${t.pillBg}" stroke="${t.border}" stroke-width="1.5" />
+            <text x="967" y="28" fill="${t.fg}" font-family="'Geist Mono', monospace" font-size="16" font-weight="500" text-anchor="middle">Loading Orb</text>
+          </g>
+        </g>
+      </svg>
     </div>
   </div>
 </body>
