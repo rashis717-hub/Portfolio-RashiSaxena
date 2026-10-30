@@ -1,0 +1,50 @@
+{
+  "d01-single-pod-runtime.light.png": {
+    "file": "d01-single-pod-runtime.light.png",
+    "path": "/work/agent-registry/diagrams/d01-single-pod-runtime.light.png",
+    "width": 2400,
+    "height": 1350,
+    "theme": "light",
+    "title": "Single-Pod Multi-Tenant Runtime & Secret Separation"
+  },
+  "d01-single-pod-runtime.dark.png": {
+    "file": "d01-single-pod-runtime.dark.png",
+    "path": "/work/agent-registry/diagrams/d01-single-pod-runtime.dark.png",
+    "width": 2400,
+    "height": 1350,
+    "theme": "dark",
+    "title": "Single-Pod Multi-Tenant Runtime & Secret Separation"
+  },
+  "d02-three-gate-relay.light.png": {
+    "file": "d02-three-gate-relay.light.png",
+    "path": "/work/agent-registry/diagrams/d02-three-gate-relay.light.png",
+    "width": 2400,
+    "height": 1350,
+    "theme": "light",
+    "title": "Three-Gate Promotion Relay Flow"
+  },
+  "d02-three-gate-relay.dark.png": {
+    "file": "d02-three-gate-relay.dark.png",
+    "path": "/work/agent-registry/diagrams/d02-three-gate-relay.dark.png",
+    "width": 2400,
+    "height": 1350,
+    "theme": "dark",
+    "title": "Three-Gate Promotion Relay Flow"
+  },
+  "d03-revision-forking-model.light.png": {
+    "file": "d03-revision-forking-model.light.png",
+    "path": "/work/agent-registry/diagrams/d03-revision-forking-model.light.png",
+    "width": 2400,
+    "height": 1350,
+    "theme": "light",
+    "title": "Tenant Versioning & Revision Forking Model"
+  },
+  "d03-revision-forking-model.dark.png": {
+    "file": "d03-revision-forking-model.dark.png",
+    "path": "/work/agent-registry/diagrams/d03-revision-forking-model.dark.png",
+    "width": 2400,
+    "height": 1350,
+    "theme": "dark",
+    "title": "Tenant Versioning & Revision Forking Model"
+  }
+}

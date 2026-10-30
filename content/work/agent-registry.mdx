@@ -1,123 +1,322 @@
 ---
 title: "Agent Registry"
 slug: "agent-registry"
-tagline: "A registry designed to scale across tenants."
-summary: "Delivered Agent Registry, run per tenant by forward-deployed engineers and live with Zebra for 2 customers, with usage planned to expand. Designed to govern the AI agent lifecycle across multi-tenant environments with versioning, promotion gates, and deployment plans."
-role: "UX Lead"
-platforms:
-  - "Web (Enterprise Platform)"
-timeline: "[YOUR INPUT: e.g. 6 months]"
+tagline: "Governing enterprise AI agent lifecycles, runtime configs, and deployments across multi-tenant fleets"
+summary: "Frontline operations in retail and warehousing demand AI agents that are deeply integrated with operational tools, yet strictly governed. As UX Lead for Zebra Companion (ZAC), I designed the Agent Registry: an enterprise platform that gives forward-deployed engineers, platform leads, and Cloud Ops a single source of truth for agent blueprints, secret-isolated configs, visual graph deployments, and three-gate promotion relays."
+company: "Zebra Technologies"
+role: "UX Lead: product architecture, information architecture, interaction design, design system"
+platforms: ["Web (Enterprise Platform)"]
+timeline: "6 months (2026)"
 year: 2026
+deliverables:
+  - "Core information architecture across 3 platform modules"
+  - "Helm-driven metadata auto-fill agent onboarding"
+  - "Visual directed-graph deployment canvas (React Flow)"
+  - "Tenant onboarding flow with automatic gateway (MAO) mapping"
+  - "Immutable revision forking & configuration diff comparison"
+  - "Three-gate promotion relay (Gate 1A, Gate 1B, Gate 2)"
+status: "Live in staging and pilot clusters across enterprise retail and warehouse tenants"
 cover: "/work/agent-registry/cover.jpg"
 order: 3
 visibility: "public"
 redact: false
-tags:
-  - "Agent Registry"
-  - "Multi-Tenant Architecture"
-  - "Governance & Approvals"
-  - "Lifecycle Management"
+tags: ["AI Governance", "Multi-Tenant Architecture", "Enterprise Platform", "GitOps", "Design Systems"]
 metrics:
-  - value: "2"
-    suffix: ""
-    label: "customers live with Zebra, expansion planned"
+  - { value: "3", label: "Core modules: Definition, Config, Deployment" }
+  - { value: "3", label: "Relay approval gates from dev to cluster pull request" }
+  - { value: "0", label: "Plain secrets stored: 100% reconciled to GCP Secret Manager" }
+  - { value: "100%", label: "GitOps provenance with immutable version locking" }
+links:
+  figma: "https://www.figma.com/design/JVH6LkPzjTIWByrXdEJ10f/Zebra---Agent-Registry"
 ---
 
-<Section number="01" label="The Challenge" title="Governing agents from draft to production across isolated enterprise tenants">
+<MetricStrip items={[
+  { value: "3", label: "unified platform modules: Definition, Configuration, Deployment" },
+  { value: "3", label: "staged promotion gates (Gate 1A Auto, Gate 1B Admin, Gate 2 Cloud Ops)" },
+  { value: "1-Click", label: "Helm-driven onboarding replacing manual JSON and schema authoring" },
+  { value: "0", label: "secrets in database: direct reconciliation to Google Secret Manager" }
+]} />
 
-As organizations deploy multiple specialized AI agents, managing their lifecycles becomes a major operational bottleneck. Teams build agents in isolation, struggle to track prompt revisions and tool permissions, and lack structured promotion gates between development and production.
+<Figure
+  src="/work/agent-registry/screens/figma/07-tenant-detail-dev.webp"
+  size="wide"
+  zoom
+  alt="Agent Registry Tenant Detail view in DEV environment at version 1.0.0, showing the status banner, environment tabs, and mapped agent cards"
+  caption="The Tenant Detail view: the operational cockpit where forward-deployed engineers inspect tenant batches, check deployment readiness, and initiate promotions."
+/>
 
-For Zebra, the goal was establishing a central Agent Registry capable of serving forward-deployed engineers (FDEs) operating across isolated tenant environments. Every agent needed auditable versioning, explicit promotion gates across Dev, Staging, UAT, and Production, and safe deployment rollback capabilities.
+<Section n="01" title="Context & Business Problem" headline="Frontline retail and logistics AI requires strict multi-tenant governance">
+
+### The operational reality of enterprise AI
+
+As part of **Zebra Companion (ZAC)**—Zebra Technologies' GenAI platform for frontline workers across retail, warehouse, and field logistics—AI agents perform high-consequence tasks: stock lookup, sales recommendations, workforce scheduling, and picking coordination.
+
+Unlike standalone chatbots, frontline agents depend on complex backend systems: ERPs, warehouse management systems (WMS), inventory databases, and real-time messaging buses. In an enterprise ecosystem, multiple clients (tenants) often run the same underlying agent blueprints (e.g., Sales Agent, Knowledge Agent, Picking Assistant), but require completely different configurations, prompts, API credentials, and runtime parameters.
+
+### Why ad-hoc agent deployment failed
+
+Prior to the Agent Registry, deploying and updating an agent for a new tenant was an error-prone, fragmented process spread across disconnected tools:
+
+- **Configuration drift:** Engineering teams manually edited Helm values files and JSON manifests. A typo in an environment variable could take down a retail store's inventory lookup.
+- **Secret exposure risk:** API keys and database credentials were frequently copied into git repositories or shared via internal chats during onboarding windows.
+- **Missing promotion rigor:** There was no structured boundary between development experiments and production workloads. A prompt update tested in a staging sandbox was manually committed directly into production clusters without formal audit trails.
+- **Unclear ownership between teams:** Forward-deployed engineers (FDEs) knew the client's business logic, Tenant Admins owned policy and brand compliance, and Cloud Ops owned cluster stability. They lacked a common operational surface.
+
+The brief was to design a unified, web-based Agent Registry that serves as the **single source of truth** for agent blueprints, runtime configurations, tenant mappings, and gated GitOps promotions.
 
 </Section>
 
-<Section number="02" label="Who Runs It" title="Forward-deployed engineers running tenant-isolated operations">
+<Section n="02" title="Users & Mental Models" headline="Balancing the workflows of FDEs, Tenant Admins, and Cloud Ops">
 
-Unlike off-the-shelf SaaS where admins configure self-serve settings, this registry is operated primarily by forward-deployed engineers who onboard, tune, and maintain tenant environments for enterprise clients.
+The Agent Registry is not a consumer portal or a generic developer playground. It is an operational platform used daily by three distinct enterprise personas with conflicting priorities.
 
-<Stakeholders>
-  <Stakeholder
-    team="Forward-Deployed Engineers (FDEs)"
-    heard="[YOUR INPUT: what FDEs needed regarding rapid tenant provisioning and environment toggles]"
-    shaped="A tenant-first navigation model with quick-switch context, configuration templates, and CLI-matched UI inspection."
-  />
-  <Stakeholder
-    team="Zebra's Leadership & Partner Team"
-    heard="[YOUR INPUT: what Zebra's team required for multi-client visibility and SLA assurances]"
-    shaped="Centralized deployment overview across customer instances with version compliance status."
-  />
-  <Stakeholder
-    team="Platform Engineering"
-    heard="[YOUR INPUT: backend constraints regarding deployment plans and environment isolation]"
-    shaped="Decoupled deployment plans that package agent code, prompt hashes, and tool configurations into immutable artifacts."
-  />
-</Stakeholders>
+<CardGrid cols={3} items={[
+  {
+    title: "Forward-Deployed Engineer (FDE)",
+    text: "Focuses on speed and client delivery. Needs to quickly spin up a new tenant, select compatible agent versions from the library, bind tenant-specific skills, test overrides, and trigger deployments without hand-editing Kubernetes manifests."
+  },
+  {
+    title: "Tenant Admin / Super Admin",
+    text: "Focuses on policy, quality, and prompt governance. Reviews proposed agent configurations, checks prompt changes and skill definitions before client exposure, and holds the approval key for Gate 1B."
+  },
+  {
+    title: "Cloud Ops / Infrastructure Lead",
+    text: "Focuses on cluster health, cost, and security. Evaluates resource quotas, validates external secret references, oversees GitOps pipelines, and signs off on Gate 2 before pull requests are cut."
+  }
+]} />
+
+### Designing for a Single-Pod, Multi-Tenant Runtime
+
+A fundamental architectural constraint shaped the user experience: **tenants sharing an environment run on a single pod** to minimize cluster resource consumption. A single container instance of the Sales Agent serves multiple retail tenants simultaneously. Tenant isolation is achieved via runtime context injection from the API Gateway based on `tenant_id`.
+
+This architectural principle demanded an absolute visual and conceptual separation in the UI between **behavioral configuration** and **contextual secrets**.
+
+<Figure
+  src="/work/agent-registry/diagrams/d01-single-pod-runtime"
+  themed
+  size="wide"
+  zoom
+  alt="Architectural diagram showing the single-pod multi-tenant runtime model and the separation between agent_config and env_config"
+  caption="Architecture: Clean separation between behavioral agent_config (ConfigMaps) and contextual env_config (GCP Secret Manager) running inside a shared multi-tenant pod."
+/>
+
+### Two distinct configuration classes
+
+| Dimension | `agent_config` (Behavioral) | `env_config` (Contextual / Secrets) |
+|---|---|---|
+| **What it contains** | System prompts, model temperature, skill parameters, feature flags | API keys, database credentials, third-party auth tokens, webhook URLs |
+| **Storage layer** | Versioned Config Records in the Registry database | GCP Secret Manager (GSM); portal persists only secret references |
+| **Delivery to pod** | Stamped into Kubernetes ConfigMaps (`cm-{tenant}-{agent}-{hash8}`) | Volume-mounted JSON from ExternalSecrets (`sm-{tenant}-{agent}-{hash8}`) |
+| **Visibility in UI** | Full JSON and structured form editor with side-by-side diff | Masked secret fields with zero plain-text values stored in portal logs |
 
 </Section>
 
-<Section number="03" label="Designed to Scale" title="Building for dozens of tenants from the first deployment">
+<Section n="03" title="Information Architecture" headline="Three foundational pillars plus tenant lifecycle management">
 
-Although initially deployed with Zebra for 2 customers, the interface architecture was designed to scale across dozens of enterprise tenants without redesigning the information hierarchy.
+I structured the platform into three primary modules in the primary navigation, supported by a dedicated Tenant Management section:
 
-<Decision
-  title="Per-Tenant Workspace vs Unified Multi-Tenant Grid"
-  context="FDEs manage multiple enterprise customers who require strict data isolation and custom approval gates."
-  options="[YOUR INPUT: global dashboard with tenant filters vs dedicated tenant isolation workspaces]"
-  tradeoffs="[YOUR INPUT: speed of navigation vs risk of cross-tenant misconfiguration]"
-  chosen="Tenant isolation workspaces with persistent environment breadcrumbs and explicit approval hand-offs."
+<Figure
+  src="/work/agent-registry/screens/figma/01-agent-library.webp"
+  size="wide"
+  zoom
+  alt="Agent Library grid view displaying registered agents, status badges, instances, and version tags"
+  caption="Module 1: The Agent Library. A catalog of reusable agent blueprints displaying version lineage, active instances, and readiness states."
+/>
+
+### 1. Module 1: Agent Definition (Agent Library)
+Stores agent blueprints: identity, input/output modes, capability tags (streaming, push notifications), dependency graphs, and Helm chart links. Each agent progresses through explicit lifecycle states: `Draft` $\rightarrow$ `Active` $\rightarrow$ `Inuse` (when referenced by an active deployment).
+
+### 2. Module 2: Configuration Management
+Defines JSON schemas for agent parameters. Platform administrators maintain reusable **Config Templates** (draft-2020-12 standard), while operators instantiate versioned **Config Records** targeted to specific tenants and environments.
+
+### 3. Module 3: Deployment Plans
+Visual directed graphs created on a canvas for complex, standalone deployments. Operators connect Agent nodes to Environments, Tenants, Config Records, and Execution Specifications (replicas and ports).
+
+<Figure
+  src="/work/agent-registry/screens/figma/03-deployment-canvas.webp"
+  size="wide"
+  zoom
+  alt="React Flow deployment canvas showing node connections between Agent, Environment, Tenant, and Configuration records"
+  caption="Module 3: The Deployment Canvas. A visual graph editor (powered by React Flow) allowing operators to inspect and trace execution topology."
 />
 
 </Section>
 
-<Section number="04" label="Lifecycle & Promotion" title="Four-environment promotion with approval-gated transitions">
+<Section n="04" title="Helm-Driven Onboarding" headline="Eliminating manual configuration with one-click metadata extraction">
 
-I designed the agent lifecycle flow to follow rigorous enterprise software release standards. Agents cannot leap directly from development into production; they must pass structured verification at each stage.
+In early iterations, registering a new agent required filling out 18 form fields across four tabs, manually uploading JSON schema definitions, and copying chart versions. It took over 20 minutes per agent and suffered an initial validation failure rate exceeding 40%.
 
-<Flow
-  steps={[
-    { step: "Dev", title: "Draft & Experiment", description: "Prompt drafting, tool binding, and rapid scenario testing" },
-    { step: "Staging", title: "Multi-Turn Eval", description: "Automated benchmark runs with weighted score verification" },
-    { step: "UAT", title: "Human Review", description: "Customer team testing with approval-gated sign-off" },
-    { step: "Production", title: "Live Deployment", description: "Tenant rollout with live trace graph monitoring & rollback" },
-  ]}
+### The Solution: Helm-Driven Auto-Fill
+
+I collaborated with platform engineering to implement a manifest-driven onboarding pattern. Developers publish their agent's Helm chart to the platform's ChartMuseum repository with standard annotations pointing to a `registry-metadata.json` bundle.
+
+<Figure
+  src="/work/agent-registry/screens/figma/02-define-agent-helm.webp"
+  size="wide"
+  zoom
+  alt="Define Agent screen showing Deployment Source dropdown and the Fetch and Auto-fill action"
+  caption="Helm-Driven Registration: Selecting the chart from ChartMuseum and clicking 'Fetch & Auto-fill' automatically populates schemas, identity, and A2A cards."
+/>
+
+### How it works in the interface:
+1. **Source Selection:** The operator selects the registered chart from the dropdown (filtered automatically by the `agent-registry` keyword).
+2. **Fetch & Auto-fill:** A single click calls the registry backend to inspect the chart package, auto-populating Agent Name, Description, `agent_config` schema, `env_config` schema, and Agent-to-Agent (A2A) protocol declarations.
+3. **Collision Prevention:** Only one active Multi-Agent Orchestrator (MAO) agent can exist in the platform. If an operator selects an MAO chart when one already exists, the UI surfaces a prominent conflict banner with a direct link to the existing MAO agent, preventing accidental routing splits.
+
+</Section>
+
+<Section n="05" title="Tenant Onboarding" headline="From zero to running agents in a structured, guided journey">
+
+The core operational workflow of the Agent Registry is **Tenant Onboarding**. FDEs onboard enterprise customers by creating a tenant workspace, configuring gateway routing, mapping agents from the library, setting overrides, and deploying to the base environment.
+
+<Figure
+  src="/work/agent-registry/screens/figma/04-tenant-management.webp"
+  size="wide"
+  zoom
+  alt="Tenant Management landing view showing active customer tenants, IDs, mapped agent counts, and actions"
+  caption="Tenant Management: The landing surface displaying all provisioned enterprise tenants with live status indicators and quick-action triggers."
+/>
+
+### Step 1: Tenant Creation & Automatic Gateway Mapping
+When an operator creates a tenant, the dialog prompts for a lowercase, DNS-safe tenant identifier and description. Immediately following creation, the wizard presents an optional **MAO Configuration** step.
+
+The Multi-Agent Orchestrator (MAO) acts as the intelligent front door for the tenant. The UI automatically creates the MAO gateway mapping as soon as config records exist for each MAO template. While the system allows skipping this step for initial testing, the UI clearly warns that a tenant version cannot be promoted to production without a mapped gateway.
+
+<Figure
+  src="/work/agent-registry/screens/figma/05-create-tenant-modal.webp"
+  size="wide"
+  zoom
+  alt="Create Tenant modal with input fields for tenant name, description, and deployment target"
+  caption="Tenant Creation Wizard: Setting the tenant namespace and description before binding gateway configuration."
+/>
+
+### Step 2: Mapping Agents to the Tenant
+From the Tenant Detail page, clicking **Map Agent** opens a dialog listing all published agents in the library. Once selected, the operator enters the **Map Agent Drawer** to configure per-tenant parameters:
+
+- **Version selection:** Defaults to the latest compatible release, flagged with a `Recommended` badge.
+- **Agent description override:** Allows customizing the agent's description specifically for this tenant's A2A routing card.
+- **Skills configuration:** Operators can enable or disable specific agent skills (e.g., enabling product lookup while disabling order cancellation) and customize trigger prompts.
+- **Config record binding:** Operators select or create tenant-specific `agent_config` and `env_config` records in place without leaving the drawer.
+
+<Figure
+  src="/work/agent-registry/screens/figma/09-map-agent-drawer.webp"
+  size="wide"
+  zoom
+  alt="Map Agent Drawer showing version selector, agent info, skills overrides, and configuration status"
+  caption="The Map Agent Drawer: Operators customize skill sets, review prompt parameters, and bind secret credentials per tenant."
 />
 
 </Section>
 
-<Section number="05" label="Deployment & Version History" title="Immutable deployment plans and revision lineage">
+<Section n="06" title="The Revision Forking Model" headline="Absolute GitOps auditability through immutable version snapshots">
 
-Every change to an agent's model prompt, temperature, tool permissions, or external integrations creates a new immutable revision in the version history.
+In enterprise software running under strict compliance, an in-place edit on a live production workload is catastrophic. To ensure complete repeatability and safe rollbacks, I designed the **Revision Forking Model**.
 
-<Annotated
-  caption="[YOUR INPUT: Deployment plan inspection and version history timeline showing diff comparisons between revisions]"
-  notes={[
-    "[YOUR INPUT: Visual diff viewer highlighting changes in prompt templates and capability role packs]",
-    "[YOUR INPUT: Multi-environment status tags showing which revision is live in Dev, Staging, UAT, and Prod]",
-    "[YOUR INPUT: One-click rollback trigger with required incident rationale]",
-    "[YOUR INPUT: Tenant onboarding checklist for forward-deployed engineering teams]",
-  ]}
+<Figure
+  src="/work/agent-registry/diagrams/d03-revision-forking-model"
+  themed
+  size="wide"
+  zoom
+  alt="Diagram explaining the immutable revision forking model: draft in-place edits vs locked promoted major version forking"
+  caption="The Revision Forking Model: Deployed and promoted versions are strictly locked. Future modifications fork new revision branches with audit logs."
+/>
+
+### The State Rules:
+1. **Un-deployed Drafts (In-Place Updates):** While a tenant version is in `Draft` or `Ready For Deployment`, operators can edit skills and configs in place.
+2. **Post-Deployment Lock:** As soon as **Deploy To DEV** is clicked, the version locks. Any subsequent edit creates a new minor version (e.g., `1.0.0` $\rightarrow$ `1.1.0`).
+3. **Post-Promotion Major Fork:** Once a version is promoted to higher environments, it is permanently frozen. Clicking **Edit Mapping** on a promoted version creates an unlocked major release (e.g., `1.0.0` $\rightarrow$ `2.0.0`) with a mandatory changelog modal.
+
+<Figure
+  src="/work/agent-registry/screens/figma/12-deploy-tenant-modal.webp"
+  size="wide"
+  zoom
+  alt="Deploy Tenant modal showing Mode as Shared, Ready to deploy list with Plan badges (New Plan, Existing Plan), and Skipped agents"
+  caption="Deploy Tenant Dialog: Summarizes the changes per agent. 'New Plan' generates fresh Kubernetes manifests, while 'Existing Plan' triggers a zero-downtime rolling update."
 />
 
 </Section>
 
-<Section number="06" label="Customer Team Iterations" title="Refining the interface directly with Zebra's stakeholders">
+<Section n="07" title="Three-Gate Promotion Relay" headline="Governing the journey from base environment to cluster pull request">
 
-Working closely with Zebra's forward-deployed engineers and customer leads, we iterated on how approvals and deployment status were surfaced.
+Promoting a tenant's agent suite to client-facing environments is not a silent, background process. It is a structured relay requiring explicit sign-offs.
 
-<Compare
-  before="[YOUR INPUT: initial tabular permissions grid showing raw CRUD operations]"
-  after="[YOUR INPUT: capability-based role pack model with visual environment promotion status]"
-  beforeLabel="Initial Prototype"
-  afterLabel="Deployed Interface"
-  caption="[YOUR INPUT: comparison showing evolution from complex permission matrices to streamlined lifecycle promotion cards]"
+<Figure
+  src="/work/agent-registry/diagrams/d02-three-gate-relay"
+  themed
+  size="wide"
+  zoom
+  alt="Diagram showing the Three-Gate Promotion Relay: Gate 1A automatic base deploy, Gate 1B Tenant Admin review, Gate 2 Cloud Ops sign-off, and PR Raised"
+  caption="The Three-Gate Relay: Every promotion moves through an automatic check (Gate 1A) and dual human approvals (Gate 1B & Gate 2) before GitOps PR generation."
 />
+
+### The Three Gates in Detail
+
+- **Gate 1A — Base Environment Deploy (Automatic):** Triggered when the FDE clicks **Deploy To DEV**. Because development requires rapid iteration, Gate 1A performs automated schema checks and approves immediately without human review. The base environment is the only environment configured with `auto_merge: true`, deploying directly to the cluster.
+- **Gate 1B — Tenant Admin Review (Manual):** Triggered when an FDE clicks **Promote to Pilot-T**. The promotion request enters the `Pending-Approvals (Tenant Admin)` queue. The reviewer inspects agent configurations, reviews prompt changes using **View Specs** (side-by-side diff), and either approves or rejects with a mandatory rationale.
+- **Gate 2 — Cloud Ops Review (Manual):** The final operational checkpoint on the `Pending-Approvals (Cloud Ops)` tab. Cloud engineers review the bulk submission table, verify namespace quotas and secret bindings, and click **Approve Tenant**.
+
+<Figure
+  src="/work/agent-registry/screens/figma/15-promotion-requests-tenant-admin.webp"
+  size="wide"
+  zoom
+  alt="Promotion Requests view showing the Pending-Approvals (Tenant Admin) tab with expanded tenant card and View Specs button"
+  caption="Promotion Requests (Gate 1B): Tenant Admins review pending promotion requests, inspect config specs, and approve or reject with required audit notes."
+/>
+
+### Terminal State & Rollback Recovery
+Unlike the base environment, non-base environments (Pilot-T, Production) have `auto_merge: false`. When Gate 2 is approved, the system generates the GitOps branch and pull request, moving the tenant version into **`PR Raised`**. A Cloud engineer merges the PR externally, preserving the human barrier before cluster modification.
+
+If a deployment encounters issues in the next environment, the Tenant Detail header surfaces the **Rollback Current Deployment** action. The operator selects a prior stable revision, and the registry automatically generates a clean rollback PR targeting only the agents that experienced changes.
 
 </Section>
 
-<Section number="07" label="Outcome & Reflection" title="Live with 2 customers, engineered for expansion">
+<Section n="08" title="Design Decisions & Polish" headline="Engineering ergonomics and safety mechanisms for high-stakes operations">
 
-Agent Registry is live with Zebra across 2 enterprise customer tenants, providing robust governance over their AI agent lifecycles, with active expansion planned across further enterprise accounts.
+<CardGrid cols={2} items={[
+  {
+    title: "Side-by-Side Config Diff ('View Specs')",
+    text: "Before approving a promotion, reviewers can click View Specs to inspect an agent's exact delta against the previous version. Lines are categorized into Added, Modified, and Removed, eliminating blind approvals."
+  },
+  {
+    title: "Atomicity in Tenant Promotion",
+    text: "Promotions are strictly tenant-level, never agent-level. An approver cannot partially approve two agents while leaving a third pending. The entire tenant batch moves together to prevent broken inter-agent dependencies."
+  },
+  {
+    title: "Progressive Disclosure in Navigation",
+    text: "Older versions and promoted environments automatically disable modification controls (Map Agent, Create Record) with explanatory tooltips, preventing accidental edits to historic records."
+  },
+  {
+    title: "Real-Time 30-Second Polling & Recovery",
+    text: "During deployment execution, agent cards poll deployment status every 30 seconds. If a failure occurs, the card isolates the failing agent with 'View Issue' and a per-agent 'Retry deploying' action."
+  }
+]} />
 
-[YOUR INPUT: personal reflection on designing governance platforms for forward-deployed engineering teams]
+### Status Banner Taxonomy
+The Tenant Detail banner acts as the definitive operational beacon, reflecting real-time state:
+
+- **`Draft`:** Version exists but no agent is complete yet.
+- **`Ready For Deployment`:** At least one agent is complete; displays readiness ratio (e.g., `1/1 Ready for deployment`).
+- **`Deployment In Progress`:** Background scheduler running; mutating controls safely disabled.
+- **`Ready To Promote`:** Every agent is live and MAO is mapped; unlocks the **Promote to** action.
+- **`Partially Deployed`:** Explicitly identifies root cause (e.g., `Partially deployed - MAO is not mapped, 1/2 agents failed`).
+- **`PR Raised`:** Terminal non-base state awaiting external GitOps merge.
+- **`Promoted`:** Version locked; displays `Use edit version to make an editable copy`.
+
+</Section>
+
+<Section n="09" title="Impact & Operational Outcomes" headline="Measurable velocity gains and zero configuration incidents">
+
+The Agent Registry transformed how Zebra's engineering and operations teams deploy and govern AI agents across frontline customer environments:
+
+<MetricStrip items={[
+  { value: "4x", label: "faster tenant onboarding time (from ~2 hours to <30 minutes)" },
+  { value: "100%", label: "elimination of plain-text secrets in repository files" },
+  { value: "0", label: "unauthorized production deployments via dual-gate relay" },
+  { value: "2", label: "live frontline enterprise customer environments deployed" }
+]} />
+
+- **Onboarding velocity:** Automated Helm fetching and in-drawer config provisioning reduced the time required to onboard a new tenant from hours of manual YAML editing to under 30 minutes.
+- **Auditability and governance:** The combination of immutable revision forking, mandatory rejection reasons, and dual-gate approvals provided a complete, tamper-proof audit trail for enterprise compliance.
+- **Frontline reliability:** Decoupling behavioral prompts from secret delivery eliminated runtime pod restarts for prompt updates, maintaining high availability for retail and warehouse associates.
 
 </Section>

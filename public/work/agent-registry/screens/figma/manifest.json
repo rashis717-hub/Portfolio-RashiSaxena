@@ -1,0 +1,121 @@
+{
+  "01-agent-library": {
+    "file": "01-agent-library.webp",
+    "path": "/work/agent-registry/screens/figma/01-agent-library.webp",
+    "width": 2400,
+    "height": 1479,
+    "figmaId": "926:7227"
+  },
+  "02-define-agent-helm": {
+    "file": "02-define-agent-helm.webp",
+    "path": "/work/agent-registry/screens/figma/02-define-agent-helm.webp",
+    "width": 2400,
+    "height": 1880,
+    "figmaId": "926:8612"
+  },
+  "03-deployment-canvas": {
+    "file": "03-deployment-canvas.webp",
+    "path": "/work/agent-registry/screens/figma/03-deployment-canvas.webp",
+    "width": 2400,
+    "height": 1480,
+    "figmaId": "4547:36596"
+  },
+  "04-tenant-management": {
+    "file": "04-tenant-management.webp",
+    "path": "/work/agent-registry/screens/figma/04-tenant-management.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:41746"
+  },
+  "05-create-tenant-modal": {
+    "file": "05-create-tenant-modal.webp",
+    "path": "/work/agent-registry/screens/figma/05-create-tenant-modal.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:42121"
+  },
+  "06-mao-configuration": {
+    "file": "06-mao-configuration.webp",
+    "path": "/work/agent-registry/screens/figma/06-mao-configuration.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:42347"
+  },
+  "07-tenant-detail-dev": {
+    "file": "07-tenant-detail-dev.webp",
+    "path": "/work/agent-registry/screens/figma/07-tenant-detail-dev.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:42581"
+  },
+  "08-map-agent-modal": {
+    "file": "08-map-agent-modal.webp",
+    "path": "/work/agent-registry/screens/figma/08-map-agent-modal.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:42892"
+  },
+  "09-map-agent-drawer": {
+    "file": "09-map-agent-drawer.webp",
+    "path": "/work/agent-registry/screens/figma/09-map-agent-drawer.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:43339"
+  },
+  "10-tenant-mapped-cards": {
+    "file": "10-tenant-mapped-cards.webp",
+    "path": "/work/agent-registry/screens/figma/10-tenant-mapped-cards.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:43684"
+  },
+  "11-mao-config-tab": {
+    "file": "11-mao-config-tab.webp",
+    "path": "/work/agent-registry/screens/figma/11-mao-config-tab.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:44132"
+  },
+  "12-deploy-tenant-modal": {
+    "file": "12-deploy-tenant-modal.webp",
+    "path": "/work/agent-registry/screens/figma/12-deploy-tenant-modal.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:44674"
+  },
+  "13-deployment-in-progress": {
+    "file": "13-deployment-in-progress.webp",
+    "path": "/work/agent-registry/screens/figma/13-deployment-in-progress.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:44983"
+  },
+  "14-tenant-ready-to-promote": {
+    "file": "14-tenant-ready-to-promote.webp",
+    "path": "/work/agent-registry/screens/figma/14-tenant-ready-to-promote.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:45485"
+  },
+  "15-promotion-requests-tenant-admin": {
+    "file": "15-promotion-requests-tenant-admin.webp",
+    "path": "/work/agent-registry/screens/figma/15-promotion-requests-tenant-admin.webp",
+    "width": 2400,
+    "height": 1436,
+    "figmaId": "5257:45999"
+  },
+  "16-promotion-requests-cloud-ops": {
+    "file": "16-promotion-requests-cloud-ops.webp",
+    "path": "/work/agent-registry/screens/figma/16-promotion-requests-cloud-ops.webp",
+    "width": 17,
+    "height": 29,
+    "figmaId": "5257:46549"
+  },
+  "17-tenant-pilot-t-pr-raised": {
+    "file": "17-tenant-pilot-t-pr-raised.webp",
+    "path": "/work/agent-registry/screens/figma/17-tenant-pilot-t-pr-raised.webp",
+    "width": 16,
+    "height": 16,
+    "figmaId": "5257:47113"
+  }
+}

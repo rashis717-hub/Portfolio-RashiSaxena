@@ -31,6 +31,9 @@ export const projectSchema = z.strictObject({
   video: z.string().startsWith("/", "must be a path from /public").optional(),
   poster: z.string().startsWith("/", "must be a path from /public").optional(),
   videoCredit: z.string().optional(),
+  /** Themed hero diagram base path; renders <base>.light.png and <base>.dark.png in place of a video. */
+  heroDiagram: z.string().startsWith("/", "must be a path from /public").optional(),
+  heroDiagramAlt: z.string().optional(),
   /** Optional full product logo shown in place of the text title (light theme / dark theme). */
   logo: z.string().optional(),
   logoDark: z.string().optional(),

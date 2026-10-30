@@ -90,7 +90,12 @@ export default async function CaseStudyPage({ params }: Props) {
   const isPrivate = project.visibility === "private";
   const hasVideo = project.video && publicFileExists(project.video);
   const videoComing = Boolean(project.video) && !hasVideo;
-  const showCover = !hasVideo && !videoComing && !project.redact && publicFileExists(project.cover);
+  const hasHeroDiagram =
+    !hasVideo &&
+    !videoComing &&
+    Boolean(project.heroDiagram) &&
+    publicFileExists(`${project.heroDiagram}.light.png`);
+  const showCover = !hasVideo && !videoComing && !hasHeroDiagram && !project.redact && publicFileExists(project.cover);
 
   const detailItems = [
     { label: "Company", value: project.company },
@@ -273,6 +278,32 @@ export default async function CaseStudyPage({ params }: Props) {
                 A short motion walkthrough of {project.title} will play here.
               </span>
             </div>
+          </div>
+        </section>
+      )}
+
+      {/* Themed hero diagram in place of a video */}
+      {hasHeroDiagram && (
+        <section aria-label="Hero diagram" className="w-full border-b border-border bg-background py-8 md:py-12">
+          <div className="container-case-study">
+            <figure className="w-full max-w-[1600px] mx-auto border border-border">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${project.heroDiagram}.light.png`}
+                alt={project.heroDiagramAlt || project.title}
+                width={2400}
+                height={1350}
+                className="w-full h-auto aspect-video dark:hidden"
+              />
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${project.heroDiagram}.dark.png`}
+                alt={project.heroDiagramAlt || project.title}
+                width={2400}
+                height={1350}
+                className="w-full h-auto aspect-video hidden dark:block"
+              />
+            </figure>
           </div>
         </section>
       )}

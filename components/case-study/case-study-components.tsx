@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
 import wireframesManifest from "@/public/work/infrabot/wireframes/manifest.json";
 import a2uiDiagramsManifest from "@/public/work/a2ui/diagrams/manifest.json";
+import agentRegistryDiagramsManifest from "@/public/work/agent-registry/diagrams/manifest.json";
 
 interface WireframeImageMeta {
   width: number;
@@ -14,6 +15,7 @@ interface WireframeImageMeta {
 const manifest: Record<string, WireframeImageMeta> = {
   ...(wireframesManifest as Record<string, WireframeImageMeta>),
   ...(a2uiDiagramsManifest as Record<string, WireframeImageMeta>),
+  ...(agentRegistryDiagramsManifest as Record<string, WireframeImageMeta>),
 };
 
 type Children = { children?: React.ReactNode };
