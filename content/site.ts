@@ -81,22 +81,25 @@ export const site = {
   stats,
   howIWork: {
     title: "How I work",
-    // DRAFT for Rashi's review: written from the brief only, no facts added. While true, the
-    // section shows in development with a "Draft" tag and is hidden in production. Set to false
-    // once the copy is approved.
-    draft: true,
+    draft: false,
     items: [
       {
         title: "Agent experience",
+        image: "/home/how-agent-experience.webp",
+        imageAlt: "Multi-select question interface with progress chips, option descriptions, custom Other input, and navigation actions",
         body: "I design how people direct, review and correct AI agents inside enterprise products. The aim is work people can trust: clear hand-offs, visible progress and an easy way to step in.",
       },
       {
-        title: "Design systems",
-        body: "I build design systems so product teams can ship consistent interfaces without waiting on design. Tokens, components and documentation are treated as part of the product.",
+        title: "Platform UX at scale",
+        image: "/home/how-platform-ux.webp",
+        imageAlt: "Field operations health heat map with hierarchy level tabs, operational status metrics, and regional performance scores",
+        body: "I build design systems and platform foundations so product teams can ship consistent interfaces across complex multi-tier enterprise hierarchies.",
       },
       {
-        title: "AI-assisted workflow",
-        body: "I use AI tools to research, prototype and test ideas faster. The tools speed up the work; the design decisions stay with people.",
+        title: "Governed automation",
+        image: "/home/how-governed-automation.webp",
+        imageAlt: "Governed approval gate panel with Approve, Request change, and Reject actions",
+        body: "I design human-in-the-loop controls and approval gates so automated agents can take high-stakes actions with verified permissions and clear audit trails.",
       },
     ],
   },

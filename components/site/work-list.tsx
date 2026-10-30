@@ -17,6 +17,8 @@ export type WorkRow = {
   private: boolean;
   /** Present only when the file exists and the project is not redacted. */
   cover?: string;
+  coverHover?: string;
+  coverThumb?: string;
 };
 
 const PREVIEW_W = 360;
@@ -102,7 +104,7 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
   });
 
   const current = active === null ? undefined : rows[active];
-  const showPreview = !!current?.cover && mode !== null;
+  const showPreview = !!(current?.coverHover || current?.cover) && mode !== null;
 
   return (
     <section id="work" aria-labelledby="work-title" className="container-site py-section">
@@ -178,10 +180,10 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
                 <span className="label hidden md:block">{row.year}</span>
 
                 <span className="flex items-center gap-3">
-                  {row.cover && (
+                  {(row.coverThumb || row.cover) && (
                     // Touch devices get a small thumbnail instead of the cursor preview.
                     <Image
-                      src={row.cover}
+                      src={row.coverThumb || row.cover!}
                       alt=""
                       width={56}
                       height={56}
@@ -215,8 +217,14 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
         )}
         style={{ width: PREVIEW_W, height: PREVIEW_H }}
       >
-        {current?.cover && (
-          <Image src={current.cover} alt="" width={PREVIEW_W} height={PREVIEW_H} className="size-full object-cover" />
+        {(current?.coverHover || current?.cover) && (
+          <Image
+            src={current.coverHover || current.cover!}
+            alt=""
+            width={PREVIEW_W}
+            height={PREVIEW_H}
+            className="size-full object-cover"
+          />
         )}
       </div>
       <div

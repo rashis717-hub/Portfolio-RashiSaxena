@@ -1,16 +1,41 @@
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Lock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { publicFileExists } from "@/lib/site-files";
+import { cn } from "@/lib/utils";
 import type { ProjectFrontmatter } from "@/lib/schema";
 
 export type ProjectItem = ProjectFrontmatter;
+
+function getProjectScreenAlt(project: ProjectItem, type: "cover" | "hover" | "thumb"): string {
+  switch (project.slug) {
+    case "infrabot":
+      if (type === "cover") return "Linux hardening compliance summary report showing 52.4% compliance score, 42 total rules, and circular compliance overview donuts";
+      if (type === "hover") return "Governed approval panel with Approve Request, Request Change, and Reject Request options";
+      return "Two circular compliance donuts showing endpoint status and rule findings";
+    case "a2ui":
+      if (type === "cover") return "Destructive action confirmation card from Leave Policy Agent showing irreversible warning, affected systems, and Withdraw request button";
+      if (type === "hover") return "Proposed execution plan v2 showing 6 steps with Changed status badges and Begin button";
+      return "Permission outcomes table specifying request type, target HRMS system, and affected employees";
+    case "salespulze":
+      if (type === "cover") return "Sales intelligence hub displaying KPI metrics, AI executive insights with confidence score, and regional field health heat map";
+      if (type === "hover") return "Weekly regional sales review series with AI-inferred tag, high-confidence badge, and execution health trend graph";
+      return "Field operations health status cards showing meeting volume and risk scores across regional tiers";
+    case "agent-registry":
+      if (type === "cover") return "Agent Registry platform interface showing agent blueprints, runtime configurations, and multi-tenant fleet status";
+      if (type === "hover") return "Agent deployment canvas showing node graph and secret configuration";
+      return "Agent blueprint card showing status and tenant mapping";
+    default:
+      return `${project.title} interface preview`;
+  }
+}
 
 /**
  * Editorial Selected Works band inspired by jithinrp.com:
  * 3-column layout per project:
  * - Col 1: Title, Tagline/Summary, Timeline
- * - Col 2: High-impact media card with hairline border
+ * - Col 2: High-impact media card with hairline border showing specific real screens with hover preview
  * - Col 3: Role, Platforms, Key Metric, and View Case Study action
  */
 export function WorkShowcase({ projects }: { projects: ProjectItem[] }) {
@@ -77,16 +102,34 @@ export function WorkShowcase({ projects }: { projects: ProjectItem[] }) {
                 <div className="lg:col-span-5">
                   <Link
                     href={`/work/${project.slug}`}
-                    className="relative block aspect-video sm:aspect-16/10 overflow-hidden rounded-md border border-border bg-muted/40 transition-all duration-(--duration-hover) group-hover/work:border-foreground/30 group-hover/work:shadow-sm"
+                    className="group/media relative block aspect-video sm:aspect-16/10 overflow-hidden rounded-md border border-border bg-muted/40 transition-all duration-(--duration-hover) group-hover/work:border-foreground/30 group-hover/work:shadow-sm"
                   >
                     {hasCover ? (
-                      /* eslint-disable-next-line @next/next/no-img-element */
-                      <img
-                        src={project.cover}
-                        alt={project.title}
-                        loading="lazy"
-                        className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover/work:scale-[1.02]"
-                      />
+                      <>
+                        {/* Main 16:10 Cover image */}
+                        <Image
+                          src={project.cover}
+                          alt={getProjectScreenAlt(project, "cover")}
+                          width={1600}
+                          height={1000}
+                          loading="lazy"
+                          className={cn(
+                            "h-full w-full object-cover transition-all duration-500 ease-out group-hover/work:scale-[1.02]",
+                            project.coverHover && "group-hover/media:opacity-0 transition-opacity duration-300"
+                          )}
+                        />
+                        {/* Hover preview screen (3:2) revealing on desktop hover */}
+                        {project.coverHover && (
+                          <Image
+                            src={project.coverHover}
+                            alt={getProjectScreenAlt(project, "hover")}
+                            width={720}
+                            height={480}
+                            loading="lazy"
+                            className="hidden sm:block absolute inset-0 h-full w-full object-cover opacity-0 transition-opacity duration-300 group-hover/media:opacity-100"
+                          />
+                        )}
+                      </>
                     ) : (
                       <div className="flex h-full w-full flex-col items-center justify-center gap-2 p-6 text-center">
                         <span className="label text-muted-foreground">
