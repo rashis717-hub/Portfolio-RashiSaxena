@@ -45,11 +45,12 @@ export const stats = [
 
 export const site = {
   name: "Rashi Saxena",
-  url: "https://rashisaxena.com",
+  url: "https://portfolio-rashi-saxena.vercel.app",
   role: "UX Lead, enterprise and agentic AI product design",
   positioning: "UX Lead specialising in enterprise B2B AI platforms, agent experience (AX), and human-in-the-loop systems.",
   description: "UX Lead specialising in enterprise and agentic AI product design.",
   email: "rashis717@gmail.com",
+  phone: "+91 8840295743",
   linkedin: "https://www.linkedin.com/in/rashi-saxena-2k2710",
   // Add the file at /public/resume.pdf.
   resume: "/resume.pdf",

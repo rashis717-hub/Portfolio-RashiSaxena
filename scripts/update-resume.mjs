@@ -14,6 +14,8 @@ async function updateResume() {
 
   // The original placeholder line was at y = 757.839, with height ~10pt
   // Let's cover y = 754 to 768 from x = 48 to x = 550 with clean white
+  page.node.set(PDFName.of('Annots'), pdfDoc.context.obj([]));
+
   page.drawRectangle({
     x: 48,
     y: 753,
@@ -38,7 +40,7 @@ async function updateResume() {
     { text: '|', isSep: true },
     { text: 'linkedin.com/in/rashi-saxena-2k2710', url: 'https://www.linkedin.com/in/rashi-saxena-2k2710' },
     { text: '|', isSep: true },
-    { text: 'Rashi Portfolio', url: 'https://portfolio-rashi-saxena-5k4mojq05-rashis-projects-9c0eb0ab.vercel.app/', isPortfolio: true },
+    { text: 'Rashi Portfolio', url: 'https://portfolio-rashi-saxena.vercel.app', isPortfolio: true },
   ];
 
   // Calculate total width
