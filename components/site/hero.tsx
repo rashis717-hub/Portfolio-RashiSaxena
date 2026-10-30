@@ -72,7 +72,7 @@ export function Hero({ resume }: { resume?: string }) {
         </div>
 
         {/* Bottom: Full-Width Giant Pixel Name in signature Pixel Pink */}
-        <div className="mt-6 sm:mt-8 md:mt-10 overflow-hidden w-full select-none">
+        <div className="mt-6 sm:mt-8 md:mt-10 overflow-hidden w-full select-none [container-type:inline-size]">
           <p
             className="hero-pixel-name"
             aria-label={site.name}

@@ -207,16 +207,16 @@ export function Numbers({ items }: { items?: readonly StatItem[] }) {
         <h2 id="numbers-title" className="sr-only">
           Portfolio numbers and reach
         </h2>
-        <div className="grid grid-cols-1 divide-y divide-border md:grid-cols-3 md:divide-y-0 md:divide-x md:divide-border">
+        <div className="grid grid-cols-1 divide-y divide-border lg:grid-cols-3 lg:divide-y-0 lg:divide-x lg:divide-border">
           {resolved.map((stat, idx) => (
             <div
               key={stat.id}
-              className={`py-8 md:py-0 ${
+              className={`py-8 lg:py-0 ${
                 idx === 0
-                  ? "md:pr-8 lg:pr-12"
+                  ? "lg:pr-8 xl:pr-12"
                   : idx === 1
-                  ? "md:px-8 lg:px-12"
-                  : "md:pl-8 lg:pl-12"
+                  ? "lg:px-8 xl:px-12"
+                  : "lg:pl-8 xl:pl-12"
               }`}
             >
               <StatCard stat={stat} />

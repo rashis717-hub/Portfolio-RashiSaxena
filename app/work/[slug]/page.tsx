@@ -62,7 +62,7 @@ function renderDetailCell(label: string, value: string | string[] | undefined) {
   if (isPlaceholder) {
     if (process.env.NODE_ENV === "production") return null;
     return (
-      <div key={label} className="flex flex-col gap-1 px-4 py-3 first:pl-0 last:pr-0">
+      <div key={label} className="flex flex-col gap-1 px-4 py-3 xl:first:pl-0 xl:last:pr-0">
         <dt className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">{label}</dt>
         <dd>
           <span className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs text-muted-foreground border border-dashed border-border">
@@ -74,7 +74,7 @@ function renderDetailCell(label: string, value: string | string[] | undefined) {
   }
 
   return (
-    <div key={label} className="flex flex-col gap-1 px-4 py-3 first:pl-0 last:pr-0">
+    <div key={label} className="flex flex-col gap-1 px-4 py-3 xl:first:pl-0 xl:last:pr-0">
       <dt className="font-mono text-[11px] uppercase tracking-wider text-muted-foreground">{label}</dt>
       <dd className="text-sm font-medium text-foreground leading-snug">{str}</dd>
     </div>
@@ -221,7 +221,7 @@ export default async function CaseStudyPage({ params }: Props) {
           className="w-full border-b border-border bg-background"
         >
           <div className="container-case-study py-4 sm:py-6">
-            <dl className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 divide-y sm:divide-y-0 divide-x divide-border">
+            <dl className="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 divide-y sm:divide-y-0 divide-x divide-border">
               {detailItems.map(({ label, value }) => renderDetailCell(label, value))}
             </dl>
           </div>
@@ -237,7 +237,7 @@ export default async function CaseStudyPage({ params }: Props) {
           <div className="container-case-study">
             <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
               {project.metrics.slice(0, 3).map((m, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center px-4 py-4 md:py-2 first:pl-0 last:pr-0">
+                <div key={idx} className="flex flex-col items-center text-center px-4 py-4 md:py-2 xl:first:pl-0 xl:last:pr-0">
                   <span className="text-[36px] md:text-[44px] font-bold tracking-tight text-foreground leading-none">
                     {m.value}
                     {m.suffix && <span className="text-accent-strong">{m.suffix}</span>}

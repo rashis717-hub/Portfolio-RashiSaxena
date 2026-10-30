@@ -124,7 +124,7 @@ I structured the platform into three primary modules in the primary navigation, 
 />
 
 ### 1. Module 1: Agent Definition (Agent Library)
-Stores agent blueprints: identity, input/output modes, capability tags (streaming, push notifications), dependency graphs, and Helm chart links. Each agent progresses through explicit lifecycle states: `Draft` $\rightarrow$ `Active` $\rightarrow$ `Inuse` (when referenced by an active deployment).
+Stores agent blueprints: identity, input/output modes, capability tags (streaming, push notifications), dependency graphs, and Helm chart links. Each agent progresses through explicit lifecycle states: `Draft` → `Active` → `Inuse` (when referenced by an active deployment).
 
 ### 2. Module 2: Configuration Management
 Defines JSON schemas for agent parameters. Platform administrators maintain reusable **Config Templates** (draft-2020-12 standard), while operators instantiate versioned **Config Records** targeted to specific tenants and environments.
@@ -223,8 +223,8 @@ In enterprise software running under strict compliance, an in-place edit on a li
 
 ### The State Rules:
 1. **Un-deployed Drafts (In-Place Updates):** While a tenant version is in `Draft` or `Ready For Deployment`, operators can edit skills and configs in place.
-2. **Post-Deployment Lock:** As soon as **Deploy To DEV** is clicked, the version locks. Any subsequent edit creates a new minor version (e.g., `1.0.0` $\rightarrow$ `1.1.0`).
-3. **Post-Promotion Major Fork:** Once a version is promoted to higher environments, it is permanently frozen. Clicking **Edit Mapping** on a promoted version creates an unlocked major release (e.g., `1.0.0` $\rightarrow$ `2.0.0`) with a mandatory changelog modal.
+2. **Post-Deployment Lock:** As soon as **Deploy To DEV** is clicked, the version locks. Any subsequent edit creates a new minor version (e.g., `1.0.0` → `1.1.0`).
+3. **Post-Promotion Major Fork:** Once a version is promoted to higher environments, it is permanently frozen. Clicking **Edit Mapping** on a promoted version creates an unlocked major release (e.g., `1.0.0` → `2.0.0`) with a mandatory changelog modal.
 
 <Figure
   src="/work/agent-registry/screens/figma/12-deploy-tenant-modal.webp"

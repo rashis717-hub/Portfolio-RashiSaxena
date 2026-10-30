@@ -59,7 +59,7 @@ const components: MDXComponents = {
   InfraBotWireframes,
   table: (props) => (
     <div className="my-10 w-full overflow-x-auto">
-      <table className="w-full text-left border-collapse border-y border-border" {...props} />
+      <table className="w-full min-w-[34rem] text-left border-collapse border-y border-border" {...props} />
     </div>
   ),
   thead: (props) => (

@@ -59,6 +59,7 @@ That work is a loop: harden, patch, upgrade, prove, and then repeat. It never fi
   size="wide"
   alt="Diagram of the compliance cycle (harden, patch, upgrade, prove, repeat), the manual gaps people fill, and the share of IT budget spent running the bank"
   caption="The compliance cycle, the gaps people fill by hand, and where the budget goes (BCG, Indian banks, 2024)."
+  zoom
 />
 
 ### The core problem
@@ -122,6 +123,7 @@ I synthesised the two, together with CitiusCloud's product material, into three 
   size="wide"
   alt="Diagram: AI-assisted research, domain input from Aditya Sharma and CitiusCloud product material are synthesised into a journey map, needs by team and insight framing, producing three insights, six design principles, and the structure and flows"
   caption="Two sources, synthesised into three outputs. The confidence is directional: expert and desk research, not end-user interviews."
+  zoom
 />
 
 {/* DRAFT: written from how you described the method. Edit it to match what you actually did with the AI tools and with Aditya. */}
@@ -136,6 +138,7 @@ infraBOT is a new product, so there was no legacy interface to audit. The thing 
   size="wide"
   alt="Journey map comparing today's four steps (chat, email, tracker, alert) with the infraBOT flow of request, approve, run, report and agents"
   caption="Today a change moves through four tools and a bridge call. With infraBOT it is one request that carries its own evidence."
+  zoom
 />
 
 ### Who it is for
@@ -192,6 +195,7 @@ I grouped everything by how teams use it, from raising a request to governing wh
   size="wide"
   alt="Information architecture map of infraBOT showing five groups and their capabilities"
   caption="Five groups follow the job to be done. Requesters never see the technology underneath."
+  zoom
 />
 
 <Decision
@@ -217,6 +221,7 @@ The two flows that matter most are raising a request, and an agent raising a tic
   size="wide"
   alt="Swimlane user flow for raising a request: the requester's five steps, the approver's decision, and infraBOT running the work and producing a report"
   caption="Raising a request: five guided steps, an approver's decision, then a run and a report. Approval is configured per operation: none, one level or several."
+  zoom
 />
 
 Raising a request is five steps: category, operation, parameters, target, and review. Each step answers one question, and the next is only available once it is answered, so a request cannot be submitted incomplete. If the operation needs approval, the approver sees exactly what will run, on which endpoints, and the path it took. They can approve, ask for a change, or reject, and a rejection keeps its reason on the record. After approval the work runs, and every host reports back.
@@ -227,6 +232,7 @@ Raising a request is five steps: category, operation, parameters, target, and re
   size="wide"
   alt="Swimlane user flow for an agent-raised ticket: the agent watches, finds an issue, investigates and raises a ticket; an approver decides; an approved fix runs, a root cause analysis is recorded and the knowledge base grows"
   caption="An agent-raised ticket: diagnosis and proposed commands arrive on the ticket, a person decides, and only an approved fix runs."
+  zoom
 />
 
 In the agent flow the agent does the investigating and the person keeps the decision. The ticket carries the diagnosis, the root cause and the exact commands, and is flagged as AI-generated so nobody reads it as fact. After an approved fix, a root cause analysis is recorded and added to the knowledge base, where later tickets can cite it.
@@ -237,6 +243,7 @@ In the agent flow the agent does the investigating and the person keeps the deci
   size="wide"
   alt="Setup flow for administrators: onboard inventory, upload scripts, map parameters, build the form, define the workflow, set roles and tenants, publish"
   caption="Setting up the catalogue: seven steps, no code, ending in an operation that appears under its category."
+  zoom
 />
 
 ### Low-fidelity wireframes
@@ -249,6 +256,7 @@ I laid out the two screens that decide whether the product is trusted first: cho
   size="wide"
   alt="Wireframe of the guided request: five steps on the left, request categories as cards, search and filter"
   caption="Five guided steps on the left, categories as cards, and search and filter at every step."
+  zoom
 />
 
 <Figure
@@ -257,6 +265,7 @@ I laid out the two screens that decide whether the product is trusted first: cho
   size="wide"
   alt="Wireframe of request detail with a guided parameter form and an approval timeline"
   caption="Parameters become a guided form, and the approval timeline sits beside it so the path is visible before submitting."
+  zoom
 />
 
 {/* [YOUR INPUT: add your earlier explorations or rejected directions here, with one line on why you moved on] */}
@@ -326,6 +335,7 @@ An operations product earns trust in its edge cases. These are the situations I 
   size="wide"
   alt="Wireframe of the compliance report layout"
   caption="The report layout: totals first, charts for patterns, evidence rule by rule."
+  zoom
 />
 
 <Figure src="/work/infrabot/screens/07-findings-report.webp" size="full" alt="Rule-by-rule findings table" caption="Findings with severity and result for each rule, ready to export for the audit." zoom />
@@ -344,6 +354,7 @@ An operations product earns trust in its edge cases. These are the situations I 
   size="wide"
   alt="Diagram: requests raised by people and tickets raised by agents both pass through the same workflow, roles, execution and reports, then an approval gate, then execution"
   caption="One request model for people and for agents. A person approves where you want one, and always for an agent's fix."
+  zoom
 />
 
 <MotionVideo
@@ -364,6 +375,7 @@ An operations product earns trust in its edge cases. These are the situations I 
   size="wide"
   alt="Wireframe of the agent ticket with approval panel and automation status"
   caption="Diagnosis, decision and progress on one screen."
+  zoom
 />
 
 <Figure src="/work/infrabot/screens/10-automation-status.webp" size="full" alt="Automation status timeline from diagnosis through approval to remediation" caption="Every step is shown, and a root cause analysis is recorded after the fix." zoom />

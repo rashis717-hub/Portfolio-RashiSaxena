@@ -152,7 +152,7 @@ export function SiteHeader({
         }}
         className="fixed inset-x-0 top-0 z-40 border-b border-transparent transition-[translate,background-color,border-color] duration-200 ease-out data-[hidden=true]:-translate-y-full data-[scrolled=true]:border-border data-[scrolled=true]:bg-background/85 data-[scrolled=true]:backdrop-blur-md"
       >
-        <div className="container-site flex h-16 items-center justify-between gap-4">
+        <div className="container-site flex h-16 items-center justify-between gap-3 min-[400px]:gap-4">
           <div className="flex min-w-0 items-baseline gap-4">
             <Link
               id="site-home"
@@ -170,7 +170,7 @@ export function SiteHeader({
 
           <div className="flex items-center gap-2 md:gap-6">
             <nav aria-label="Main">
-              <ul className="flex items-center gap-5 md:gap-8">
+              <ul className="flex items-center gap-3 whitespace-nowrap text-sm min-[400px]:gap-5 min-[400px]:text-base md:gap-8">
                 {nav.map((item) => (
                   // On phones the résumé lives in the footer, keeping the header to page links.
                   <li key={item.href} className={cn(item.external && "hidden md:block")}>

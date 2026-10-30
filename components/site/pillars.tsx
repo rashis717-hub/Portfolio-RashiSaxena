@@ -14,16 +14,16 @@ export function Pillars() {
           What I Do · Core Focus
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x divide-border">
+        <div className="grid grid-cols-1 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-border">
           {items.map((item, idx) => (
             <article
               key={item.title}
-              className={`flex flex-col gap-3 py-6 md:py-0 ${
+              className={`flex flex-col gap-3 py-6 lg:py-0 ${
                 idx === 0
-                  ? "md:pr-8 lg:pr-10"
+                  ? "lg:pr-8 xl:pr-10"
                   : idx === 1
-                  ? "md:px-8 lg:px-10"
-                  : "md:pl-8 lg:pl-10"
+                  ? "lg:px-8 xl:px-10"
+                  : "lg:pl-8 xl:pl-10"
               }`}
             >
               <div className="flex items-center justify-between">
