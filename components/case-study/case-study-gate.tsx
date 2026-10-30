@@ -19,7 +19,9 @@ import { Lock, Mail } from "lucide-react";
  *   NEXT_PUBLIC_PRIVATE_GATE_HASH=<hash>
  */
 
-const HASH = process.env.NEXT_PUBLIC_PRIVATE_GATE_HASH ?? "";
+// Default passcode hash for "rashi2026" (override with NEXT_PUBLIC_PRIVATE_GATE_HASH)
+const DEFAULT_HASH = "31ac77585d750909128d4ca9c125b94b0101fbad8784dc8aaf6c7eedf6c3c8e8";
+const HASH = process.env.NEXT_PUBLIC_PRIVATE_GATE_HASH || DEFAULT_HASH;
 const STORAGE_KEY = "private-gate-unlocked";
 
 async function sha256(text: string): Promise<string> {

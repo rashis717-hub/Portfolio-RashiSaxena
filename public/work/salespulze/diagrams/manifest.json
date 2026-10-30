@@ -1,0 +1,42 @@
+{
+  "d01-meeting-to-action.dark.png": {
+    "width": 2400,
+    "height": 596
+  },
+  "d01-meeting-to-action.light.png": {
+    "width": 2400,
+    "height": 596
+  },
+  "d02-information-architecture.dark.png": {
+    "width": 2400,
+    "height": 1014
+  },
+  "d02-information-architecture.light.png": {
+    "width": 2400,
+    "height": 1014
+  },
+  "d03-hierarchy-dashboards.dark.png": {
+    "width": 2400,
+    "height": 951
+  },
+  "d03-hierarchy-dashboards.light.png": {
+    "width": 2400,
+    "height": 951
+  },
+  "d04-ai-trust.dark.png": {
+    "width": 2400,
+    "height": 789
+  },
+  "d04-ai-trust.light.png": {
+    "width": 2400,
+    "height": 789
+  },
+  "d05-score-model.dark.png": {
+    "width": 2400,
+    "height": 984
+  },
+  "d05-score-model.light.png": {
+    "width": 2400,
+    "height": 984
+  }
+}
