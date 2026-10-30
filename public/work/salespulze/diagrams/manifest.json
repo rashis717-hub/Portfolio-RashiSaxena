@@ -1,4 +1,20 @@
 {
+  "annot-01-intel-hub.dark.png": {
+    "width": 2400,
+    "height": 2339
+  },
+  "annot-01-intel-hub.light.png": {
+    "width": 2400,
+    "height": 2339
+  },
+  "annot-02-meeting-series.dark.png": {
+    "width": 2400,
+    "height": 1683
+  },
+  "annot-02-meeting-series.light.png": {
+    "width": 2400,
+    "height": 1683
+  },
   "d01-meeting-to-action.dark.png": {
     "width": 2400,
     "height": 596
