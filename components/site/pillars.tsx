@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { site } from "@/content/site";
 
 /**
  * Pillars Section ("How I work"):
- * 3-column editorial grid separated by hairlines showing a specific real screen per pillar.
+ * 3-column editorial grid separated by hairlines.
  */
 export function Pillars() {
   const items = site.howIWork.items;
@@ -27,7 +26,7 @@ export function Pillars() {
           {items.map((item, idx) => (
             <article
               key={item.title}
-              className={`flex flex-col gap-4 py-8 lg:py-0 ${
+              className={`flex flex-col gap-3 py-6 lg:py-0 ${
                 idx === 0
                   ? "lg:pr-8 xl:pr-10"
                   : idx === 1
@@ -35,19 +34,7 @@ export function Pillars() {
                   : "lg:pl-8 xl:pl-10"
               }`}
             >
-              {item.image && (
-                <div className="relative aspect-4/3 w-full overflow-hidden rounded-md border border-border bg-muted/40">
-                  <Image
-                    src={item.image}
-                    alt={item.imageAlt || item.title}
-                    width={800}
-                    height={600}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out hover:scale-[1.02]"
-                  />
-                </div>
-              )}
-
-              <div className="flex items-center justify-between mt-2">
+              <div className="flex items-center justify-between">
                 <span className="label text-accent-strong">
                   {(idx + 1).toString().padStart(2, "0")} / Focus
                 </span>
