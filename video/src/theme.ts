@@ -1,0 +1,16 @@
+export const THEME = {
+  bg: '#FAFAF9',
+  fg: '#0C0D12',
+  muted: '#53555B',
+  subtle: '#8B8D94',
+  hairline: '#D8D8D4',
+  cardBg: '#FFFFFF',
+  accent: '#FF2E88',
+  codeBg: '#15161A',
+  codeBorder: 'rgba(255, 255, 255, 0.14)',
+  codeText: '#F6F5F3',
+  fontFamily: "'Geist', -apple-system, BlinkMacSystemFont, sans-serif",
+  monoFamily: "'Geist Mono', monospace",
+  safeMargin: 96,
+  easeEntrance: 'cubic-bezier(0.22, 1, 0.36, 1)',
+};

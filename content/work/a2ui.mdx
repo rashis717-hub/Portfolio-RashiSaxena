@@ -1,0 +1,382 @@
+---
+title: "A2UI"
+slug: "a2ui"
+tagline: "Designing how AI agents answer with interfaces: a component catalogue and behaviour schema for agent conversation"
+summary: "Plain text is a poor way for an enterprise agent to ask a question, show a plan, request permission or present a table. I designed a catalogue of conversation components, and the behaviour schema that decides how each one adapts, so an agent can describe an interface and the platform can render it safely, from components it already trusts."
+company: "Covasant Technologies"
+role: "UX Lead: concept, component catalogue for agent conversation, behaviour schema"
+platformType: "Agent chat assistant inside an enterprise AI platform (CAMS Agent Registry)"
+platforms: ["Web"]
+timeline: "[YOUR INPUT: months and year]"
+year: 2026
+team: "[YOUR INPUT: who you worked with, for example the engineer who owns the renderer]"
+deliverables:
+  - "Concept and mapping to the A2UI protocol"
+  - "Component catalogue for agent conversation"
+  - "Behaviour schema: states, actions and adaptation"
+  - "High-fidelity screens in Figma: 60+ frames in two phases"
+  - "Agent loading and thinking states"
+status: "Concept and catalogue defined; build awaits real client use cases"
+cover: "/work/a2ui/screens/figma/01-end-to-end-flow.webp"
+video: "/work/a2ui/video/a2ui-motion.mp4"
+poster: "/work/a2ui/video/poster.jpg"
+videoCredit: "Rashi Saxena"
+order: 2
+visibility: "public"
+redact: false
+tags: ["Agentic AI", "Generative UI", "Design systems", "Conversation design"]
+metrics:                                      # [YOUR INPUT: confirm these three counts against your Figma file]
+  - { value: "6", label: "Families of conversation components" }
+  - { value: "60", suffix: "+", label: "Designed frames in Figma, in two phases" }
+  - { value: "3", label: "Levels of loading, from app to agent to history" }
+links:
+  figma: "https://www.figma.com/design/ZTSXaG0vjNsCjc4EzXZV5n/A2UI-and-Chat-Assitance"
+---
+
+{/* The header, project details, three metrics and the hero video come from the frontmatter above. The video credit reads "Video: Rashi Saxena". */}
+
+<Section n="01" title="Context & Business Problem" headline="A chat window that can only print text cannot run enterprise work">
+
+### The enterprise landscape
+
+In an enterprise, AI agents do real work in real systems: HR, payroll, tickets, approvals. In CAMS, people talk to these agents in a chat. In my designs, a People Analytics Agent builds workforce and PTO analytics from HRMS and Payroll data, and a Leave Policy Agent answers leave questions and can file or withdraw requests. The conversation is the front door to all of it.
+
+That makes the conversation the most important surface in the product, and today most agents can only use one tool on it: text.
+
+### The core problem
+
+Text works for a quick answer. It breaks down the moment an agent needs to do something with a person.
+
+- The agent needs a missing detail, so it asks in a paragraph, and the person answers by typing and hoping it is understood.
+- The agent makes judgement calls, such as which currency to report in, and buries them in prose where nobody reviews them.
+- The agent has a plan, but describes it in sentences instead of showing the steps.
+- The agent wants to act, such as emailing a report or withdrawing a leave request, and the permission is one polite sentence with no sign of the consequences.
+- The result is a wall of text with a table pasted into it.
+- The task takes minutes and the screen shows nothing.
+
+| What people experience | What it costs the business |
+|---|---|
+| Questions buried in paragraphs, answered by free typing | Misread answers, retries and slow tasks |
+| Judgement calls made silently | Wrong assumptions that surface late, after the work is done |
+| Permission asked in a sentence | Actions taken without clear consent, and no record of what was agreed |
+| Results as pasted text | Hard to scan, hard to trust, hard to act on |
+| Silence while the agent works | People abandon the task or ask again |
+
+### The idea: let the agent describe the interface
+
+A2UI is an open-source protocol, created by Google with community contributions, for agent-driven user interfaces. It exists to answer one question: how can an AI agent safely send a rich interface across a trust boundary?
+
+Instead of text-only replies or risky generated code, the agent sends declarative descriptions of components, and the client renders them with its own native components. The agent can only use components from a pre-approved catalogue, so it cannot inject arbitrary UI. The format is flat, streaming JSON designed for language models to generate, and the same message can render on different platforms and frameworks.
+
+<A2UIFlow />
+
+The loop is the same each time: the person sends a message, the agent generates A2UI messages describing the interface, they stream to the client, the client validates and renders them from its catalogue, the person interacts, and the action goes back to the agent.
+
+### How my work maps onto the protocol
+
+| A2UI concept | What it is | What I designed |
+|---|---|---|
+| Catalogue | A schema listing the components, functions and themes an agent may use. Every payload is validated against it. | The component catalogue for agent conversation: six families of components |
+| Components and structure | Declarative descriptions of what to show | The anatomy and every state of each component, in Figma |
+| Data binding and actions | Values the person enters, and actions sent back to the agent | Answers, form values, and actions such as Allow, Cancel, Begin and Modify plan |
+| Theming and styling | The client styles components with its own design system | Components built on Covasant's design system {/* [YOUR INPUT: confirm the design system and tokens used] */} |
+| Catalogue negotiation | The client tells the agent which catalogues it supports | The behaviour schema: inside CAMS the agent uses the custom catalogue, from outside it uses basic primitives |
+| Validation and graceful fallback | Check before sending and on arrival; unknown components fall back safely | Designed error, empty, loading and text-fallback states |
+
+This maps my design onto the protocol's concepts. Protocol details are from a2ui.org (specification v0.9.1 current, v1.0 a release candidate at the time of writing). Implementation is still ahead.
+
+</Section>
+
+<Section n="02" title="Role & Constraints" headline="I owned the concept, the catalogue and the schema, inside rules the protocol sets">
+
+### My role and team
+
+I led the UX for the concept: what an agent should be able to show, which components make up the catalogue, and how each one behaves. I designed the components and their states in Figma, and defined the behaviour schema that says how they adapt. My team: {/* [YOUR INPUT: who you worked with, for example the engineer who owns the renderer or the agent developer] */}.
+
+### Constraints, and what each one meant for the design
+
+<CardGrid cols={2} items={[
+  { title: "Agents may only use what is in the catalogue", text: "An agent cannot improvise. So every component had to be complete: every state, every edge case and every action designed up front." },
+  { title: "The catalogue is fixed before the conversation", text: "In A2UI the catalogue is known to the agent and the client at build time, and evolves additively: add, never delete, deprecate instead. I designed components to be extended and not rewritten." },
+  { title: "It should mirror the design system", text: "The protocol's own guidance for a mature frontend is to define a catalogue that mirrors the existing design system. The components reuse the same visual language as the rest of the platform." },
+  { title: "One agent, many surfaces", text: "The same agent can be reached inside CAMS or from outside it. The behaviour schema defines what each surface shows, so the agent's message stays the same." },
+  { title: "A language model has to generate it", text: "Each component needed a clear purpose, a short list of required values and plain descriptions an agent can follow, so it produces valid output the first time." },
+  { title: "Real client use cases are still to come", text: "Implementation waits for real deployments. That pushed me to design for completeness and correctness first, not for scale." }
+]} />
+
+</Section>
+
+<Section n="03" title="Research & Discovery" headline="Learning the protocol, auditing the design system, and mapping the moments text cannot handle">
+
+### How I researched
+
+I started by studying the A2UI documentation: how data flows, how components and data binding work, what a catalogue is and how catalogues are negotiated, validated and versioned, and how actions and theming work. {/* [YOUR INPUT: any other research, for example AI-assisted research, a review of other agent products, or conversations with engineers] */}
+
+I then analysed Covasant's Figma design system to see which existing components could be offered to an agent. That analysis produced catalogue schemas and a theming file for matched components, such as the data table, the error message and the text input, with a few token values flagged for manual checking.
+
+### Mapping the conversation
+
+The most useful thing I did was list the moments in an agent conversation that text handles badly, and decide what should replace the text at each one.
+
+| Moment | What goes wrong with text | Component |
+|---|---|---|
+| The agent needs a missing detail | Questions buried in a paragraph, answered by typing | Question: single or multiple choice, with Other, review and an answered summary |
+| The agent faces judgement calls | Assumptions made silently | Decisions: recommended options pre-selected, for review |
+| The agent proposes work | A plan described in sentences | Plan: steps, duration, read-only or changing, data sources, and Begin, Modify or Don't start |
+| The agent wants to act | Permission buried in one sentence | Permission: what will happen, to which system, who is affected, whether it can be undone |
+| The agent needs structured input | Slow back and forth | Form: fields, file upload, searchable dropdown, date and time, validation |
+| The agent shows results | Walls of text and pasted tables | KPI cards, table, charts, list, code snippet |
+| The agent is working | Silence | Loading and thinking states, then an execution summary |
+| Something goes wrong, or there is nothing to show | Raw errors | Error, success, info and empty states |
+
+### What shaped the design
+
+1. **An answered component should become part of the record.** Once a question or a decision is answered it collapses to a single summary line, such as "Answered 2 questions", marked as used by the agent, so the conversation stays readable and auditable.
+2. **Permission must show consequences, not just ask.** The question alone is not enough for an irreversible action. The person needs to see what will change, in which system, who is affected, and whether it can be undone.
+3. **A plan is a contract.** If the person changes it, the change must be visible. A revised plan shows which steps changed and replaces the earlier version.
+
+{/* DRAFT: written from the design work and the moments above. Edit to match how you reached these. */}
+
+</Section>
+
+<Section n="04" title="Strategy & Information Architecture" headline="Agents choose from a catalogue they cannot extend, and every component knows how to behave">
+
+### Core principles
+
+<CardGrid cols={2} items={[
+  { title: "Agents choose, they never invent", text: "The agent picks components from the catalogue. It cannot create new ones, so nothing outside the design system can appear." },
+  { title: "Inline and in the flow", text: "Components live inside the conversation, with no detours to other screens, and collapse into a summary when they have been answered." },
+  { title: "Show the consequences before the action", text: "Anything that changes a system shows what, where, who is affected, and whether it can be undone, before the person decides." },
+  { title: "Show your work", text: "A plan before the work, and an execution summary after it, so the person always knows what the agent did." },
+  { title: "Design every state", text: "Loading, empty, error, success, validation, superseded and destructive states are all part of the catalogue, not afterthoughts." },
+  { title: "Adapt to where the agent is called from", text: "The same agent message renders richly inside CAMS and simply elsewhere, because the schema says how each component adapts." }
+]} />
+
+### The catalogue
+
+I grouped the components into six families.
+
+<CatalogueMap />
+
+| Family | Components | States designed |
+|---|---|---|
+| Ask | Question, Form, Text input | First step, multi-select with Other, review with validation error, answered summary; form errors, file upload and upload errors, searchable dropdown, date and time slot |
+| Decide | Decisions, Permission | Review and confirmed; allow, outcomes and destructive, superseded and re-asked |
+| Plan and run | Plan, Execution summary, Loading and thinking | Started and modified (v2); app, agent and history loading; skeleton; agent thinking states |
+| Show | KPI, Table, Data table, Charts, List, Code snippet | Bar, line, donut and scatter; table view |
+| Status | Error, Success, Info, Empty state, Submitted result and actions | Each with its message and its actions |
+| Navigate | Menu and the agent shell | Chat history, pinned chats, agent switcher |
+
+{/* DRAFT: the families are my grouping of the frames in your Figma file. Rename or regroup them to match how you think about the catalogue. */}
+
+### How I defined the behaviour schema
+
+Every component in the catalogue has a contract with four parts.
+
+1. **Purpose and data.** What the agent provides, with the fewest required values, each described in plain language so an agent can use it correctly.
+2. **States.** The default, loading, empty, error and success states, plus the states that only matter for interactive components: pending, answered and superseded, and destructive for risky actions.
+3. **Actions.** What the person can do, and exactly what is sent back to the agent when they do it.
+4. **Adaptation.** How the component changes across scenarios and across surfaces, including where the agent is called from. Inside CAMS the agent uses the full custom catalogue. From outside, it uses basic primitives only.
+
+<AdaptationMatrix />
+
+<StateLifecycle />
+
+An illustration of the shape of one contract, simplified:
+
+```json
+{
+  "Permission": {
+    "description": "Ask the person to allow an action the agent is about to take.",
+    "props": {
+      "action": "What the agent wants to do",
+      "risk": "standard or destructive",
+      "outcomes": {
+        "what": "What will change",
+        "system": "Which system changes",
+        "affected": "Who is affected",
+        "reversible": "true or false"
+      }
+    },
+    "states": ["pending", "allowed", "denied", "superseded"],
+    "actions": ["allow", "cancel"],
+    "adapt": {
+      "cams-chat": "Card with an outcomes table and a confirm button",
+      "external": "Text summary with two basic buttons"
+    }
+  }
+}
+```
+
+{/* [YOUR INPUT: replace this illustration with your actual schema fields, and say what the agent receives and sends for each component. This sample only shows the shape.] */}
+
+</Section>
+
+<Section n="05" title="Final Solutions" headline="A conversation that can ask, decide, plan and show, and stays in the person's control">
+
+<SubSection n="01" title="Ask: structured questions instead of paragraphs">
+
+**The problem it solves:** the agent needs information, and typing free text invites mistakes.
+
+**What I designed:** a Question component that walks through one question at a time. A row of small chips shows progress through the questions. Options carry a short description, and an Other option opens a text field. A person can skip, go back, or move on, and an invalid answer is flagged before it goes to the agent. Once answered, the whole thing collapses to a single line the agent has used.
+
+<Figure src="/work/a2ui/screens/figma/03-question-multiselect-other.webp" size="full" alt="A multi-select question with options, an Other text field and progress chips" caption="Multi-select with Other: progress chips, short descriptions, and Back and Next." zoom />
+
+<Figure src="/work/a2ui/screens/figma/04-question-validation-error.webp" size="full" alt="Question review step showing a validation error" caption="Review with a validation error, caught before the answer reaches the agent." zoom />
+
+<Figure src="/work/a2ui/screens/figma/05-question-answered-summary.webp" size="full" alt="Answered question collapsed into a summary line" caption="Answered, the question collapses into the record." zoom />
+
+The same idea extends to forms: fields with validation, file upload with upload errors, a searchable dropdown, and a date and time slot.
+
+<Figure src="/work/a2ui/screens/figma/13-form.webp" size="full" alt="Form component in the agent conversation" caption="Form: structured input inside the conversation." zoom />
+
+<Figure src="/work/a2ui/screens/figma/14-form-validation-upload-errors.webp" size="full" alt="Form showing validation and upload errors" caption="Validation and upload errors are designed states, not afterthoughts." zoom />
+
+</SubSection>
+
+<SubSection n="02" title="Decide: judgement calls and permission, with consequences visible">
+
+**The problem it solves:** agents make assumptions silently and act without clear consent.
+
+**What I designed:** a Decisions component that lists the agent's judgement calls with its recommendation already selected, so the person reviews instead of authoring. A Permission component for actions: it asks first, and for destructive actions it shows what will change, in which system, who is affected and whether it can be undone, with a clear destructive button. If the conversation moves on, an unanswered request is marked superseded and re-asked when it matters again.
+
+<Figure src="/work/a2ui/screens/figma/06-decisions-review.webp" size="full" alt="Decisions review with recommended options pre-selected" caption="Decisions: recommendations pre-selected, ready to review." zoom />
+
+<Figure src="/work/a2ui/screens/figma/10-permission-allow.webp" size="full" alt="Permission request that has been allowed" caption="Permission: asked first, then recorded as allowed." zoom />
+
+<Figure src="/work/a2ui/screens/figma/11-permission-outcomes-destructive.webp" size="full" alt="Confirmation for withdrawing an approved leave request, listing what, system, who is affected and whether it is reversible" caption="A destructive action shows what changes, where, who is affected, and that it cannot be undone." zoom />
+
+<Figure src="/work/a2ui/screens/figma/12-permission-superseded-reasked.webp" size="full" alt="A superseded permission request that is asked again" caption="Superseded and re-asked: stale requests never linger." zoom />
+
+</SubSection>
+
+<SubSection n="03" title="Plan and run: show the work before and after">
+
+**The problem it solves:** people cannot see what the agent is about to do, or what it did.
+
+**What I designed:** a Plan component that shows the steps, the estimated time, whether the plan is read-only, and the data sources, with Begin, Modify plan and Don't start. When the person changes the plan, a new version replaces the old one and marks the steps that changed. After the run, an execution summary reports what was done. While the agent works, loading and thinking states keep the screen alive, from the initial app load, to the agent loading, to history loading.
+
+<Figure src="/work/a2ui/screens/figma/08-plan-started.webp" size="full" alt="Proposed plan with steps, duration and data sources" caption="Plan: the steps, the time, the sources, and a clear choice to begin." zoom />
+
+<Figure src="/work/a2ui/screens/figma/09-plan-modify-v2.webp" size="full" alt="Plan version 2 with changed steps marked" caption="Modify: version 2 replaces version 1 and marks every changed step." zoom />
+
+<Figure src="/work/a2ui/screens/figma/29-loading-initial-l1.webp" size="full" alt="Initial load state: app loading" caption="Level 1: the app is loading." zoom />
+
+<Figure src="/work/a2ui/screens/figma/31-loading-initial-l3.webp" size="full" alt="Initial load state: loaded" caption="Level 3: loaded." zoom />
+
+I also designed the agent's own loading language: an orb that shows what the agent is doing, such as searching, thinking, working, planning, listening and composing, with quieter settled variants for when nothing is happening.
+
+<Figure src="/work/a2ui/screens/figma/34-orb-loader.webp" size="full" alt="Orb loader showing the agent thinking" caption="The agent orb, thinking." zoom />
+
+</SubSection>
+
+<SubSection n="04" title="Show: results that can be read, compared and acted on">
+
+**The problem it solves:** results arrive as text, with tables pasted into it.
+
+**What I designed:** KPI cards for the headline numbers, tables with sortable columns and badges, charts for trends and shares, lists, and a code snippet component. They carry their own actions, such as opening a table in full.
+
+<Figure src="/work/a2ui/screens/figma/19-kpi.webp" size="full" alt="KPI cards in the agent conversation" caption="KPI cards for the headline numbers." zoom />
+
+<Figure src="/work/a2ui/screens/figma/20-table-view.webp" size="full" alt="Table view in the agent conversation" caption="Table: scannable, with badges and a clear top-N label." zoom />
+
+<Figure src="/work/a2ui/screens/figma/21-bar-chart.webp" size="full" alt="Bar chart in the agent conversation" caption="Bar chart." zoom />
+
+<Figure src="/work/a2ui/screens/figma/22-line-donut-scatter.webp" size="full" alt="Line, donut and scatter charts" caption="Line, donut and scatter." zoom />
+
+</SubSection>
+
+<SubSection n="05" title="Status: errors, success, info and empty states">
+
+**The problem it solves:** when something goes wrong, or there is nothing to show, the agent falls back to raw text.
+
+**What I designed:** error, success and info messages with their own actions, such as View request after a submission, and an empty state for when there is nothing to show.
+
+<Figure src="/work/a2ui/screens/figma/25-error.webp" size="full" alt="Error message component" caption="Error." zoom />
+
+<Figure src="/work/a2ui/screens/figma/26-success.webp" size="full" alt="Success message component" caption="Success." zoom />
+
+<Figure src="/work/a2ui/screens/figma/28-empty-state.webp" size="full" alt="Empty state component" caption="Empty state." zoom />
+
+</SubSection>
+
+<SubSection n="06" title="End to end: one conversation, six components">
+
+A single conversation, start to finish. The person asks for a Q4 PTO liability report. The agent asks two quick questions, which collapse to "Answered 2 questions". It lists five judgement calls and the person changes one. It shows a plan, runs it, and reports "Completed 6 of 6". When the person asks to email it, the agent asks permission first. Then it summarises the result with KPI cards and a table.
+
+<Figure src="/work/a2ui/screens/figma/01-end-to-end-flow.webp" size="full" alt="A complete agent conversation using questions, decisions, plan, execution summary, permission, KPI cards and a table" caption="One conversation, start to finish. Sample data." zoom />
+
+</SubSection>
+
+<SubSection n="07" title="How the pieces talk to each other">
+
+The explainer below shows the same agent message rendered two ways, depending on where the agent is called from.
+
+<A2UIExplainer />
+
+</SubSection>
+
+### Interactive prototype
+
+{/* [YOUR INPUT: link to your Figma prototype if you have one] */}
+
+</Section>
+
+<Section n="06" title="Validation & Testing" headline="What the design is built to change, and how I would measure it">
+
+### How I validated the design
+
+The catalogue is designed to follow the rules the A2UI specification sets for catalogues: change additively, deprecate instead of delete, treat enumerations as open, and fall back gracefully when a component is unknown. {/* [YOUR INPUT: how you validated it, for example a review with engineers, a prototype test, or sessions with users. Say plainly what you did. */}
+
+{/* DRAFT: this is the safe default. Replace it with one of these only if it is true:
+   A) "I reviewed the catalogue and the schema with [who], and refined them from their feedback."
+   B) "I tested the prototype with [N] people, and [what you learned]."
+   C) "The components were reviewed against the A2UI specification by [who]." */}
+
+### Text only, and with components
+
+This comparison shows what the design is built to change. These are design intentions, not measured results.
+
+| Dimension | Text only | With the catalogue |
+|---|---|---|
+| Collecting a missing detail | A paragraph answered by typing | A question with options, validation and a recorded answer |
+| Judgement calls | Made silently | Listed with recommendations, for review |
+| Taking an action | Permission asked in a sentence | Consequences shown, and the decision recorded |
+| Long tasks | Silence | A plan, visible progress and an execution summary |
+| Showing results | Pasted text | KPI cards, tables and charts |
+| Something goes wrong | A raw message | A designed error state with next steps |
+
+### What I would measure
+
+How often agent responses use a component instead of text; how many questions are answered without a retry; time from a request to an approved action; and how many unintended actions the permission step prevents.
+
+</Section>
+
+<Section n="07" title="Impact & Takeaways" headline="An agent that can show, ask and act, without leaving the design system">
+
+### Where it stands
+
+The concept and the catalogue are defined, the components and their states are designed, and the behaviour schema is written. The build waits for the first real client use case. {/* [YOUR INPUT: anything that has moved since, for example an engineering spike, a pilot or a stakeholder decision] */}
+
+<MetricStrip items={[
+  { value: "6", label: "Families of conversation components" },
+  { value: "60+", label: "Designed frames in two phases" },
+  { value: "3", label: "Levels of loading designed" },
+  { value: "2", label: "Surfaces: inside CAMS and from outside" }
+]} />
+
+### What comes next
+
+The first real use case. It will test which components earn their place, and where the schema needs to be more or less strict. The catalogue grows additively from there.
+
+### Reflections and learnings
+
+The hardest question was never what a component looks like. It was what it does when something goes wrong: the answer is invalid, the person changes their mind, the conversation moves on, the request is stale. Designing those moments is what turns a nice component into something an enterprise can rely on.
+
+The other lesson is about trust. An agent that can generate any interface is risky. An agent that can only choose from a catalogue you designed is predictable. The catalogue is where design and safety meet.
+
+{/* DRAFT: written from the design work. Edit it in your own words, and add anything you would do differently. */}
+
+<Takeaways quote="The agent describes the interface. The platform decides how it looks and behaves." />
+
+</Section>

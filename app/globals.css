@@ -1,0 +1,459 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/* Dark styles apply inside .dark, unless a nearer .light scope overrides it (used by /styleguide). */
+@custom-variant dark (&:is(.dark *):not(.dark .light *));
+
+@font-face {
+  font-family: "Geist Pixel";
+  src: url("/fonts/GeistPixel-VF.woff2") format("woff2");
+  font-display: block;
+}
+
+/*
+ * Design tokens. Source of truth: /DESIGN.md (hex). Values below are the same colours in OKLCH,
+ * differing by rounding only. Change DESIGN.md first, then these.
+ * --overlay is not in DESIGN.md yet (needed by shadcn dialog and sheet backdrops). There is no error
+ * colour: errors use foreground text, a hairline, an icon and a short sentence (DESIGN.md).
+ */
+:root,
+.light {
+  color-scheme: light;
+  --background: oklch(0.9848 0.0013 106.4); /* #FAFAF9 */
+  --foreground: oklch(0.16 0.011 276.2); /* #0C0D12 */
+  --muted: oklch(0.96 0.004 106.5); /* #F2F2EF */
+  --muted-foreground: oklch(0.45 0.01 271.2); /* #53555B */
+  --border: oklch(0.16 0.011 276.2 / 0.102); /* #0C0D121A */
+  --accent: oklch(0.662 0.2444 1.68); /* #FF2E88: decoration, focus rings, large elements only */
+  --accent-strong: oklch(0.5622 0.2254 6.65); /* #D6005F: links, small accent text, filled hovers */
+  --on-accent-strong: oklch(1 0 0); /* #FFFFFF */
+  --overlay: oklch(0.16 0.01 270 / 0.16);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.146 0.009 273.9); /* #090A0E */
+  --foreground: oklch(0.97 0.003 84.6); /* #F6F5F3 */
+  --muted: oklch(0.201 0.008 274.5); /* #15161A */
+  --muted-foreground: oklch(0.68 0.01 273.3); /* #96989F */
+  --border: oklch(1 0 0 / 0.09); /* #FFFFFF17 */
+  --accent: oklch(0.6884 0.2198 0.5); /* #FF4D94 */
+  --accent-strong: oklch(0.6884 0.2198 0.5); /* #FF4D94 */
+  --on-accent-strong: oklch(0.146 0.009 273.9); /* #090A0E */
+  --overlay: oklch(0.08 0.005 270 / 0.6);
+}
+
+/* Aliases shadcn components expect, derived from the tokens above. */
+:root,
+.light,
+.dark {
+  --accent-foreground: var(--on-accent-strong);
+  --primary: var(--foreground);
+  --primary-foreground: var(--background);
+  --secondary: var(--muted);
+  --secondary-foreground: var(--foreground);
+  --card: var(--background);
+  --card-foreground: var(--foreground);
+  --popover: var(--background);
+  --popover-foreground: var(--foreground);
+  --input: var(--border);
+  --ring: var(--accent);
+  --radius: 0.75rem;
+
+  /* Body and label sizes (display and h2 live in @theme below). */
+  --text-body: 1.0625rem;
+  --text-body--line-height: 1.65;
+  --text-label: 0.75rem;
+  --text-label--line-height: 1.4;
+  --text-label--letter-spacing: 0.08em;
+
+  --duration-hover: 180ms;
+  --duration-theme: 200ms;
+  --duration-page: 350ms;
+  --duration-reveal: 500ms;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-strong: var(--accent-strong);
+  --color-on-accent-strong: var(--on-accent-strong);
+  --color-overlay: var(--overlay);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-geist-sans);
+  --font-pixel: "Geist Pixel", monospace;
+
+  /* Radius (DESIGN.md rounded): sm 8px small controls, md 12px cards and images, rounded-full pills.
+     lg and above stay at 12px so shadcn components never exceed the card radius. */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: var(--radius);
+  --radius-lg: var(--radius);
+  --radius-xl: var(--radius);
+  --radius-2xl: var(--radius);
+  --radius-3xl: var(--radius);
+  --radius-4xl: var(--radius);
+}
+
+@theme {
+  /* Type scale: text-display, text-h2, text-h3 (text-body and label are utilities below) */
+  --text-display: clamp(2.75rem, 7vw, 6rem);
+  --text-display--line-height: 1.02;
+  --text-display--letter-spacing: -0.04em;
+  --text-display--font-weight: 500;
+  --text-h2: clamp(1.75rem, 3.2vw, 2.75rem);
+  --text-h2--line-height: 1.1;
+  --text-h2--letter-spacing: -0.03em;
+  --text-h2--font-weight: 500;
+  --text-h3: 1.5rem;
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.02em;
+  --text-h3--font-weight: 500;
+
+  /* Layout: max-w-site, max-w-measure, py-section, px-gutter */
+  --container-site: 1200px;
+  --container-measure: 68ch;
+  --spacing-section: clamp(6rem, 2.5rem + 9vw, 10rem);
+  --spacing-gutter: clamp(1.25rem, 5vw, 3rem);
+
+  --ease-entrance: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Body copy: body size and the 68ch reading measure. */
+@utility text-body {
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  max-width: var(--container-measure);
+}
+
+/* Small uppercase label in Geist Mono. */
+@utility label {
+  font-family: var(--font-mono);
+  font-size: var(--text-label);
+  font-weight: 500;
+  line-height: var(--text-label--line-height);
+  letter-spacing: var(--text-label--letter-spacing);
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+/*
+ * Inline link inside body text: accent-strong with a resting underline that strengthens on hover.
+ * The resting underline is required: accent-strong is only 3.7:1 (light) and 2.9:1 (dark) against
+ * body text, so colour alone cannot reliably mark a link (WCAG 1.4.1).
+ */
+@utility link {
+  color: var(--accent-strong);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  text-decoration-color: color-mix(in oklch, var(--accent-strong) 40%, transparent);
+  transition: text-decoration-color var(--duration-hover) ease-out;
+
+  &:hover {
+    text-decoration-color: var(--accent-strong);
+  }
+}
+
+/* Standalone link or nav item: underline draws left to right on hover (transform only). */
+@utility underline-draw {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.15em;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform var(--duration-hover) ease-out;
+  }
+
+  @media (hover: hover) {
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  /* The current page's nav link stays underlined. */
+  &[aria-current="page"]::after {
+    transform: scaleX(1);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after {
+      transition: none;
+    }
+  }
+}
+
+/*
+ * Home hero (P4). Reveals start on first paint without JavaScript, so they never hold back the
+ * largest contentful paint. Delays step by 60ms via --i (at most 8 steps).
+ */
+@layer components {
+  /* Static dot grid: 1px dots every 24px at 8% foreground. */
+  .hero-grid {
+    background-image: radial-gradient(
+      circle,
+      color-mix(in oklch, var(--foreground) 8%, transparent) 0.75px,
+      transparent 1px
+    );
+    background-size: 24px 24px;
+  }
+
+  .hero-reveal {
+    animation: hero-rise var(--duration-reveal) var(--ease-entrance) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+
+  /* Each headline word rises 12px behind a clip-path mask opening from below. */
+  .hero-word {
+    display: inline-block;
+    animation: hero-word var(--duration-reveal) var(--ease-entrance) both;
+    animation-delay: calc(var(--i, 0) * 60ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-reveal,
+    .hero-word {
+      animation: none;
+    }
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+/* Negative insets leave room for descenders and tracking so the final state never clips. */
+@keyframes hero-word {
+  from {
+    clip-path: inset(100% -0.1em -0.25em -0.1em);
+    transform: translateY(12px);
+  }
+  to {
+    clip-path: inset(-0.25em -0.1em -0.25em -0.1em);
+    transform: none;
+  }
+}
+
+/*
+ * The header's role label repeats the hero label, so it hides wherever the hero is shown.
+ * Unlayered so it beats the label's lg:inline utility.
+ */
+body:has(#hero-title) [data-header-role] {
+  display: none;
+}
+
+/* Page container and 12-column grid. */
+@utility container-site {
+  width: 100%;
+  max-width: calc(var(--container-site) + 2 * var(--spacing-gutter));
+  margin-inline: auto;
+  padding-inline: var(--spacing-gutter);
+}
+
+@utility container-case-study {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 72px);
+}
+
+@utility grid-site {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  /* Browser surfaces take the palette too. */
+  ::selection {
+    background-color: color-mix(in oklch, var(--accent) 28%, transparent);
+    color: var(--foreground);
+  }
+  :root {
+    caret-color: var(--accent-strong);
+  }
+  html {
+    @apply font-sans;
+    /* Anchor targets clear the fixed 64px header. */
+    scroll-padding-top: 5rem;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-size: var(--text-body);
+    line-height: var(--text-body--line-height);
+  }
+}
+
+/*
+ * Focus ring: 2px accent outline, 2px offset, keyboard focus only.
+ * Unlayered so it wins over component utilities such as outline-none.
+ * Exempt: input-group controls (the group wrapper draws the ring), the command menu search field
+ * (always focused while the menu is open; the caret shows it) and programmatic focus targets
+ * (tabindex="-1", e.g. <main> after the skip link or a page h1 after navigation).
+ */
+:focus-visible:not([data-slot="input-group-control"], [cmdk-input], [tabindex="-1"]) {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+/* Full-width rows (home work list): ring inside the row, 8px radius, so it never spills past the column. */
+[data-work-row]:focus-visible {
+  outline-offset: -2px;
+  border-radius: var(--radius-sm);
+}
+
+/* The exempt targets above would otherwise fall back to the browser's default outline. */
+[tabindex="-1"]:focus-visible,
+[cmdk-input]:focus-visible {
+  outline: none;
+}
+
+/* Theme crossfade. The class is added for one switch only (see lib/theme.ts). */
+.theme-transition,
+.theme-transition *,
+.theme-transition *::before,
+.theme-transition *::after {
+  transition-property: background-color, color !important;
+  transition-duration: var(--duration-theme) !important;
+  transition-timing-function: ease-out !important;
+  transition-delay: 0s !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .theme-transition,
+  .theme-transition *,
+  .theme-transition *::before,
+  .theme-transition *::after {
+    transition: none !important;
+  }
+}
+
+/* P10: Private gate – wrong-passcode shake. */
+.gate-shake {
+  animation: gate-shake 300ms ease-out;
+}
+
+@keyframes gate-shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-6px); }
+  50% { transform: translateX(6px); }
+  75% { transform: translateX(-6px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-shake {
+    animation: none;
+  }
+}
+
+/* Pixel name styling (inspired by jithinrp.com with signature pixel pink) */
+.hero-pixel-name {
+  font-family: "Geist Pixel", monospace;
+  font-variation-settings: "ELSH" 1;
+  font-size: clamp(3.25rem, 11.5vw, 13.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+  user-select: none;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.hero-pixel-char {
+  display: inline-block;
+  transition: font-variation-settings 0.35s ease-out, transform 0.2s ease-out, color 0.2s ease-out;
+  cursor: default;
+}
+
+.hero-pixel-char:hover {
+  font-variation-settings: "ELSH" 16;
+  color: var(--accent-strong);
+  transform: translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-pixel-char {
+    transition: none !important;
+  }
+}
+
+/* Kinetic Marquee with Geist Pixel */
+.pixel-marquee {
+  overflow: hidden;
+  border-block: 1px solid var(--border);
+  padding-block: 1.5rem;
+  user-select: none;
+  background-color: color-mix(in oklch, var(--muted) 35%, transparent);
+}
+
+.pixel-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: pixel-marquee 32s linear infinite;
+  will-change: transform;
+}
+
+.pixel-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 3.5rem;
+  padding-right: 3.5rem;
+  font-family: "Geist Pixel", monospace;
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  line-height: 1;
+  white-space: nowrap;
+  font-variation-settings: "ELSH" 1;
+}
+
+.pixel-marquee-plus {
+  color: var(--accent);
+  font-size: 0.7em;
+  transform: translateY(-0.05em);
+}
+
+@keyframes pixel-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pixel-marquee-track {
+    animation: none;
+  }
+}
+

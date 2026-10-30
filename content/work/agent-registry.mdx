@@ -1,0 +1,123 @@
+---
+title: "Agent Registry"
+slug: "agent-registry"
+tagline: "A registry designed to scale across tenants."
+summary: "Delivered Agent Registry, run per tenant by forward-deployed engineers and live with Zebra for 2 customers, with usage planned to expand. Designed to govern the AI agent lifecycle across multi-tenant environments with versioning, promotion gates, and deployment plans."
+role: "UX Lead"
+platforms:
+  - "Web (Enterprise Platform)"
+timeline: "[YOUR INPUT: e.g. 6 months]"
+year: 2026
+cover: "/work/agent-registry/cover.jpg"
+order: 3
+visibility: "public"
+redact: false
+tags:
+  - "Agent Registry"
+  - "Multi-Tenant Architecture"
+  - "Governance & Approvals"
+  - "Lifecycle Management"
+metrics:
+  - value: "2"
+    suffix: ""
+    label: "customers live with Zebra, expansion planned"
+---
+
+<Section number="01" label="The Challenge" title="Governing agents from draft to production across isolated enterprise tenants">
+
+As organizations deploy multiple specialized AI agents, managing their lifecycles becomes a major operational bottleneck. Teams build agents in isolation, struggle to track prompt revisions and tool permissions, and lack structured promotion gates between development and production.
+
+For Zebra, the goal was establishing a central Agent Registry capable of serving forward-deployed engineers (FDEs) operating across isolated tenant environments. Every agent needed auditable versioning, explicit promotion gates across Dev, Staging, UAT, and Production, and safe deployment rollback capabilities.
+
+</Section>
+
+<Section number="02" label="Who Runs It" title="Forward-deployed engineers running tenant-isolated operations">
+
+Unlike off-the-shelf SaaS where admins configure self-serve settings, this registry is operated primarily by forward-deployed engineers who onboard, tune, and maintain tenant environments for enterprise clients.
+
+<Stakeholders>
+  <Stakeholder
+    team="Forward-Deployed Engineers (FDEs)"
+    heard="[YOUR INPUT: what FDEs needed regarding rapid tenant provisioning and environment toggles]"
+    shaped="A tenant-first navigation model with quick-switch context, configuration templates, and CLI-matched UI inspection."
+  />
+  <Stakeholder
+    team="Zebra's Leadership & Partner Team"
+    heard="[YOUR INPUT: what Zebra's team required for multi-client visibility and SLA assurances]"
+    shaped="Centralized deployment overview across customer instances with version compliance status."
+  />
+  <Stakeholder
+    team="Platform Engineering"
+    heard="[YOUR INPUT: backend constraints regarding deployment plans and environment isolation]"
+    shaped="Decoupled deployment plans that package agent code, prompt hashes, and tool configurations into immutable artifacts."
+  />
+</Stakeholders>
+
+</Section>
+
+<Section number="03" label="Designed to Scale" title="Building for dozens of tenants from the first deployment">
+
+Although initially deployed with Zebra for 2 customers, the interface architecture was designed to scale across dozens of enterprise tenants without redesigning the information hierarchy.
+
+<Decision
+  title="Per-Tenant Workspace vs Unified Multi-Tenant Grid"
+  context="FDEs manage multiple enterprise customers who require strict data isolation and custom approval gates."
+  options="[YOUR INPUT: global dashboard with tenant filters vs dedicated tenant isolation workspaces]"
+  tradeoffs="[YOUR INPUT: speed of navigation vs risk of cross-tenant misconfiguration]"
+  chosen="Tenant isolation workspaces with persistent environment breadcrumbs and explicit approval hand-offs."
+/>
+
+</Section>
+
+<Section number="04" label="Lifecycle & Promotion" title="Four-environment promotion with approval-gated transitions">
+
+I designed the agent lifecycle flow to follow rigorous enterprise software release standards. Agents cannot leap directly from development into production; they must pass structured verification at each stage.
+
+<Flow
+  steps={[
+    { step: "Dev", title: "Draft & Experiment", description: "Prompt drafting, tool binding, and rapid scenario testing" },
+    { step: "Staging", title: "Multi-Turn Eval", description: "Automated benchmark runs with weighted score verification" },
+    { step: "UAT", title: "Human Review", description: "Customer team testing with approval-gated sign-off" },
+    { step: "Production", title: "Live Deployment", description: "Tenant rollout with live trace graph monitoring & rollback" },
+  ]}
+/>
+
+</Section>
+
+<Section number="05" label="Deployment & Version History" title="Immutable deployment plans and revision lineage">
+
+Every change to an agent's model prompt, temperature, tool permissions, or external integrations creates a new immutable revision in the version history.
+
+<Annotated
+  caption="[YOUR INPUT: Deployment plan inspection and version history timeline showing diff comparisons between revisions]"
+  notes={[
+    "[YOUR INPUT: Visual diff viewer highlighting changes in prompt templates and capability role packs]",
+    "[YOUR INPUT: Multi-environment status tags showing which revision is live in Dev, Staging, UAT, and Prod]",
+    "[YOUR INPUT: One-click rollback trigger with required incident rationale]",
+    "[YOUR INPUT: Tenant onboarding checklist for forward-deployed engineering teams]",
+  ]}
+/>
+
+</Section>
+
+<Section number="06" label="Customer Team Iterations" title="Refining the interface directly with Zebra's stakeholders">
+
+Working closely with Zebra's forward-deployed engineers and customer leads, we iterated on how approvals and deployment status were surfaced.
+
+<Compare
+  before="[YOUR INPUT: initial tabular permissions grid showing raw CRUD operations]"
+  after="[YOUR INPUT: capability-based role pack model with visual environment promotion status]"
+  beforeLabel="Initial Prototype"
+  afterLabel="Deployed Interface"
+  caption="[YOUR INPUT: comparison showing evolution from complex permission matrices to streamlined lifecycle promotion cards]"
+/>
+
+</Section>
+
+<Section number="07" label="Outcome & Reflection" title="Live with 2 customers, engineered for expansion">
+
+Agent Registry is live with Zebra across 2 enterprise customer tenants, providing robust governance over their AI agent lifecycles, with active expansion planned across further enterprise accounts.
+
+[YOUR INPUT: personal reflection on designing governance platforms for forward-deployed engineering teams]
+
+</Section>

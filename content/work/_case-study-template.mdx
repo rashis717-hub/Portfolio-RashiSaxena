@@ -1,0 +1,139 @@
+---
+title: "[Project name]"
+slug: "[slug]"
+tagline: "[One sentence naming the specific platform challenge, for example: Redesigning X for a B2B Y platform]"
+summary: "[Two or three sentences: the problem, what you designed, the result]"
+company: "[Company]"
+role: "[UX research, IA, wireframing, UI design, prototyping, leadership: only what you did]"
+platformType: "[Web, mobile app or enterprise SaaS]"
+platforms: ["Web"]
+timeline: "[Month Year to Month Year (N months)]"
+year: 2026
+team: "[Who you worked with: names and roles]"
+deliverables: ["[...]", "[...]"]
+status: "[Live, in pilot, shipped to N customers ...]"
+cover: "/work/[slug]/screens/[file].webp"
+video: "/work/[slug]/video/[slug]-motion.mp4"     # hero, 30 to 40 seconds, silent
+poster: "/work/[slug]/video/poster.jpg"
+videoCredit: "[Who made the video, for example CitiusCloud]"
+order: 1
+visibility: "public"
+redact: false
+tags: ["[...]"]
+metrics:                                           # exactly three, shown under the title
+  - { value: "[ ]", suffix: "[ ]", label: "[ ]" }
+  - { value: "[ ]", label: "[ ]" }
+  - { value: "[ ]", label: "[ ]" }
+---
+
+{/* The header, project details, three metrics and the hero video come from the frontmatter. */}
+
+<Section n="01" title="Context & Business Problem" headline="[A headline that states the problem, not the topic]">
+
+### The enterprise landscape
+{/* Write: the business domain and who the users are. 2 paragraphs. */}
+
+<MetricStrip items={[ { value: "[ ]", label: "[ ]" }, { value: "[ ]", label: "[ ]" }, { value: "[ ]", label: "[ ]" }, { value: "[ ]", label: "[ ]" } ]} />
+
+### The core problem
+{/* Write: why the current way fails. Navigation depth, information overload, training cost, fragmented permissions, manual work. Use a short list. */}
+
+### Business pain and user pain
+| What people experience | What it costs the business |
+|---|---|
+| [ ] | [ ] |
+
+<Figure src="/work/[slug]/wireframes/01-problem-statement" themed size="wide" alt="[ ]" caption="[ ]" />
+
+</Section>
+
+<Section n="02" title="Role & Constraints" headline="[What you owned, inside the limits you had]">
+
+### My role and team
+{/* Write: solo, with PM or developers, or leading designers. Name the people. */}
+
+### Constraints, and what each one meant for the design
+<CardGrid cols={2} items={[ { title: "[Constraint]", text: "[What it meant for the design]" } ]} />
+
+</Section>
+
+<Section n="03" title="Research & Discovery" headline="[What you learned and how]">
+
+### Auditing what exists
+{/* Heuristic evaluation of the old product, or a map of the current process if the product is new. */}
+
+### Who it is for
+<Stakeholders heardLabel="What they needed" items={[ { team: "[Persona]", heard: "[ ]", shaped: "[ ]" } ]} />
+
+### Journey and workflow mapping
+<Figure src="/work/[slug]/wireframes/[journey]" themed size="wide" alt="[ ]" caption="[ ]" />
+
+### What the research showed
+{/* 3 numbered insights. */}
+
+</Section>
+
+<Section n="04" title="Strategy & Information Architecture" headline="[Your organising idea]">
+
+### Core principles
+<CardGrid cols={2} items={[ { title: "[Principle]", text: "[What it meant in the product]" } ]} />
+
+### Information architecture
+<Figure src="/work/[slug]/wireframes/[ia]" themed size="wide" alt="[ ]" caption="[ ]" />
+<Decision title="[ ]" context="[ ]" options={["A","B","C"]} chosen="C" why="[ ]" tradeoffs={{ "A": "[ ]", "B": "[ ]", "C": "[ ]" }} />
+
+### User flows
+{/* One figure per key flow, each followed by a paragraph that walks through it. */}
+
+### Low-fidelity wireframes
+{/* 2 to 4 wireframes with captions saying what to notice. */}
+
+### Role-based views and edge cases
+| Scenario | How the design handles it |
+|---|---|
+| [ ] | [ ] |
+
+</Section>
+
+<Section n="05" title="Final Solutions" headline="[The principle behind the final design]">
+
+<SubSection n="01" title="[Workflow name]">
+**The problem it solves:** [ ]
+**What I designed:** [ ]
+<Figure src="/work/[slug]/screens/[file].webp" size="full" alt="[ ]" caption="[Why this decision, not only how it looks]" zoom />
+</SubSection>
+
+{/* Repeat SubSection for each key workflow. Add a short MotionVideo if it helps. */}
+
+### Interactive prototype and design system
+{/* Link to the prototype and say which components or tokens you reused or contributed to. */}
+
+</Section>
+
+<Section n="06" title="Validation & Testing" headline="[What you checked and what changed]">
+
+### How I validated the design
+{/* Method: who you tested with, how many, what tasks. Say plainly if it was walkthroughs or stakeholder reviews rather than formal tests. */}
+
+### Before and after
+| Dimension | Before | After |
+|---|---|---|
+| Task completion time | [ ] | [ ] |
+| Errors or misclicks | [ ] | [ ] |
+| Satisfaction or SUS | [ ] | [ ] |
+
+</Section>
+
+<Section n="07" title="Impact & Takeaways" headline="[The one-line takeaway]">
+
+### Business impact
+<MetricStrip items={[ { value: "[ ]", label: "[ ]" } ]} />
+
+### What comes next
+
+### Reflections and learnings
+{/* What you would do differently. How you balanced business requirements with user advocacy. */}
+
+<Takeaways quote="[ ]" />
+
+</Section>

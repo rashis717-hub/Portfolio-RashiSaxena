@@ -1,0 +1,101 @@
+---
+# Copy this file to content/work/<slug>.mdx, then replace every [YOUR INPUT] value.
+# The build validates these fields (lib/schema.ts) and names any field that is wrong.
+title: "[YOUR INPUT: project title]"
+slug: "your-project-slug" # must match the file name, lowercase-with-hyphens
+tagline: "[YOUR INPUT: one line that states the outcome]"
+summary: "[YOUR INPUT: one paragraph on the problem, your role and the result]"
+role: "[YOUR INPUT: e.g. UX Lead]"
+platforms:
+  - "[YOUR INPUT: e.g. Web]"
+timeline: "[YOUR INPUT: e.g. 6 months]"
+year: 2026 # [YOUR INPUT] year the work shipped
+cover: "/work/your-project-slug/cover.jpg"
+order: 99 # position in the home page "Selected work" list, lowest first
+visibility: "private" # public | private
+redact: true # true hides client names and blurs sensitive screenshots
+tags:
+  - "[YOUR INPUT: tag]"
+metrics:
+  - value: "[YOUR INPUT]"
+    suffix: "%"
+    label: "[YOUR INPUT: what the number measures]"
+links: # optional; delete any you do not have
+  live: "https://example.com"
+  figma: "https://www.figma.com"
+  video: "https://example.com/video"
+---
+
+{/* Every section headline states a point, not a label. Every Figure needs alt text and a caption that says what to notice. */}
+
+<Section number="01" label="Context" title="[YOUR INPUT: headline that states the situation]">
+
+[YOUR INPUT: who the product is for, what it does, and why the work mattered to the business.]
+
+<Figure
+  src="/work/your-project-slug/context.jpg"
+  alt="[YOUR INPUT: what the image shows]"
+  caption="[YOUR INPUT: what to notice in this image]"
+/>
+
+</Section>
+
+<Section number="02" label="The Challenge" title="[YOUR INPUT: headline that states the core problem]">
+
+[YOUR INPUT: the problem in plain terms, the constraints, and what made it hard.]
+
+</Section>
+
+<Section number="03" label="What I Heard" title="[YOUR INPUT: headline that states what research changed]">
+
+[YOUR INPUT: how you gathered input and from whom.]
+
+<Stakeholders>
+  <Stakeholder
+    team="[YOUR INPUT: team or role]"
+    heard="[YOUR INPUT: what this team needed]"
+    shaped="[YOUR INPUT: the design decision it led to]"
+  />
+  <Stakeholder
+    team="[YOUR INPUT: team or role]"
+    heard="[YOUR INPUT: what this team needed]"
+    shaped="[YOUR INPUT: the design decision it led to]"
+  />
+</Stakeholders>
+
+</Section>
+
+<Section number="04" label="Decisions" title="[YOUR INPUT: headline that states the key decision]">
+
+[YOUR INPUT: the options you considered, the trade-offs, and why you chose this direction.]
+
+<Callout title="[YOUR INPUT: the insight in one sentence]">
+
+[YOUR INPUT: one or two sentences of evidence for it.]
+
+</Callout>
+
+<Figure
+  src="/work/your-project-slug/decision.jpg"
+  alt="[YOUR INPUT: what the image shows]"
+  caption="[YOUR INPUT: what to notice in this image]"
+/>
+
+</Section>
+
+<Section number="05" label="Outcome" title="[YOUR INPUT: headline that states the result]">
+
+<Metrics>
+  <Metric value="[YOUR INPUT]" suffix="%" label="[YOUR INPUT: what the number measures]" />
+  <Metric value="[YOUR INPUT]" label="[YOUR INPUT: what the number measures]" />
+</Metrics>
+
+[YOUR INPUT: what shipped and what changed for users and the business.]
+
+</Section>
+
+<Section number="06" label="Reflection" title="[YOUR INPUT: headline that states what you learned]">
+
+[YOUR INPUT: what you would do differently and what you would keep.]
+
+</Section>

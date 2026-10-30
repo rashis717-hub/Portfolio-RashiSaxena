@@ -1,0 +1,158 @@
+{
+  "01-end-to-end-flow.webp": {
+    "width": 2400,
+    "height": 2688
+  },
+  "02-question-first-step.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "03-question-multiselect-other.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "04-question-validation-error.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "05-question-answered-summary.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "06-decisions-review.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "07-decisions-confirmed-plan.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "08-plan-started.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "09-plan-modify-v2.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "10-permission-allow.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "11-permission-outcomes-destructive.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "12-permission-superseded-reasked.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "13-form.webp": {
+    "width": 2400,
+    "height": 1952
+  },
+  "14-form-validation-upload-errors.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "15-file-upload-request.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "16-searchable-dropdown.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "17-date-time-slot.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "18-submitted-result-actions.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "19-kpi.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "20-table-view.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "21-bar-chart.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "22-line-donut-scatter.webp": {
+    "width": 2400,
+    "height": 3020
+  },
+  "23-list.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "24-code-snippet.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "25-error.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "26-success.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "27-info.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "28-empty-state.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "29-loading-initial-l1.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "30-loading-initial-l2.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "31-loading-initial-l3.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "32-loading-mao.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "34-orb-loader.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "35-skeleton.webp": {
+    "width": 416,
+    "height": 656
+  },
+  "36-menu.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "37-text-input.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "38-data-table.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "39-liability-summary.webp": {
+    "width": 2400,
+    "height": 1713
+  },
+  "40-agent-thinking-states.webp": {
+    "width": 2400,
+    "height": 1335
+  }
+}

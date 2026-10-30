@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>A2UI Case Study — Visuals Contact Sheet</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap');
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Geist', sans-serif;
+      background: #FAFAF9;
+      color: #0C0D12;
+      padding: 60px 80px;
+      line-height: 1.5;
+    }
+    header {
+      margin-bottom: 60px;
+      border-bottom: 1.5px solid rgba(12, 13, 18, 0.12);
+      padding-bottom: 30px;
+    }
+    .mono { font-family: 'Geist Mono', monospace; font-size: 14px; text-transform: uppercase; letter-spacing: 0.08em; color: #53555B; }
+    h1 { font-size: 40px; font-weight: 500; margin-top: 8px; margin-bottom: 12px; }
+    h2 { font-size: 26px; font-weight: 500; margin: 50px 0 24px; padding-bottom: 12px; border-bottom: 1px solid rgba(12, 13, 18, 0.1); }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: #FFFFFF;
+      border: 1px solid rgba(12, 13, 18, 0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-preview {
+      background: #F2F2EF;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 240px;
+    }
+    .card-preview.dark-preview {
+      background: #090A0E;
+    }
+    .card-preview img {
+      max-width: 100%;
+      height: auto;
+      max-height: 280px;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+    }
+    .card-meta {
+      padding: 16px 20px;
+      border-top: 1px solid rgba(12, 13, 18, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .card-filename {
+      font-family: 'Geist Mono', monospace;
+      font-size: 13px;
+      font-weight: 500;
+      color: #0C0D12;
+    }
+    .card-dims {
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      color: #53555B;
+    }
+    
+    .privacy-box {
+      background: #FFFFFF;
+      border: 1px solid rgba(12, 13, 18, 0.15);
+      border-radius: 16px;
+      padding: 32px;
+      margin-bottom: 50px;
+    }
+    .privacy-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-size: 15px;
+    }
+    .privacy-table th, .privacy-table td {
+      border: 1px solid rgba(12, 13, 18, 0.1);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .privacy-table th {
+      background: #F8F8F6;
+      font-family: 'Geist Mono', monospace;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="mono">A2UI Visual Assets · Verification Contact Sheet</div>
+    <h1>A2UI Screens, Annotated Views & Diagrams</h1>
+    <p style="color: #53555B; font-size: 17px; max-width: 800px;">
+      Generated per Prompt A2UI-IMAGES. Contains 39 exported Figma screens (WebP at 2x, quality 90), 4 annotated screens (light & dark, 2400px), and 5 architectural diagrams (light & dark, 2400px).
+    </p>
+  </header>
+
+  <div class="privacy-box">
+    <div class="mono" style="margin-bottom: 8px;">Audit Report</div>
+    <h3 style="font-size: 22px; margin-bottom: 12px;">Data Privacy & Sensitive Information Findings</h3>
+    <p style="color: #53555B; margin-bottom: 16px;">
+      All screens were audited for real personal or customer data. The designs depict realistic enterprise scenarios using Covasant/CAMS mock data. Below is the full inventory for your review:
+    </p>
+    <table class="privacy-table">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Discovered Values in Figma Screens</th>
+          <th>Screen Location</th>
+          <th>Recommendation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Personal Names</strong></td>
+          <td>“Priya Raman” (manager notified on leave request submission and withdrawal)</td>
+          <td><code>10-permission-allow</code>, <code>11-permission-outcomes-destructive</code></td>
+          <td>Sample name for persona flow. Can keep or blur if based on an actual employee.</td>
+        </tr>
+        <tr>
+          <td><strong>Domain & System</strong></td>
+          <td><code>agentregistry_cams.covasant.com</code>, “Agent Registry”, “CAMS”, “Instance 03”</td>
+          <td>Browser chrome header on all full screens</td>
+          <td>Covasant internal platform identity. Confirm if public portfolio display is permitted.</td>
+        </tr>
+        <tr>
+          <td><strong>Request / Ticket IDs</strong></td>
+          <td><code>LR-20418</code>, <code>LR-19877</code>, <code>RPT-2026-Q4-0071</code></td>
+          <td>Permission cards, summary banners, and report download references</td>
+          <td>Fictional structured ticket IDs. Safe for portfolio display.</td>
+        </tr>
+        <tr>
+          <td><strong>Financial & HR Metrics</strong></td>
+          <td>
+            • Q4 PTO liability: $1,863,514.17 (1,240 employees)<br>
+            • India: ₹4,86,32,150.00 (₹4.86 Cr) @ ₹84.00/$<br>
+            • US: $1,284,560.00 ($1.28M)<br>
+            • Revenue: $2,000K, 1200 actions, Quality: 85/100
+          </td>
+          <td><code>19-kpi</code>, <code>20-table-view</code>, <code>39-liability-summary</code></td>
+          <td>Explicitly marked in Figma caption as <em>“sample for this preview / projected sample rate”</em>. Safe as portfolio demonstration data.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Part 2: Annotated Screens (4 graphics × 2 themes = 8 images)</h2>
+  <div class="grid">
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/annot-01-end-to-end.light.png" alt="annot-01-end-to-end light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-01-end-to-end.light.png</div>
+          <div class="card-dims">2400 × 2000 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/annot-01-end-to-end.dark.png" alt="annot-01-end-to-end dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-01-end-to-end.dark.png</div>
+          <div class="card-dims">2400 × 2000 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/annot-02-permission.light.png" alt="annot-02-permission light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-02-permission.light.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/annot-02-permission.dark.png" alt="annot-02-permission dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-02-permission.dark.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/annot-03-plan-v2.light.png" alt="annot-03-plan-v2 light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-03-plan-v2.light.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/annot-03-plan-v2.dark.png" alt="annot-03-plan-v2 dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-03-plan-v2.dark.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/annot-04-question.light.png" alt="annot-04-question light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-04-question.light.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/annot-04-question.dark.png" alt="annot-04-question dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">annot-04-question.dark.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+  </div>
+
+  <h2>Part 3: Diagrams (5 diagrams × 2 themes = 10 images)</h2>
+  <div class="grid">
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/d01-a2ui-flow.light.png" alt="d01-a2ui-flow light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d01-a2ui-flow.light.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/d01-a2ui-flow.dark.png" alt="d01-a2ui-flow dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d01-a2ui-flow.dark.png</div>
+          <div class="card-dims">2400 × 1350 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/d02-moments.light.png" alt="d02-moments light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d02-moments.light.png</div>
+          <div class="card-dims">2400 × 1450 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/d02-moments.dark.png" alt="d02-moments dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d02-moments.dark.png</div>
+          <div class="card-dims">2400 × 1450 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/d03-catalogue.light.png" alt="d03-catalogue light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d03-catalogue.light.png</div>
+          <div class="card-dims">2400 × 1100 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/d03-catalogue.dark.png" alt="d03-catalogue dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d03-catalogue.dark.png</div>
+          <div class="card-dims">2400 × 1100 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/d04-adaptation.light.png" alt="d04-adaptation light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d04-adaptation.light.png</div>
+          <div class="card-dims">2400 × 1380 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/d04-adaptation.dark.png" alt="d04-adaptation dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d04-adaptation.dark.png</div>
+          <div class="card-dims">2400 × 1380 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/diagrams/d05-states.light.png" alt="d05-states light" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d05-states.light.png</div>
+          <div class="card-dims">2400 × 1680 px</div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <div class="card-preview dark-preview">
+          <img src="/work/a2ui/diagrams/d05-states.dark.png" alt="d05-states dark" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">d05-states.dark.png</div>
+          <div class="card-dims">2400 × 1680 px</div>
+        </div>
+      </div>
+      
+  </div>
+
+  <h2>Part 1: Exported Real Screens from Figma (39 WebP files at 2x)</h2>
+  <div class="grid">
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/01-end-to-end-flow.webp" alt="01-end-to-end-flow.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">01-end-to-end-flow.webp</div>
+          <div class="card-dims">2400 × 2688 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/02-question-first-step.webp" alt="02-question-first-step.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">02-question-first-step.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/03-question-multiselect-other.webp" alt="03-question-multiselect-other.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">03-question-multiselect-other.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/04-question-validation-error.webp" alt="04-question-validation-error.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">04-question-validation-error.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/05-question-answered-summary.webp" alt="05-question-answered-summary.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">05-question-answered-summary.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/06-decisions-review.webp" alt="06-decisions-review.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">06-decisions-review.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/07-decisions-confirmed-plan.webp" alt="07-decisions-confirmed-plan.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">07-decisions-confirmed-plan.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/08-plan-started.webp" alt="08-plan-started.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">08-plan-started.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/09-plan-modify-v2.webp" alt="09-plan-modify-v2.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">09-plan-modify-v2.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/10-permission-allow.webp" alt="10-permission-allow.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">10-permission-allow.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/11-permission-outcomes-destructive.webp" alt="11-permission-outcomes-destructive.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">11-permission-outcomes-destructive.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/12-permission-superseded-reasked.webp" alt="12-permission-superseded-reasked.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">12-permission-superseded-reasked.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/13-form.webp" alt="13-form.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">13-form.webp</div>
+          <div class="card-dims">2400 × 1952 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/14-form-validation-upload-errors.webp" alt="14-form-validation-upload-errors.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">14-form-validation-upload-errors.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/15-file-upload-request.webp" alt="15-file-upload-request.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">15-file-upload-request.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/16-searchable-dropdown.webp" alt="16-searchable-dropdown.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">16-searchable-dropdown.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/17-date-time-slot.webp" alt="17-date-time-slot.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">17-date-time-slot.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/18-submitted-result-actions.webp" alt="18-submitted-result-actions.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">18-submitted-result-actions.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/19-kpi.webp" alt="19-kpi.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">19-kpi.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/20-table-view.webp" alt="20-table-view.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">20-table-view.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/21-bar-chart.webp" alt="21-bar-chart.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">21-bar-chart.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/22-line-donut-scatter.webp" alt="22-line-donut-scatter.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">22-line-donut-scatter.webp</div>
+          <div class="card-dims">2400 × 3020 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/23-list.webp" alt="23-list.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">23-list.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/24-code-snippet.webp" alt="24-code-snippet.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">24-code-snippet.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/25-error.webp" alt="25-error.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">25-error.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/26-success.webp" alt="26-success.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">26-success.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/27-info.webp" alt="27-info.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">27-info.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/28-empty-state.webp" alt="28-empty-state.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">28-empty-state.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/29-loading-initial-l1.webp" alt="29-loading-initial-l1.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">29-loading-initial-l1.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/30-loading-initial-l2.webp" alt="30-loading-initial-l2.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">30-loading-initial-l2.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/31-loading-initial-l3.webp" alt="31-loading-initial-l3.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">31-loading-initial-l3.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/32-loading-mao.webp" alt="32-loading-mao.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">32-loading-mao.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/34-orb-loader.webp" alt="34-orb-loader.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">34-orb-loader.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/35-skeleton.webp" alt="35-skeleton.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">35-skeleton.webp</div>
+          <div class="card-dims">416 × 656 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/36-menu.webp" alt="36-menu.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">36-menu.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/37-text-input.webp" alt="37-text-input.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">37-text-input.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/38-data-table.webp" alt="38-data-table.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">38-data-table.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/39-liability-summary.webp" alt="39-liability-summary.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">39-liability-summary.webp</div>
+          <div class="card-dims">2400 × 1713 px</div>
+        </div>
+      </div>
+    
+      <div class="card">
+        <div class="card-preview">
+          <img src="/work/a2ui/screens/figma/40-agent-thinking-states.webp" alt="40-agent-thinking-states.webp" loading="lazy">
+        </div>
+        <div class="card-meta">
+          <div class="card-filename">40-agent-thinking-states.webp</div>
+          <div class="card-dims">2400 × 1335 px</div>
+        </div>
+      </div>
+    
+  </div>
+</body>
+</html>

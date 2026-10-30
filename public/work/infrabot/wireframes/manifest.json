@@ -1,0 +1,98 @@
+{
+ "01-problem-statement.dark.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "01-problem-statement.light.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "02-information-architecture.dark.png": {
+  "width": 2400,
+  "height": 1500
+ },
+ "02-information-architecture.light.png": {
+  "width": 2400,
+  "height": 1500
+ },
+ "03-one-engine.dark.png": {
+  "width": 2400,
+  "height": 1230
+ },
+ "03-one-engine.light.png": {
+  "width": 2400,
+  "height": 1230
+ },
+ "04-wireframe-guided-request.dark.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "04-wireframe-guided-request.light.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "05-wireframe-request-detail.dark.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "05-wireframe-request-detail.light.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "06-wireframe-compliance-report.dark.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "06-wireframe-compliance-report.light.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "07-wireframe-agent-approval.dark.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "07-wireframe-agent-approval.light.png": {
+  "width": 2400,
+  "height": 1410
+ },
+ "08-journey-today-vs-infrabot.dark.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "08-journey-today-vs-infrabot.light.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "09-user-flow-request.dark.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "09-user-flow-request.light.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "10-user-flow-agent.dark.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "10-user-flow-agent.light.png": {
+  "width": 2400,
+  "height": 1350
+ },
+ "11-user-flow-catalogue-setup.dark.png": {
+  "width": 2400,
+  "height": 1050
+ },
+ "11-user-flow-catalogue-setup.light.png": {
+  "width": 2400,
+  "height": 1050
+ },
+ "12-research-approach.dark.png": {
+  "width": 2400,
+  "height": 1170
+ },
+ "12-research-approach.light.png": {
+  "width": 2400,
+  "height": 1170
+ }
+}

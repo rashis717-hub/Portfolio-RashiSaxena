@@ -1,0 +1,461 @@
+---
+title: "infraBOT"
+slug: "infrabot"
+tagline: "Redesigning infrastructure operations for regulated enterprises: a governed, AI-assisted automation platform, designed end to end"
+summary: "Keeping infrastructure compliant never ends, and people fill the gaps with night windows, bridge calls and evidence assembled by hand. I designed infraBOT, the whole product and its brand, so that requests, approvals, execution and proof live in one place, and AI agents can investigate and propose fixes that a person approves."
+company: "CitiusCloud Services"
+role: "UX Consultant: UX research, information architecture, wireframing, UI design, prototyping, brand identity"
+platformType: "Enterprise web platform, hosted in the customer's own environment (on-premises or cloud)"
+platforms: ["Web"]
+timeline: "Jan to Apr 2026 (4 months)"
+year: 2026
+team: "Aditya Sharma, AI Lead at CitiusCloud"
+deliverables:
+  - "AI-assisted research and synthesis"
+  - "Workflow and journey mapping"
+  - "Information architecture"
+  - "User flows and wireframes"
+  - "UI design, light and dark"
+  - "Brand identity: wordmark and 1B mark"
+status: "Live on the IBM Partner Plus directory through CitiusCloud's IBM Silver Partner status"
+cover: "/work/infrabot/screens/06-compliance-summary.webp"
+video: "/work/infrabot/video/infrabot-motion.mp4"
+poster: "/work/infrabot/video/poster.jpg"
+videoCredit: "CitiusCloud"
+logo: "/work/infrabot/brand/infrabot-logo-light.svg"
+logoDark: "/work/infrabot/brand/infrabot-logo-dark.svg"
+order: 1
+visibility: "public"
+redact: false
+tags: ["Enterprise AI", "Platform UX", "Information architecture", "Brand identity"]
+metrics:
+  - { value: "200", suffix: "+", label: "Automation use cases catalogued" }   # [YOUR INPUT: confirm what the catalogue represents]
+  - { value: "6", label: "AI agents: four approval-gated, two read-only" }
+  - { value: "4", label: "Teams designed for" }
+links:
+  live: "https://www.ibm.com/partnerplus/directory/solution/0847"
+---
+
+{/* Header, the three metrics and the hero video are rendered by the case study layout from the frontmatter above. The video credit reads "Video: CitiusCloud". */}
+
+<Section n="01" title="Context & Business Problem" headline="Keeping regulated infrastructure compliant is a cycle that never closes">
+
+### The enterprise landscape
+
+Banks, exchanges, insurers and hospitals run on infrastructure that regulators watch. The people who look after it, IT, infrastructure and DevOps teams, manage servers, networks, Kubernetes clusters and cloud resources, on premises and in the cloud. They also have to prove that all of it is configured, patched and upgraded to a benchmark, again and again.
+
+That work is a loop: harden, patch, upgrade, prove, and then repeat. It never finishes, and it competes with everything else IT is asked to do. Roughly 80% of IT budget goes to running the bank, which leaves about 20% for change.
+
+<MetricStrip items={[
+  { value: "~80%", label: "of IT budget spent running the bank" },
+  { value: "4", label: "steps that repeat every cycle: harden, patch, upgrade, prove" },
+  { value: "200+", label: "use cases across many technologies to organise" },
+  { value: "4", label: "teams with different needs from the same infrastructure" }
+]} />
+
+<Figure
+  src="/work/infrabot/wireframes/01-problem-statement"
+  themed
+  size="wide"
+  alt="Diagram of the compliance cycle (harden, patch, upgrade, prove, repeat), the manual gaps people fill, and the share of IT budget spent running the bank"
+  caption="The compliance cycle, the gaps people fill by hand, and where the budget goes (BCG, Indian banks, 2024)."
+/>
+
+### The core problem
+
+These teams already had automation: scripts, and orchestrated workflows that run provisioning and patching. The automation worked. What was missing was everything around it.
+
+- A request still began as a chat message or an email, and was coordinated on a bridge call at 23:00 during a night window.
+- Approval was informal, so nobody could say quickly who had agreed to what.
+- Evidence for the audit was assembled by hand after the change.
+- The same process was repeated in every environment, and when drift broke a run, people chased it across tools.
+
+Scripts and orchestration can follow predefined steps, but they cannot interpret the environment they run in, and they do not carry accountability. People filled that gap, at night and on calls.
+
+### Business pain and user pain
+
+| What people experience | What it costs the business |
+|---|---|
+| Requests arrive by chat and email, and need a bridge call to coordinate | Slow turnaround, and engineers pulled into coordination out of hours |
+| Evidence is assembled by hand after the change | Audit effort, and the risk of gaps in the record |
+| The same process is repeated in every environment | Inconsistency and rework |
+| Drift breaks a run and people chase the status across tools | Failed runs and unplanned work |
+
+The brief for the product was to put the request, the approval, the execution and the proof into one governed place, and to let AI agents take on the investigating, with a person keeping the decision.
+
+</Section>
+
+<Section n="02" title="Role & Constraints" headline="I owned the whole product design, inside constraints the customer's environment set">
+
+### My role and team
+
+I was the UX consultant on infraBOT for four months, from January to April 2026, and I owned the entire design: UX research, information architecture, user flows, wireframes, UI design, prototyping and the brand identity. I worked closely with Aditya Sharma, AI Lead at CitiusCloud, who provided much of the domain input. {/* [YOUR INPUT: other people you worked with, if any] */}
+
+### Constraints, and what each one meant for the design
+
+<CardGrid cols={2} items={[
+  { title: "It runs in the customer's environment", text: "infraBOT is hosted on premises or in the customer's cloud, as containerised services. The design could not rely on anything living outside it, so credentials and documents stay with the customer's secret manager and storage, and the product says so." },
+  { title: "No rip-and-replace", text: "Teams already run automation tools. infraBOT drives them instead of replacing them, so the interface had to speak in terms of requests and outcomes and not in terms of any one tool." },
+  { title: "Set up without writing code", text: "Administrators needed to publish scripts, forms, workflows and roles from the product's own screens, so the building tools had to be as considered as the requesting experience." },
+  { title: "AI agents are live for select technologies", text: "Agents run today in Kubernetes environments. The design had to make an agent's work clear when it is there, and not promise it where it isn't." },
+  { title: "More than 200 use cases", text: "A catalogue that large across many technologies can't be browsed by tool. It needed an organising principle that people who don't know the tools could follow." },
+  { title: "Four months", text: "Information architecture, flows, screens and brand all had to land in one short engagement, so I sequenced the work from structure to screens to identity." }
+]} />
+
+</Section>
+
+<Section n="03" title="Research & Discovery" headline="Mapping how change moves today, and who needs what">
+
+### How I researched
+
+Infrastructure compliance is a specialist domain, and I did not begin with a round of interviews. The fastest way to build a reliable picture was to combine two sources and then check them against each other.
+
+**AI-assisted research.** I used AI tools to map the landscape: how regulated organisations run the harden, patch, upgrade and prove cycle, how teams request and approve infrastructure change today, and where the manual gaps appear. I treated the output as a starting point to examine, not as an answer.
+
+**Domain input from Aditya Sharma.** Aditya, CitiusCloud's AI Lead, provided much of the specialist input: how the product and its agents should work, and what the people who run infrastructure care about. That input is what turned a general picture into something specific to infraBOT.
+
+I synthesised the two, together with CitiusCloud's product material, into three things: a map of how change moves today, the needs of the four teams, and three insights. Those became the design principles, the information architecture and the flows that follow.
+
+<Figure
+  src="/work/infrabot/wireframes/12-research-approach"
+  themed
+  size="wide"
+  alt="Diagram: AI-assisted research, domain input from Aditya Sharma and CitiusCloud product material are synthesised into a journey map, needs by team and insight framing, producing three insights, six design principles, and the structure and flows"
+  caption="Two sources, synthesised into three outputs. The confidence is directional: expert and desk research, not end-user interviews."
+/>
+
+{/* DRAFT: written from how you described the method. Edit it to match what you actually did with the AI tools and with Aditya. */}
+
+### Auditing the way work happens today
+
+infraBOT is a new product, so there was no legacy interface to audit. The thing to audit was the process. I mapped how a single change, such as patching a database tier, moves through a team today.
+
+<Figure
+  src="/work/infrabot/wireframes/08-journey-today-vs-infrabot"
+  themed
+  size="wide"
+  alt="Journey map comparing today's four steps (chat, email, tracker, alert) with the infraBOT flow of request, approve, run, report and agents"
+  caption="Today a change moves through four tools and a bridge call. With infraBOT it is one request that carries its own evidence."
+/>
+
+### Who it is for
+
+The product is used by four groups, each with a different reason to open it. These needs come from the research above and from Aditya's input, not from sessions with each team.
+
+<Stakeholders heardLabel="What they needed" items={[
+  { team: "Infrastructure teams", heard: "Routine requests arrive by email and chat, and every change needs a report for each endpoint.", shaped: "Publish automation once as catalogue operations, so requests come through the product and every run returns a report." },
+  { team: "Application and business teams", heard: "A way to ask for a server, a cluster, a patch or an access change without knowing which tool does it, and to see where it stands.", shaped: "Guided request forms, and every request followed as a ticket from approval to report." },
+  { team: "Security and compliance teams", heard: "Scans on a schedule, findings rule by rule, and evidence ready for the audit.", shaped: "Hardening and compliance scans with findings rule by rule, and exceptions kept on record for each endpoint." },
+  { team: "IT leaders", heard: "Visibility of requests, approvals and automation success, and control over who can approve what.", shaped: "Dashboards for requests, approvals and automation success, and roles and approvals that govern change." }
+]} />
+
+### What the mapping showed
+
+Three things shaped every decision that followed.
+
+1. **A request has to carry its whole context.** The bridge call exists because a chat message doesn't say what, where, who approved, or when. A guided request can say all of it up front.
+2. **Approval is where trust lives.** Everyone's confidence, from the requester to the compliance team, depends on knowing that the right person agreed before anything ran.
+3. **Evidence should be a by-product of the run, not a separate task.** If every run reports itself, nobody assembles proof by hand.
+
+### How much to trust these insights
+
+| Insight | Where it comes from | Status |
+|---|---|---|
+| A request has to carry its whole context | AI-assisted research on how change is requested today, with input from Aditya Sharma | Directional, to validate with operators |
+| Approval is where trust lives | AI-assisted research and Aditya's input on how agents and people should share decisions | Directional, to validate with operators |
+| Evidence should be a by-product of the run | AI-assisted research and CitiusCloud's product material | Directional, to validate with operators |
+
+This is expert and desk research. It gave me a confident direction quickly, but it is not evidence from end users, so I treat the insights as a strong starting point and not as proof. The next step is to put the request flow in front of working infrastructure operators.
+
+</Section>
+
+<Section n="04" title="Strategy & Information Architecture" headline="Organised by how teams work, not by which tool runs the job">
+
+### Core principles
+
+<CardGrid cols={2} items={[
+  { title: "Organise by intent, not by tool", text: "People start from what they want to achieve. The technology underneath is an implementation detail they should never need to know." },
+  { title: "One engine for people and for agents", text: "A request raised by a person and a ticket raised by an agent travel through the same workflow, roles, execution and reports." },
+  { title: "Approval by design", text: "A person decides where it matters, and always before an agent's fix runs. The approval path is visible before anything is submitted." },
+  { title: "Evidence from every run", text: "Each run reports itself, endpoint by endpoint and rule by rule, so the proof exists the moment the work is done." },
+  { title: "Configure without code", text: "Administrators publish forms, workflows and roles from the product's own screens, so the people closest to the process shape it." },
+  { title: "Keep the tools they trust", text: "infraBOT drives the automation teams already run. The design gives it a front door and does not ask anyone to start over." }
+]} />
+
+### Information architecture
+
+I grouped everything by how teams use it, from raising a request to governing who can do what. Five groups carry the whole product: Request, Build without code, Run and report, AI agents, and Govern.
+
+<Figure
+  src="/work/infrabot/wireframes/02-information-architecture"
+  themed
+  size="wide"
+  alt="Information architecture map of infraBOT showing five groups and their capabilities"
+  caption="Five groups follow the job to be done. Requesters never see the technology underneath."
+/>
+
+<Decision
+  title="How to organise the catalogue"
+  context="More than 200 use cases across many technologies had to be findable by people who don't know the tools."
+  options={["By technology", "By team", "By intent"]}
+  chosen="By intent"
+  why="People start from what they want to achieve. Technology is an implementation detail, and teams change; intent doesn't."
+  tradeoffs={{
+    "By technology": "Mirrors how the automation is built, but forces requesters to know which tool does what.",
+    "By team": "Matches the org chart, but teams reorganise and many operations are shared.",
+    "By intent": "Matches how people ask, and lets a new technology slot in without changing the navigation."
+  }}
+/>
+
+### User flows
+
+The two flows that matter most are raising a request, and an agent raising a ticket. The third is the one administrators use to build everything the others depend on.
+
+<Figure
+  src="/work/infrabot/wireframes/09-user-flow-request"
+  themed
+  size="wide"
+  alt="Swimlane user flow for raising a request: the requester's five steps, the approver's decision, and infraBOT running the work and producing a report"
+  caption="Raising a request: five guided steps, an approver's decision, then a run and a report. Approval is configured per operation: none, one level or several."
+/>
+
+Raising a request is five steps: category, operation, parameters, target, and review. Each step answers one question, and the next is only available once it is answered, so a request cannot be submitted incomplete. If the operation needs approval, the approver sees exactly what will run, on which endpoints, and the path it took. They can approve, ask for a change, or reject, and a rejection keeps its reason on the record. After approval the work runs, and every host reports back.
+
+<Figure
+  src="/work/infrabot/wireframes/10-user-flow-agent"
+  themed
+  size="wide"
+  alt="Swimlane user flow for an agent-raised ticket: the agent watches, finds an issue, investigates and raises a ticket; an approver decides; an approved fix runs, a root cause analysis is recorded and the knowledge base grows"
+  caption="An agent-raised ticket: diagnosis and proposed commands arrive on the ticket, a person decides, and only an approved fix runs."
+/>
+
+In the agent flow the agent does the investigating and the person keeps the decision. The ticket carries the diagnosis, the root cause and the exact commands, and is flagged as AI-generated so nobody reads it as fact. After an approved fix, a root cause analysis is recorded and added to the knowledge base, where later tickets can cite it.
+
+<Figure
+  src="/work/infrabot/wireframes/11-user-flow-catalogue-setup"
+  themed
+  size="wide"
+  alt="Setup flow for administrators: onboard inventory, upload scripts, map parameters, build the form, define the workflow, set roles and tenants, publish"
+  caption="Setting up the catalogue: seven steps, no code, ending in an operation that appears under its category."
+/>
+
+### Low-fidelity wireframes
+
+I laid out the two screens that decide whether the product is trusted first: choosing what to request, and seeing what will happen to it.
+
+<Figure
+  src="/work/infrabot/wireframes/04-wireframe-guided-request"
+  themed
+  size="wide"
+  alt="Wireframe of the guided request: five steps on the left, request categories as cards, search and filter"
+  caption="Five guided steps on the left, categories as cards, and search and filter at every step."
+/>
+
+<Figure
+  src="/work/infrabot/wireframes/05-wireframe-request-detail"
+  themed
+  size="wide"
+  alt="Wireframe of request detail with a guided parameter form and an approval timeline"
+  caption="Parameters become a guided form, and the approval timeline sits beside it so the path is visible before submitting."
+/>
+
+{/* [YOUR INPUT: add your earlier explorations or rejected directions here, with one line on why you moved on] */}
+
+### Role-based views and edge cases
+
+An operations product earns trust in its edge cases. These are the situations I designed for deliberately.
+
+| Scenario | How the design handles it |
+|---|---|
+| An operation needs more than one approver | Multi-stage workflows, each stage owned by a team, with approver rules and conditions |
+| Different people may request, approve and run | Custom roles with a permission matrix, and self-service access requests |
+| Business units need separation | Separate tenants, each with its own data, users, roles, sign-in and branding |
+| A run fails on some hosts | Results per host with live output, and failed hosts flagged in the report |
+| One rule needs to be skipped on one endpoint | Rule exceptions recorded per endpoint and kept in the evidence |
+| An agent's diagnosis could be wrong | An AI-generated banner, the exact commands visible, and a hard approval before anything runs |
+| An agent should only observe | Read-only agents for health monitoring and leadership briefings that never act |
+| A request affects many endpoints | One request, a run across all targets, and a report for each endpoint |
+
+</Section>
+
+<Section n="05" title="Final Solutions" headline="Every step is visible, and a person stays in charge">
+
+<SubSection n="01" title="Request: ask for what you want, not for a tool">
+
+**The problem it solves:** requests begin as chat messages that lack context, so they need a bridge call to make sense.
+
+**What I designed:** a guided request that reads like a short conversation. Categories are organised by intent, search and filters work at every step, and the parameters from each script become a form, so requesters never see playbook syntax.
+
+<Figure src="/work/infrabot/screens/02-request-category.webp" size="full" alt="Request category selection in the infraBOT interface" caption="Choose what you want to achieve. Categories group operations by intent." zoom />
+
+<Figure src="/work/infrabot/screens/03-request-detail-approval.webp" size="full" alt="Linux Hardening Scan request with parameters and approval timeline" caption="Parameters on the left, the approval path on the right, so there are no surprises at sign-off." zoom />
+
+</SubSection>
+
+<SubSection n="02" title="Build without code: give administrators the same care">
+
+**The problem it solves:** every new operation used to depend on someone who could write and wire a script.
+
+**What I designed:** tools for uploading playbooks and scripts in bulk with every version kept, mapping script variables to form fields, building forms with conditional fields and live dropdowns, and defining multi-stage approval workflows.
+
+{/* FIGMA: add screens of the Dynamic Form Builder, Custom Workflow Builder, Script and Use-Case Onboarding, Parameter mapping and Report Builder from the Figma file (see C08). */}
+
+</SubSection>
+
+<SubSection n="03" title="Run and prove: evidence is a by-product of the work">
+
+**The problem it solves:** compliance evidence was assembled by hand after the change.
+
+**What I designed:** live output for each host while a run is in progress, and reports that put the answer first, totals and compliance, then the patterns, then the findings rule by rule with severity and result, ready to export.
+
+<MotionVideo
+  src="/work/infrabot/video/walkthrough-prove.mp4"
+  poster="/work/infrabot/video/walkthrough-prove-poster.jpg"
+  caption="A hardening scan from request to findings, in 48 seconds. Video: CitiusCloud."
+  fullSrc="/work/infrabot/video/full/walkthrough-prove-full.mp4"
+  fullLabel="Watch the full walkthrough (4 min 21 s, with sound)"
+/>
+
+<Figure src="/work/infrabot/screens/05-execution-per-host.webp" size="full" alt="Per-host execution results for a hardening scan" caption="Live output per host, check by check." zoom />
+
+<Figure src="/work/infrabot/screens/06-compliance-summary.webp" size="full" alt="Compliance summary report with totals and charts" caption="The first look answers the question that matters: are we compliant?" zoom />
+
+<Figure
+  src="/work/infrabot/wireframes/06-wireframe-compliance-report"
+  themed
+  size="wide"
+  alt="Wireframe of the compliance report layout"
+  caption="The report layout: totals first, charts for patterns, evidence rule by rule."
+/>
+
+<Figure src="/work/infrabot/screens/07-findings-report.webp" size="full" alt="Rule-by-rule findings table" caption="Findings with severity and result for each rule, ready to export for the audit." zoom />
+
+</SubSection>
+
+<SubSection n="04" title="Decide: let agents investigate, and keep the decision with a person">
+
+**The problem it solves:** when something breaks, people spend the night finding out why.
+
+**What I designed:** a ticket the agent raises with its diagnosis, root cause and exact commands, flagged as AI-generated. A clear approval panel sits beside it with three options, and a timeline shows each step from diagnosis to remediation. Only an approved fix runs.
+
+<Figure
+  src="/work/infrabot/wireframes/03-one-engine"
+  themed
+  size="wide"
+  alt="Diagram: requests raised by people and tickets raised by agents both pass through the same workflow, roles, execution and reports, then an approval gate, then execution"
+  caption="One request model for people and for agents. A person approves where you want one, and always for an agent's fix."
+/>
+
+<MotionVideo
+  src="/work/infrabot/video/walkthrough-decide.mp4"
+  poster="/work/infrabot/video/walkthrough-decide-poster.jpg"
+  caption="An agent-raised ticket, from diagnosis to approval to remediation, in 40 seconds. Video: CitiusCloud."
+  fullSrc="/work/infrabot/video/full/walkthrough-decide-full.mp4"
+  fullLabel="Watch the full walkthrough (1 min 37 s, with sound)"
+/>
+
+<Figure src="/work/infrabot/screens/08-agent-diagnosis.webp" size="full" alt="Agent-raised ticket showing diagnosis summary and root cause" caption="The evidence is on the ticket, not in a chat thread." zoom />
+
+<Figure src="/work/infrabot/screens/09-approval-gate.webp" size="full" alt="Approval panel with Approve request, Request change and Reject request" caption="A hard gate before any fix runs." zoom />
+
+<Figure
+  src="/work/infrabot/wireframes/07-wireframe-agent-approval"
+  themed
+  size="wide"
+  alt="Wireframe of the agent ticket with approval panel and automation status"
+  caption="Diagnosis, decision and progress on one screen."
+/>
+
+<Figure src="/work/infrabot/screens/10-automation-status.webp" size="full" alt="Automation status timeline from diagnosis through approval to remediation" caption="Every step is shown, and a root cause analysis is recorded after the fix." zoom />
+
+</SubSection>
+
+<SubSection n="05" title="Govern: control without friction">
+
+**The problem it solves:** the people who answer for change need to control who can do what, without slowing everyone else down.
+
+**What I designed:** granular roles with a permission matrix, single sign-on with multi-factor authentication, and separate tenants for business units that need isolation. Credentials and documents stay in the customer's own secret manager and storage. Leaders get dashboards for requests, approvals and automation success.
+
+<Figure src="/work/infrabot/screens/01-dashboard.webp" size="full" alt="infraBOT dashboard showing usage overview" caption="Dashboards for requests, approvals and automation success." zoom />
+
+{/* FIGMA: add screens of roles and permissions, tenant sign-in and branding, and the light and dark themes from the Figma file (see C08). */}
+
+</SubSection>
+
+<SubSection n="06" title="Brand identity: a name and a mark as dependable as the work">
+
+The wordmark sets a dark "infra" against a gradient "BOT": the infrastructure underneath and the automation working on it. The 1B mark pairs a 1 and a B, so the name still reads at small sizes such as an app icon. Both come in light and dark versions, so the identity sits comfortably in the product, the datasheet and the launch film. You see it once, at the top of this page.
+
+{/* The infraBOT logo appears once, at the top of the page, in the opening of the hero video. Add a brand board here only if it shows the identity system (colour, type, usage) and not the logo again. */}
+
+{/* DRAFT: written from what the identity shows. Edit it to match your thinking, and add a brand board or logo construction if you have one. */}
+
+</SubSection>
+
+### Interactive prototype and design system
+
+{/* [YOUR INPUT: link to your interactive prototype if you have one, and one paragraph on the components, tokens or design system you used, so the product scales consistently] */}
+
+</Section>
+
+<Section n="06" title="Validation & Testing" headline="What the design is built to change, and how I would measure it">
+
+### How I validated the design
+
+The research behind this design is expert and AI-assisted, so I have been careful about what I claim. The flows were designed against the product's real capabilities and the input above, and the next step is testing with working operators.
+
+{/* DRAFT: this is the safe default. Replace it with one of these only if it is true:
+   A) "I reviewed the flows with Aditya Sharma and the CitiusCloud team, and refined them from their feedback."
+   B) "The flows were demonstrated to [customers or partners], and their feedback shaped [what]."
+   C) "I tested the request flow with [N] infrastructure engineers, and [what you learned]." */}
+
+### Before and with infraBOT
+
+This comparison shows what the design is built to change. These are design intentions drawn from the launch material, not measured results.
+
+| Dimension | Before | With infraBOT |
+|---|---|---|
+| Asking for a change | A chat message and a bridge call | A guided request through the catalogue |
+| Approval | Informal, hard to trace | A configured workflow with a visible path |
+| Evidence | Assembled by hand after the change | A report for every run, rule by rule for each host |
+| Consistency | The same process repeated in every environment | Published once, run against any inventory |
+| Investigation | People work out the cause | Agents investigate and propose a fix, a person approves |
+
+### What I would measure
+
+The design points to measures I would track as the product is used: time from request to report, approval turnaround, the share of requests that people raise themselves, the number of failed-host re-runs, and how many rule exceptions are recorded.
+
+{/* [YOUR INPUT: any measured results or feedback, even qualitative: task time, errors avoided, comments from the team or customers] */}
+
+</Section>
+
+<Section n="07" title="Impact & Takeaways" headline="We made automation accountable, not just faster">
+
+### Business impact
+
+infraBOT is live on the IBM Partner Plus directory through CitiusCloud's IBM Silver Partner status. It brings more than 200 use cases into one catalogue and puts six AI agents, four approval-gated and two read-only, inside the same governed model as every other request.
+
+<MetricStrip items={[
+  { value: "200+", label: "Automation use cases catalogued" },
+  { value: "6", label: "AI agents: four approval-gated, two read-only" },
+  { value: "4", label: "Teams designed for" },
+  { value: "1", label: "Model for people and for agents" }
+]} />
+
+### What comes next
+
+AI agents are live for select technologies today, starting with Kubernetes environments. The same request, approval and report model is meant to take more agents and more technologies, and every fix that leaves a root cause analysis adds to the knowledge base that later tickets cite.
+
+### Reflections and learnings
+
+Automation was never the hard part. The hard part was trust: who asked, who approved, what ran, and what it proved.
+
+The tension that shaped the work was between speed and governance. Requesters wanted to move quickly, and security and compliance teams needed every change to be traceable. The answer was not a compromise between the two. It was to make governance part of the request, so that the approval path, the target and the evidence are all there from the start.
+
+Next, I want to put the request flow in front of more operators and measure how long a request takes from raised to reported.
+
+{/* DRAFT: written from the product and flow design. Edit the reflections in your own words, and add anything you would do differently. */}
+
+<Takeaways quote="Whoever starts the work, a person stays in charge." />
+
+</Section>
