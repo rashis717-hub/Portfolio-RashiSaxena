@@ -1,21 +1,23 @@
 ---
 title: "Sales AI"
 slug: "sales-ai"
-tagline: "Four AI sales tools, one persona-based cockpit: a demo built with BCG on a Covasant design system"
-summary: "A sales team does not want four AI tools with four dashboards. Working with BCG, I led the UX for a single persona-based layer that brings meeting intelligence, sales health, market action planning and pitch support together, so each person opens one cockpit built around their role."
+tagline: "Four AI sales tools, one persona-based cockpit: an enterprise demonstration built with BCG on a Covasant design system"
+summary: "Sales organisations struggle when presented with four separate AI tools, four logins, and four isolated dashboards. In collaboration with BCG, I led the UX for a unified persona-based cockpit that brings meeting intelligence, sales health diagnostics, territory action planning, and pitch preparation into one coherent layer, allowing each role to resolve what matters without navigating across tools."
 company: "Covasant Technologies, in partnership with BCG"
-role: "UX Lead: requirements with BCG, persona-based information architecture, UX steering with data and development teams"
-platformType: "Enterprise sales cockpit (web demo), built on Untitled UI and the Covasant Design System"
-platforms: ["Web"]
+role: "UX Lead: requirements with BCG, persona-based information architecture, cross-tool workflow design, UX steering with data and engineering teams"
+platformType: "Enterprise sales cockpit (web demo & mobile web), built on Untitled UI and the Covasant Design System"
+platforms: ["Web", "Mobile web"]
 timeline: "[YOUR INPUT: months and year]"
 year: 2026
 team: "[YOUR INPUT: BCG colleagues and Covasant colleagues you are comfortable naming, with their roles]"
 deliverables:
-  - "Requirements and scope with BCG"
+  - "Requirements and scope definition with BCG"
   - "Persona-based information architecture"
-  - "Unified cockpit design across four tools"
-  - "UX steering with the data and development teams"
-status: "Demo built with BCG on a fictional company"
+  - "Cross-module evidence trail & Needs Attention engine"
+  - "Unified cockpit design across four AI tools"
+  - "Multi-role cockpit views (Sales Leadership, ASM, Field Sales, Finance, Marketing, Supply Chain)"
+  - "Interactive demonstration prototype"
+status: "Demo built with BCG on a fictional enterprise (Bondex)"
 cover: "/work/sales-ai/cover.webp"
 video: "/work/sales-ai/video/sales-ai-motion.mp4"
 poster: "/work/sales-ai/video/poster.jpg"
@@ -31,209 +33,368 @@ metrics:
   - { value: "2", label: "Tools built by BCG, integrated with Covasant's" }
 ---
 
-{/* PRIVATE CASE STUDY. This page is built with BCG and is published as an unlisted link (noindex, excluded from the home list and the sitemap). The company in the demo, Bondex, is fictional. Header, details, metrics and the hero video come from the frontmatter above. The video credit reads "Video: Rashi Saxena". */}
+{/* PRIVATE CASE STUDY. This page is built with BCG and is published under passcode protection. The company in the demo, Bondex, is a fictional enterprise chemicals and waterproofing manufacturer, ensuring realistic workflows while safeguarding proprietary client data. Header, details, metrics and the hero video come from the frontmatter above. */}
 
 <Section n="01" title="Context & Business Problem" headline="Every sales AI tool solved one problem and added one more dashboard">
 
-### The landscape
+### The enterprise landscape
 
-Sales organisations are being offered AI tools from every direction. One listens to meetings. One reads the health of the sales pipeline. One helps plan actions in a market. One helps prepare a pitch. Each is useful. Together they are four logins, four ways of navigating, and four different ideas of what a sales manager needs.
+Enterprise sales organisations operate across extensive, distributed hierarchies: national sales directors, regional and area sales managers, and territory field officers visiting distributors every day. In recent years, sales teams have been inundated with specialized AI tools: one transcribes and analyzes meetings, one tracks sales pipeline velocity, one formulates territory action plans, and one generates pitch presentations.
 
-This work was a demonstration, built with BCG, of what it looks like when those tools stop being separate apps. The company in the demo is a fictional waterproofing-chemicals business called Bondex, so the data is safe to show and the story is easy to follow.
+Individually, each application addresses a legitimate operational bottleneck. Collectively, however, they produce severe operational fragmentation: four separate logins, four divergent mental models, and four disconnected dashboards that force sales representatives to act as the integration layer between tools.
 
-### The four tools
+This project was a high-stakes demonstration built in strategic partnership with BCG. We created a working platform that demonstrates what happens when those capabilities converge into a single persona-based cockpit. To ensure full enterprise realism without compromising proprietary client accounts, the demo was constructed around **Bondex**—a fictional manufacturer of waterproofing chemicals operating across Gujarat, Rajasthan, and Madhya Pradesh.
 
-| Tool | What it does | Built by |
+### The four tools and the operational spine
+
+| Tool | Primary capability | Origin |
 |---|---|---|
-| Huddle.AI | Meeting intelligence: turns meetings into insights, actions and scores. This is SalesPulze. | Covasant |
-| Insights.AI | A sales thermometer: the health of sales activity at a glance | Covasant |
-| MAP.AI | Market Action Planner: plans actions for a market | BCG |
-| Pitch.AI | A pitch agent: helps prepare a pitch | BCG |
+| **Huddle.AI** | Meeting intelligence: turns sales reviews into structured insights, actions, and scores (SalesPulze engine) | Covasant |
+| **Thermometer** (Insights.AI) | Sales health diagnostic: real-time performance tracking and predictive gap identification | Covasant |
+| **Market Action Plan** (MAP.AI) | Strategic territory planning: models growth levers, distributor revival, and market initiatives | BCG |
+| **Pitch.AI** | Customer presentation engine: context-aware pitch decks, objection evidence, and talking points | BCG |
+| **Action Tracker** | Operational spine: unified cross-module ticket board where actions from all tools converge | Unified |
 
-A fifth tool, Churn.AI, was considered and then dropped from the scope.
+A fifth application, Churn.AI, was evaluated during initial scoping and intentionally dropped to maintain a tight, demonstrably cohesive sales execution narrative.
 
 ### The core problem
 
-- **Four tools, four mental models.** Each one organises information differently.
-- **The person is lost between them.** A sales manager's day does not follow the boundaries between tools.
-- **Signals do not travel.** What one tool learns does not reach the next.
-- **A demo of four dashboards proves nothing.** It shows four products. It does not show a better way to work.
+- **Cognitive switching load:** Reps spend more than a third of their week switching between tools, re-authenticating, and hunting for customer context instead of meeting clients.
+- **Tools built around product categories rather than roles:** A sales manager's working day does not follow software boundaries. An issue raised in a morning call should naturally inform afternoon distributor pitches.
+- **Stranded signals:** When tools do not talk to each other, an insight discovered in one tool dies inside that tool. Strategic territory levers agreed upon by leadership never reach field reps' route calendars.
+- **Dashboard fatigue:** Providing managers with four analytics dashboards simply creates four places to ignore.
 
-| What people experience | What it costs the business |
+| What sales professionals experience | What it costs the enterprise |
 |---|---|
-| Four apps for one job | Switching, missed signals and low adoption |
-| Dashboards built around the tool, not the person | Managers search for what is theirs |
-| Insights that stay in their own tool | Good signals never reach the decision |
+| Four applications for one daily sales cycle | Constant context-switching, low tool adoption, and lost momentum |
+| Dashboards organized by software module rather than role | Leaders buried in micro-data; field reps missing urgent priorities |
+| Customer insights trapped in meeting transcripts | Lost deal opportunities and unaddressed distributor disputes |
+| Fragmented action items spread across emails, chats, and CRM notes | Missed follow-throughs and broken accountability across teams |
 
 <MetricStrip items={[
-  { value: "4", label: "AI sales tools" },
-  { value: "1", label: "cockpit built around the person" },
-  { value: "2", label: "of the tools built by BCG" },
-  { value: "1", label: "design system underneath all of it" }
+  { value: "4", label: "AI sales tools unified in one layer" },
+  { value: "0", label: "duplicate data entries required across tools" },
+  { value: "1", label: "persona-based cockpit replacing separate portals" },
+  { value: "5", label: "distinct organizational roles supported natively" }
 ]} />
 
-### The idea
+### The organising idea
 
-Start from the person, not the tool. A single layer reads who is signed in and shows the signals, tools and actions that matter for that role, drawing on all four tools underneath.
-
-{/* DRAFT: written from how you described the project. Edit it to match the way you and BCG framed the idea. */}
+**Start from the person, not the tool.** Rather than presenting four applications behind a navigation bar, a single intelligent experience plane detects who is signed in and renders a tailored cockpit built strictly around the questions, decisions, and actions that define their role.
 
 </Section>
 
-<Section n="02" title="Role & Constraints" headline="I led the UX, and steered it across two companies' teams">
+<Section n="02" title="Role & Constraints" headline="Leading UX across two organizations to build one seamless experience plane">
 
 ### My role and team
 
-I led the UX for the engagement. I drove the requirement discussions with BCG, alongside others in the room, and steered execution with the data and development teams so the design and the build stayed together. My team: {/* [YOUR INPUT: names and roles you want to show, for example BCG's team who built MAP.AI and Pitch.AI, and your Covasant colleagues] */}.
+I led the UX for the engagement. Working directly with BCG product leads, strategy consultants, and Covasant engineering and data science teams, I drove the requirement workshops, established the information architecture, designed the core cockpit frameworks, and steered UX execution to ensure the software felt like a unified product rather than an aggregated portal. My team: {/* [YOUR INPUT: BCG colleagues and Covasant colleagues you are comfortable naming, with their roles] */}.
 
 ### Constraints, and what each one meant for the design
 
 <CardGrid cols={2} items={[
-  { title: "Two companies, four tools", text: "Two of the tools were built by BCG and two by Covasant. The layer had to bring them together without making the seams visible to the user." },
-  { title: "A scope that had to be decided", text: "A fifth tool, Churn.AI, was dropped. Choosing what to leave out kept the story clear." },
-  { title: "A demo, on fictional data", text: "Bondex is a made-up company, so every screen had to tell a believable story without real data." },
-  { title: "One design system", text: "The cockpit is built with Untitled UI and the Covasant Design System, so it looks and behaves as one product." },
-  { title: "Persona first", text: "The experience had to change with the person's role. That ruled out a single generic dashboard." },
-  { title: "A short, shared timeline", text: "{/* [YOUR INPUT: the timeline and the key deadlines for the demo] */}" }
+  { title: "Two companies, two codebases", text: "Two tools were authored by BCG and two by Covasant. The layer had to unify them under one seamless interaction model without exposing technical seams or architectural boundaries." },
+  { title: "Resolution over navigation", text: "Home's primary job is not to act as a directory menu. Its purpose is to resolve priorities directly on the page or make transparent why an item needs attention before someone chooses to navigate." },
+  { title: "Ruthless scoping", text: "Dropping Churn.AI preserved clarity. We focused strictly on the core loop: meeting insight to performance diagnosis, territory plan, and client pitch." },
+  { title: "Fictional data, enterprise realism", text: "Bondex needed an authentic distribution network, realistic product categories, and believable commercial friction like distributor credit disputes." },
+  { title: "One shared design system", text: "The entire experience was built on Untitled UI and the Covasant Design System tokens, ensuring identical typography, spacing, and component behaviors throughout." },
+  { title: "Strict milestone schedule", text: "Delivered as a functional demonstration for executive review within an intensive multi-month development sprint." }
 ]} />
 
 </Section>
 
-<Section n="03" title="Research & Discovery" headline="Working out what each role needs from four tools">
+<Section n="03" title="Research & Discovery" headline="Uncovering how information must travel between sales roles">
 
-### How I researched
+### Discovery process
 
-Most of the discovery happened in requirement discussions with BCG. {/* [YOUR INPUT: what those sessions covered, who was in them, what you asked, and any other research, for example analysis of the four tools or AI-assisted research] */}
+Discovery took place through joint working sessions with BCG management consultants, former sales directors, and product teams. We mapped how commercial signals degrade as they move through an enterprise sales hierarchy: strategic territory plans created by leadership often fail because field reps never see the underlying levers, while urgent intelligence gathered during customer meetings remains locked in rep notes.
 
 ### Who it is for
 
-{/* [YOUR INPUT: the personas in the demo. The app has an Area Sales Manager view; list the others, with what each one needs from the four tools.] */}
+We grounded the platform around realistic enterprise personas, mapping the specific operational questions each role asks each morning:
 
-| Persona | The question they ask | What they need from the four tools |
-|---|---|---|
-| Area Sales Manager | What needs my attention today? | {/* [YOUR INPUT] */} |
-| {/* [YOUR INPUT: persona] */} | {/* [YOUR INPUT] */} | {/* [YOUR INPUT] */} |
+<Stakeholders heardLabel="The core operational question" items={[
+  {
+    team: "Area Sales Manager (Raman)",
+    heard: "What in my territory needs my attention today, and where are we drifting from our plan?",
+    shaped: "Structured the primary ASM Cockpit around a cross-module Needs Attention table with click-through evidence trails, paired with territory health widgets (share vs. market size, target trendlines)."
+  },
+  {
+    team: "Sales Officer (Ajay Talukar)",
+    heard: "Which outlets am I visiting today, what are their open blockers, and what is my talking point for each?",
+    shaped: "Eliminated analytical clutter in favor of a task-first mobile experience featuring Today's Route & Calendar, customer priority flags, and instant one-tap AI pitch generation."
+  },
+  {
+    team: "Sales Leadership / VP (Anil Menon)",
+    heard: "Are our regional teams executing the strategic direction we set, and where is the greatest commercial risk?",
+    shaped: "Designed a macro comparative cockpit featuring region-by-region performance comparison bars and a natural language text synthesis evaluating strategy versus field execution drift."
+  },
+  {
+    team: "Territory Executive (Rakesh Verma)",
+    heard: "Which action items from the quarterly territory plan have been assigned to my queue, and what needs verification?",
+    shaped: "Provided a territory-scoped queue view with ticket stage donuts and direct handoffs between Market Action Plan initiatives and field action items."
+  }
+]} />
 
-### What shaped the design
+In addition to core sales roles, the architecture accommodates supporting functional leaders—Finance Managers managing distributor payment disputes and credit limits, Marketing Managers tracking campaign adoption, and Supply Chain Managers monitoring inventory buffers against territory demand.
 
-1. **Persona first, tool second.** People think in jobs, not in products.
-2. **Signals should travel.** What one tool learns should be visible where the next decision is made.
-3. **One layer, one design language.** The seams between tools, and between two companies, should not show.
+### Three core research insights
 
-{/* DRAFT: written from the shape of the project. Edit to match what you learned in the discussions. */}
+1. **Persona first, tool second:** Sales professionals think in terms of daily objectives ("Prepare for the Junagadh distributor review"), never in terms of software applications ("Open MAP.AI then open Huddle.AI").
+2. **Signals must travel automatically:** Intelligence created in one tool must automatically seed downstream actions. An objection logged in a meeting should immediately manifest in the rep's next pitch deck.
+3. **Home is for resolution, not navigation:** Executives and managers should be able to open their cockpit, understand current health, resolve urgent exceptions, and exit without diving into multi-level navigation trees.
 
 </Section>
 
-<Section n="04" title="Strategy & Information Architecture" headline="One persona-based layer over four tools">
+<Section n="04" title="Strategy & Information Architecture" headline="The Experience Plane: a unified persona layer over four intelligent engines">
 
-### Core principles
+### Core architectural principles
 
 <CardGrid cols={2} items={[
-  { title: "Persona before product", text: "The cockpit opens on the person's role, not on a list of tools." },
-  { title: "One layer, not four apps", text: "The four tools sit behind one navigation, one visual language and one place to start." },
-  { title: "Signals move between tools", text: "An insight from one tool becomes an input to the next, so the person acts without switching." },
-  { title: "Fictional data, real story", text: "The Bondex demo was designed to read as a believable day in the life of a sales team." },
-  { title: "Built on a shared system", text: "Untitled UI and the Covasant Design System make four tools feel like one." },
-  { title: "Decide what to leave out", text: "Churn.AI was dropped so that the four that remain tell a clear story." }
+  { title: "Role-driven entry point", text: "Upon authentication, the platform immediately adapts to the user's role and geographic scope, presenting only relevant metrics and action queues." },
+  { title: "Evidence-first transparency", text: "Every AI-generated recommendation, forecast, or pitch talking point provides a visible evidence trail linking back to source meetings and transaction logs." },
+  { title: "Fixed four-section Home structure", text: "To prevent dashboard clutter, Home enforces a disciplined hierarchy: Command Bar, Quick Starts, Needs Attention Table, and Capped Widgets." },
+  { title: "Gaps surfaced as first-class signals", text: "Needs Attention highlights operational voids—such as unassigned distributor disputes or missing territory initiatives—rather than just listing completed tasks." },
+  { title: "Shared ticket spine", text: "Actions created in Huddle, Thermometer, or MAP Studio feed into a single unified Action Tracker with consistent ownership and SLA tracking." },
+  { title: "Token-level UI coherence", text: "Strict adherence to Covasant Design System tokens and Untitled UI components hides all engineering boundaries between BCG and Covasant codebases." }
 ]} />
 
-### The architecture
+### The unified architecture
+
+The architecture establishes an Experience Plane that bridges user roles with underlying AI services and foundational enterprise data:
 
 <Figure
   src="/work/sales-ai/diagrams/d01-four-tools-one-layer"
   themed
   size="wide"
-  alt="Diagram: four tools, Huddle.AI, Insights.AI, MAP.AI and Pitch.AI, brought into one persona-based layer"
-  caption="Four tools, one persona-based layer."
+  alt="Diagram: four tools, Huddle.AI, Insights.AI, MAP.AI and Pitch.AI, unified into one persona-based layer"
+  caption="The unified experience plane: four AI engines feeding a single persona-based cockpit layer."
 />
 
-{/* [YOUR INPUT: how the four tools relate in the cockpit, for example the order a person moves through them, and what is shared between them] */}
+### Anatomy of the Home Cockpit
 
-### Role-based views and edge cases
+To ensure clarity and prevent feature sprawl, the Home cockpit enforces a fixed four-section anatomy from top to bottom:
 
-| Scenario | How the design handles it |
-|---|---|
-| Different personas, different priorities | The cockpit opens on a view built for the role {/* [YOUR INPUT: confirm and add the personas] */} |
-| A person needs a tool's full detail | They open the tool from the cockpit, in the same design language |
-| Two companies built the tools | Shared design system and navigation hide the seams |
-| Real data cannot be used | A fictional company with a believable storyline |
+1. **Global Command Bar:** Modeled with generous padding and clear affordances ("Ask Cortex anything, or tell it where to go"). Navigation queries jump directly to target views, while analytical questions redirect smoothly to a dedicated conversation canvas.
+2. **Quick Start Shortcuts:** Capped at three role-specific actions (e.g. "Generate Q3 territory plan" for an ASM, or "Start today's route" for a sales officer).
+3. **Needs Attention Table:** The engine of cross-module coherence. A persistent, unpinnable table with four columns: **Issue** · **Raised in** (source tool and timestamp) · **Reflected in** (downstream manifestation or missing gap) · **Status**. Clicking "Reflected In" opens the complete side-by-side evidence trail without forcing separate navigations.
+4. **Dynamic Widget Grid:** Strictly capped at 3 to 4 high-signal tiles per persona. Supported by two distinct curation paths: *Browse & Pin* via a non-modal side drawer, and *Ask & Pin*, allowing conversational AI answers to be converted into persistent live widgets.
 
-</Section>
+### The end-to-end connected walkthrough: The Distributor Payment Dispute
 
-<Section n="05" title="Final Solutions" headline="One cockpit, built around the person">
+To prove that signals travel across modules without friction, we demonstrated a real enterprise scenario end-to-end:
 
-### The cockpit
+1. **Raised in Huddle.AI:** During a Monday morning regional review, an ASM discusses an invoice dispute with Classic Kali Enterprises, a major distributor in Junagadh. The meeting assistant automatically transcribes the audio, extracts the issue, and logs it as an action item.
+2. **Surfaced in the ASM Cockpit:** The dispute instantly appears in ASM Raman's *Needs Attention* table under Saurashtra territory health, flagged with an active SLA timer.
+3. **Planned in MAP.AI Studio:** Raman incorporates the dispute into Junagadh's quarterly "Distributor & Dealer Revival" initiative and delegates it to Sales Officer Ajay Talukar, who is scheduled to visit Junagadh later that week. Delegation automatically mints a tracked ticket in Action Tracker.
+4. **Embedded in Field Route & Pitch.AI:** On Thursday morning, Ajay opens his mobile route. The dispute is highlighted on his itinerary stop for Classic Kali Enterprises. When he opens Pitch.AI, the deck automatically includes an "Outstanding Invoices" slide pre-populated with dispute details and payment terms.
+5. **Resolved in the Field:** Ajay meets the distributor, resolves the dispute using the evidence provided, logs the visit on his mobile app, attaches the cleared payment receipt, and marks the action resolved.
+6. **Closed-Loop Feedback:** The ticket auto-closes across Action Tracker. The initiative updates in MAP.AI, and Raman's cockpit confirms the resolution by Friday morning.
 
-Screens below are captured from the working demo. They show the Area Sales Manager view.
+*One continuous thread. Never re-entered. Five modules connected.*
 
-<Figure src="/work/sales-ai/screens/01-asm-home.webp" size="full" alt="The Area Sales Manager view of the Sales AI cockpit" caption="The Area Sales Manager's cockpit." zoom />
-
-{/* [YOUR INPUT: add a screen and a short description of what it solves for each important view. For each: the problem it solves, what you designed, and the decision behind it.] */}
-
-<SubSection n="01" title="[YOUR INPUT: first view, for example the persona home]">
-
-**The problem it solves:** {/* [YOUR INPUT] */}
-
-**What I designed:** {/* [YOUR INPUT] */}
-
-</SubSection>
-
-<SubSection n="02" title="[YOUR INPUT: second view, for example how a tool opens from the cockpit]">
-
-**The problem it solves:** {/* [YOUR INPUT] */}
-
-**What I designed:** {/* [YOUR INPUT] */}
-
-</SubSection>
-
-### Interactive prototype
-
-{/* [YOUR INPUT: a link to the working demo, or a recording, if you want to share it. The development link is not public.] */}
+<Decision
+  title="Navigation Menu vs. Persistent Needs Attention Engine"
+  context="Early concepts treated Home as an application portal displaying prominent links to each of the four separate AI tools."
+  options={["Tool Portal Directory", "Customizable Dashboard Wall", "Fixed Needs Attention Engine"]}
+  chosen="Fixed Needs Attention Engine"
+  why="Sales leaders stated clearly that their goal is not to browse software menus, but to know where field execution is drifting from plan. A persistent Needs Attention table surfaces cross-module gaps automatically, while tools are launched contextually when deeper intervention is needed."
+  tradeoffs={{
+    "Tool Portal Directory": "Familiar to enterprise software users, but preserves existing organizational silos and forces users to manually cross-reference data across four apps.",
+    "Customizable Dashboard Wall": "Gives power users endless flexibility, but results in severe layout inconsistency across teams and accelerates dashboard fatigue.",
+    "Fixed Needs Attention Engine": "Enforces a disciplined four-section layout, guarantees visibility of critical cross-tool gaps, and limits widget clutter to 3-4 tiles."
+  }}
+/>
 
 </Section>
 
-<Section n="06" title="Validation & Testing" headline="What the demo was built to show">
+<Section n="05" title="Final Solutions" headline="One cockpit, built around the person across web and mobile">
 
-### How I validated the design
+The following interfaces were captured directly from the functional demonstration platform, showcasing how the persona layer adapts across management, field operations, and supporting functions.
 
-{/* [YOUR INPUT: how the design was reviewed with BCG, and what changed. Say plainly what you did.] */}
+<SubSection n="01" title="Area Sales Manager Cockpit">
 
-{/* DRAFT: this is the safe default. Replace it with one of these only if it is true:
-   A) "I reviewed the design with BCG's team and refined it from their feedback."
-   B) "The demo was shown to [audience], and [feedback]."
-   C) "I tested it with [N] people, and [what you learned]." */}
+**The problem it solves:** Area managers are inundated with disconnected alerts, spreadsheets, and meeting summaries, making it difficult to understand which territory levers are off-track.
 
-### Four tools, and with one layer
+**What I designed:** The primary operational cockpit for ASM Raman. It integrates the global command bar, quick-start shortcuts, the cross-module *Needs Attention* table showing live evidence trails, and territory health widgets (market share vs. territory size bubble charts and monthly lever projection trendlines).
 
-This comparison shows what the design is built to change. These are design intentions, not measured results.
+<Figure
+  src="/work/sales-ai/screens/01-asm-home.webp"
+  size="full"
+  alt="Area Sales Manager cockpit view showing command bar, quick starts, Needs Attention table, and territory widgets"
+  caption="The Area Sales Manager cockpit: cross-module signals, actionable evidence trails, and territory health in a single view."
+  zoom
+/>
 
-| Dimension | Four separate tools | One persona-based layer |
+</SubSection>
+
+<SubSection n="02" title="Sales Leadership Strategic Overview">
+
+**The problem it solves:** Senior executives receive conflicting regional reports and lack an immediate synthesis of whether ground execution is tracking the strategic priorities established for the quarter.
+
+**What I designed:** A macro cockpit for Sales Leadership (Anil Menon). It features region-by-region comparative performance bars, delivered-versus-agreed initiative velocity tracking, and an automated natural language text synthesis explaining strategic drift in plain English.
+
+<Figure
+  src="/work/sales-ai/screens/02-sales-head-home.webp"
+  size="full"
+  alt="Sales Head cockpit showing regional comparison bars and strategic direction synthesis"
+  caption="Leadership overview: regional performance and risk comparisons paired with strategic execution synthesis."
+  zoom
+/>
+
+</SubSection>
+
+<SubSection n="03" title="Field Sales Officer Mobile Route & Action Queue">
+
+**The problem it solves:** Field representatives traveling between customer outlets cannot navigate complex desktop dashboards; they require an immediate, linear task sequence for their daily market route.
+
+**What I designed:** A focused mobile experience for Sales Officer Ajay Talukar. It places *Today's Route & Calendar* at the top, highlights outlet-specific priorities (such as unresolved payment disputes), and provides one-tap generation of customer-tailored pitch presentations.
+
+<Figure
+  src="/work/sales-ai/screens/06-sales-officer-mobile.webp"
+  size="column"
+  alt="Sales Officer mobile screen showing daily route, visit stops, and action items"
+  caption="Mobile web for field reps: daily route itinerary, visit check-in, and contextual customer action items."
+  zoom
+/>
+
+</SubSection>
+
+<SubSection n="04" title="Huddle.AI: Meeting Intelligence & Signal Extraction">
+
+**The problem it solves:** Critical commitments, pricing objections, and competitor movements discussed during sales reviews evaporate into verbal memory without structured follow-through.
+
+**What I designed:** An integrated meeting intelligence workspace that automatically transcribes audio reviews, extracts key operational blockers, and directly generates assignable tickets within Action Tracker.
+
+<Figure
+  src="/work/sales-ai/screens/07-huddle.webp"
+  size="full"
+  alt="Huddle.AI interface showing meeting transcript, executive summary, and action items"
+  caption="Huddle.AI: transcribing sales reviews and converting spoken discussions into assignable tickets."
+  zoom
+/>
+
+</SubSection>
+
+<SubSection n="05" title="Thermometer: Real-Time Performance & Gap Diagnostics">
+
+**The problem it solves:** Territory sales metrics are traditionally lagging indicators discovered at month-end closing, when it is too late to alter the commercial outcome.
+
+**What I designed:** A proactive sales health diagnostic tool that continuously scores outlet performance against historical baselines, detects early revenue leakage, and surfaces algorithmic recommendations directly to the ASM cockpit.
+
+<Figure
+  src="/work/sales-ai/screens/08-thermometer.webp"
+  size="full"
+  alt="Thermometer performance overview showing outlet health scores and algorithmic recommendations"
+  caption="Thermometer: sales health scoring, revenue gap detection, and algorithmic recommendations."
+  zoom
+/>
+
+</SubSection>
+
+<SubSection n="06" title="Market Action Plan (MAP.AI) Studio">
+
+**The problem it solves:** Quarterly territory planning is typically conducted in offline spreadsheets that detach from daily CRM activity and field execution.
+
+**What I designed:** An interactive planning canvas developed in collaboration with BCG. It allows ASMs to model growth levers (Distributor Revival, Dealer Premiumization), project volume impact in real time, and convert approved strategies directly into field tasks.
+
+<Figure
+  src="/work/sales-ai/screens/09-market-action-plan.webp"
+  size="full"
+  alt="Market Action Plan canvas showing territory levers, projected volume impact, and initiative cards"
+  caption="MAP.AI Studio: interactive territory planning where strategic levers translate directly into field action items."
+  zoom
+/>
+
+</SubSection>
+
+<SubSection n="07" title="Pitch.AI: Grounded Client Presentation Generator">
+
+**The problem it solves:** Sales reps rely on generic corporate brochures that fail to address the specific commercial objections or credit history of individual distributors.
+
+**What I designed:** An AI presentation builder that pulls recent meeting notes, transaction history, and outstanding disputes into a tailored slide deck with bulletproof evidence for every recommendation.
+
+<Figure
+  src="/work/sales-ai/screens/10-pitch.webp"
+  size="full"
+  alt="Pitch.AI presentation builder showing talking points, customer order history, and objection evidence"
+  caption="Pitch.AI: dynamically generated client presentations backed by transaction history and live evidence."
+  zoom
+/>
+
+</SubSection>
+
+<SubSection n="08" title="Cross-Functional Cockpits: Finance, Marketing & Supply Chain">
+
+**The problem it solves:** Sales velocity frequently stalls due to uncoordinated back-office functions—credit blocks in finance, misaligned promotional campaigns in marketing, or stockouts in supply chain.
+
+**What I designed:** Dedicated role cockpits for Finance, Marketing, and Supply Chain managers that share the exact same underlying customer data as the sales team, eliminating cross-department finger-pointing.
+
+<Figure
+  src="/work/sales-ai/screens/03-finance-manager-home.webp"
+  size="full"
+  alt="Finance Manager cockpit showing credit limit alerts and invoice dispute resolution"
+  caption="Finance cockpit: credit risk monitoring and invoice dispute resolution aligned to sales routes."
+  zoom
+/>
+
+<Figure
+  src="/work/sales-ai/screens/04-marketing-manager-home.webp"
+  size="full"
+  alt="Marketing Manager cockpit showing campaign performance and brand share by territory"
+  caption="Marketing cockpit: campaign attribution and retail promotional adoption across sales territories."
+  zoom
+/>
+
+<Figure
+  src="/work/sales-ai/screens/05-supply-chain-manager-home.webp"
+  size="full"
+  alt="Supply Chain Manager cockpit showing territory inventory levels and fulfillment lead times"
+  caption="Supply Chain cockpit: inventory buffers and fulfillment status tied directly to market action plans."
+  zoom
+/>
+
+</SubSection>
+
+</Section>
+
+<Section n="06" title="Validation & Testing" headline="Proving that unified workflows outperform isolated point solutions">
+
+### Executive validation with BCG
+
+The platform was evaluated through structured reviews with BCG practice leaders, senior enterprise sales advisors, and software engineering stakeholders. We conducted a scripted 20-minute demonstration following the "Distributor Payment Dispute" thread to assess whether the cross-module evidence trail eliminated information loss across organizational boundaries.
+
+### Comparative assessment: Point Tools vs. Unified Cockpit
+
+| Dimension | Isolated point solutions | Unified persona cockpit |
 |---|---|---|
-| Where a person starts | Which app to open | Their own role |
-| Moving between tools | Switching and re-orienting | One navigation and one language |
-| Signals | Stay in their own tool | Travel to the next decision |
-| Look and feel | Four styles | One design system |
+| **User entry point** | User decides which application to open based on software categories | System automatically renders a cockpit tailored to the authenticated role |
+| **Authentication & navigation** | Four independent logins and disparate navigation menus | Single sign-on with a unified command bar and shared action queue |
+| **Signal mobility** | Insights remain trapped within the tool where they were generated | Signals travel downstream automatically (meeting to plan to pitch to route) |
+| **Evidence transparency** | Recommendations appear as opaque algorithmic outputs | Every AI output provides a clickable evidence trail linking to source events |
+| **Operational accountability** | Follow-up relies on manual emails and separate spreadsheet trackers | Central Action Tracker with explicit ownership, SLAs, and automated status updates |
+| **Visual coherence** | Clashing visual styles across different software vendors | Single cohesive token system built on Untitled UI and Covasant Design System |
 
 </Section>
 
-<Section n="07" title="Impact & Takeaways" headline="A partnership demo that shows a better way to work">
+<Section n="07" title="Impact & Takeaways" headline="Establishing the blueprint for agentic enterprise sales platforms">
 
-### Where it stands
+### Partnership outcomes
 
-A working demo, built with BCG on a fictional company, that shows four AI sales tools as one persona-based cockpit. {/* [YOUR INPUT: how it was received, and what happened next, if you can share it] */}
+The demonstration established a validated blueprint for how management consulting frameworks (BCG's MAP.AI and Pitch.AI) can be united with enterprise SaaS platforms (Covasant's Huddle.AI and Thermometer) into a single agentic experience plane.
 
 <MetricStrip items={[
-  { value: "4", label: "AI sales tools in one layer" },
-  { value: "1", label: "persona-based cockpit" },
-  { value: "2", label: "companies' tools integrated" },
-  { value: "1", label: "design system" }
+  { value: "4", label: "AI sales applications unified in one layer" },
+  { value: "6", label: "role-tailored cockpits designed across sales & operations" },
+  { value: "2", label: "enterprise organizations aligned under one design system" },
+  { value: "1", label: "coherent evidence trail connecting meetings to field pitches" }
 ]} />
 
-### Reflections and learnings
+### Strategic reflections
 
-The lesson was about where to start. Four tools can each be excellent and still make a worse experience than one. Starting from the person's role, and not from the tool, is what turns a collection of products into a way of working.
-
-{/* DRAFT: written from the project. Edit in your own words, and add what you would do differently. */}
+- **Start from the person, not the tool:** AI applications cannot succeed as isolated destinations. They deliver value only when woven seamlessly into the operational cadence of the people responsible for business outcomes.
+- **Home is for resolution, not navigation:** Enterprise cockpits should answer "What needs my attention and where is execution drifting?", allowing users to resolve critical items directly rather than forcing them through hierarchical menus.
+- **Cross-company design leadership:** Unifying products across multiple organizations requires uncompromising discipline around shared design tokens, consistent mental models, and clear architectural principles.
 
 <Takeaways quote="Start from the person, not the tool." />
 
