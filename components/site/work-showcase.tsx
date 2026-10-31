@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Lock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { CoverMotion } from "@/components/site/cover-motion";
 import { site } from "@/content/site";
+import { hasCoverMotion } from "@/lib/cover-motion";
 import { publicFileExists } from "@/lib/site-files";
 import { cn } from "@/lib/utils";
 import type { ProjectFrontmatter } from "@/lib/schema";
@@ -56,7 +58,7 @@ export function WorkShowcase({ projects }: { projects: ProjectItem[] }) {
           return (
             <article
               key={project.slug}
-              className="group/work container-site py-16 md:py-24 transition-colors hover:bg-card/20"
+              className="cover-host group/work container-site py-16 md:py-24 transition-colors hover:bg-card/20"
             >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                 {/* Col 1: Intro, Summary & Timeline (4 cols) */}
@@ -93,9 +95,15 @@ export function WorkShowcase({ projects }: { projects: ProjectItem[] }) {
                 <div className="lg:col-span-5">
                   <Link
                     href={`/work/${project.slug}`}
-                    className="group/media relative block aspect-video sm:aspect-16/10 overflow-hidden rounded-md border border-border bg-muted/40 transition-all duration-(--duration-hover) group-hover/work:border-foreground/30 group-hover/work:shadow-sm"
+                    className="group/media relative block aspect-16/10 overflow-hidden rounded-md border border-border bg-muted/40 transition-all duration-(--duration-hover) group-hover/work:border-foreground/30 group-hover/work:shadow-sm"
                   >
-                    {hasCover ? (
+                    {hasCover && hasCoverMotion(project.slug) ? (
+                      <CoverMotion
+                        slug={project.slug}
+                        src={project.cover}
+                        alt={project.coverAlt ?? getProjectScreenAlt(project, "cover")}
+                      />
+                    ) : hasCover ? (
                       <>
                         {/* Main 16:10 Cover image */}
                         <Image

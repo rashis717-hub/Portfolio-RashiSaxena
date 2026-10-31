@@ -28,6 +28,7 @@
   --accent: oklch(0.662 0.2444 1.68); /* #FF2E88: decoration, focus rings, large elements only */
   --accent-strong: oklch(0.5622 0.2254 6.65); /* #D6005F: links, small accent text, filled hovers */
   --on-accent-strong: oklch(1 0 0); /* #FFFFFF */
+  --cover-a2ui: oklch(0.552 0.2469 266.16); /* #2F5BFF: A2UI cover lettering only, the one exception to a single accent (DESIGN.md) */
   --overlay: oklch(0.16 0.01 270 / 0.16);
 }
 
@@ -392,6 +393,36 @@ html.has-cursor-dot
 
 html.has-cursor-dot select {
   cursor: default !important;
+}
+
+/*
+ * Cover motion (components/site/cover-motion.tsx). Each [data-cm] layer rests at --cm-from and
+ * moves to --cm-to while its row is hovered or holds focus, or once on touch ([data-play]).
+ * Returning is quick and undelayed. Reduced motion shows the final state.
+ */
+.cover-motion [data-cm] {
+  transform: var(--cm-from, none);
+  opacity: var(--cm-from-o, 1);
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cover-host:is(:hover, :focus-within) .cover-motion [data-cm],
+.cover-motion[data-play] [data-cm] {
+  transform: var(--cm-to, none);
+  opacity: 1;
+  transition-duration: var(--cm-dur, 0.6s);
+  transition-delay: var(--cm-delay, 0s);
+  transition-timing-function: var(--cm-ease, cubic-bezier(0.22, 1, 0.36, 1));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cover-motion [data-cm] {
+    transform: var(--cm-to, none);
+    opacity: 1;
+    transition: none;
+  }
 }
 
 /* Pixel name styling (inspired by jithinrp.com with signature pixel pink) */

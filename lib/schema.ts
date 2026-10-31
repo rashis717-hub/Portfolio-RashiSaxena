@@ -21,6 +21,10 @@ export const projectSchema = z.strictObject({
   cover: z.string().startsWith("/", "must be a path from /public, e.g. /work/<slug>/cover.jpg"),
   coverHover: z.string().startsWith("/", "must be a path from /public").optional(),
   coverThumb: z.string().startsWith("/", "must be a path from /public").optional(),
+  /** Says who the cover photo shows and what for. */
+  coverAlt: z.string().optional(),
+  /** The case study page's hero image, when it should differ from the home-page cover. Defaults to `cover`. */
+  heroImage: z.string().startsWith("/", "must be a path from /public").optional(),
   order: z.number(),
   visibility: z.enum(["public", "private"]),
   /** A private study is listed on the home page only when this is true (or site.work.showPrivateInList). */

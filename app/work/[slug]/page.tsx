@@ -95,7 +95,8 @@ export default async function CaseStudyPage({ params }: Props) {
     !videoComing &&
     Boolean(project.heroDiagram) &&
     publicFileExists(`${project.heroDiagram}.light.png`);
-  const showCover = !hasVideo && !videoComing && !hasHeroDiagram && !project.redact && publicFileExists(project.cover);
+  const heroImage = project.heroImage ?? project.cover;
+  const showCover = !hasVideo && !videoComing && !hasHeroDiagram && !project.redact && publicFileExists(heroImage);
 
   const detailItems = [
     { label: "Company", value: project.company },
@@ -315,7 +316,7 @@ export default async function CaseStudyPage({ params }: Props) {
             <div className="relative aspect-video w-full max-w-[1600px] mx-auto overflow-hidden bg-black">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={project.cover}
+                src={heroImage}
                 alt={project.title}
                 className="w-full h-auto aspect-video object-cover"
               />

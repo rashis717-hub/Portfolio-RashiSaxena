@@ -105,7 +105,7 @@ Near-black and warm off-white, plus one accent. Light and dark themes share the 
 - **accent:** the stark hot pink. Decorative and large elements only: dots, progress bars, focus rings, large icons. In light theme it reaches 3.35:1, enough for non-text and large elements but not for small text.
 - **accent-strong:** the deeper pink (5.0:1 on the light background) for links, small accent text and filled hover states with white text. In dark theme it equals the accent.
 
-One accent hue only, and it is used rarely. Never introduce a second accent. Never use the accent for errors or warnings. Never hard-code a colour value in a component; use tokens.
+One accent hue only, and it is used rarely. Never introduce a second accent. The one exception is **cover-a2ui** (#2F5BFF), the blue of the large "A2UI" lettering on the A2UI project cover; it is a project colour, used on that cover only and nowhere in the interface. Never use the accent for errors or warnings. Never hard-code a colour value in a component; use tokens.
 
 ## Typography
 
