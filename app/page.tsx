@@ -1,8 +1,9 @@
 import { AboutHomeSection } from "@/components/site/about-home-section";
 import { Hero } from "@/components/site/hero";
+import { LogoStrip } from "@/components/site/logo-strip";
 import { Contact } from "@/components/site/home-sections";
 import { Numbers } from "@/components/site/numbers";
-import { KineticMarquee, Pillars } from "@/components/site/pillars";
+import { KineticMarquee } from "@/components/site/pillars";
 import { WorkShowcase } from "@/components/site/work-showcase";
 import { site } from "@/content/site";
 import { getAllProjects } from "@/lib/mdx";
@@ -18,8 +19,8 @@ export default async function Home() {
   return (
     <>
       <Hero resume={resumeHref()} />
-      <Pillars />
       <KineticMarquee />
+      <LogoStrip />
       <WorkShowcase projects={projects} />
       <Numbers items={site.stats} />
       <AboutHomeSection />

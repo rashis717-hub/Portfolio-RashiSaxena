@@ -15,18 +15,17 @@ export function AboutHomeSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           {/* Left Column: Narrative & Links */}
           <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="flex items-center gap-3">
-              <span className="label text-accent-strong">03 / About Me</span>
-              <Badge variant="chip" className="text-xs">UX Lead</Badge>
-            </div>
-
-            <h2 id="about-home-title" className="text-h2 font-medium tracking-tight text-foreground text-balance">
-              I lead design for platforms where people and AI agents work together.
+            <h2 id="about-home-title" className="text-display font-medium tracking-tight text-foreground">
+              UX Lead
             </h2>
+
+            <p className="text-h3 font-medium tracking-tight text-foreground text-balance">
+              I lead design for platforms where people and AI agents work together.
+            </p>
 
             <div className="flex flex-col gap-4 text-body text-muted-foreground leading-relaxed">
               <p>
-                I&apos;m Rashi Saxena, a UX Lead based in Hyderabad specialising in enterprise B2B AI platforms,
+                I&apos;m Rashi Saxena, a UX Lead based in New Delhi specialising in enterprise B2B AI platforms,
                 agent experience (AX), and human-in-the-loop systems.
               </p>
               <p>
@@ -67,10 +66,7 @@ export function AboutHomeSection() {
 
           {/* Right Column: Editorial Profile & Verified Milestones */}
           <div className="lg:col-span-5 flex flex-col gap-6 rounded-md border border-border bg-card p-6 md:p-8">
-            <div>
-              <span className="label text-muted-foreground">Background & Evidence</span>
-              <h3 className="text-h3 font-medium text-foreground mt-1">Verified Experience</h3>
-            </div>
+            <h3 className="text-h3 font-medium text-foreground">Verified Experience</h3>
 
             <div className="flex flex-col gap-4 divide-y divide-border pt-2 text-sm">
               <div className="flex flex-col gap-1 pb-4">

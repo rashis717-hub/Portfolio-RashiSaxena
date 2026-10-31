@@ -3,17 +3,17 @@
 import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
+import { PixelName } from "./pixel-name";
 
 /**
  * Editorial Hero inspired by jithinrp.com:
  * - Top: High-impact lede statement
  * - Right: Metadata strip with accent '+' dividers
- * - Bottom: Full-width name rendered in Geist Pixel in signature pixel pink (#FF2E88)
- *   with interactive letter-by-letter melting hover interaction.
+ * - Bottom: Full-width name (the page's h1) in Geist Pixel in signature pixel pink (#FF2E88), built
+ *   pixel by pixel on first load, with interactive letter-by-letter melting hover interaction.
  */
 export function Hero({ resume }: { resume?: string }) {
   const { headline, location } = site.hero;
-  const name = site.name.toUpperCase();
 
   return (
     <section
@@ -23,15 +23,9 @@ export function Hero({ resume }: { resume?: string }) {
       <div className="container-site flex flex-col">
         {/* Top: Lede Headline (large, calm, editorial) */}
         <div className="max-w-3xl">
-          <p className="label mb-4 text-accent-strong tracking-widest">
-            01 / Lead Statement
-          </p>
-          <h1
-            id="hero-title"
-            className="text-h2 md:text-[36px] font-normal leading-[1.3] tracking-tight text-foreground text-balance"
-          >
+          <p className="text-h2 md:text-[36px] font-normal leading-[1.3] tracking-tight text-foreground text-balance">
             {headline}
-          </h1>
+          </p>
         </div>
 
         {/* Middle: Meta row + Action pills */}
@@ -73,19 +67,7 @@ export function Hero({ resume }: { resume?: string }) {
 
         {/* Bottom: Full-Width Giant Pixel Name in signature Pixel Pink */}
         <div className="mt-6 sm:mt-8 md:mt-10 overflow-hidden w-full select-none [container-type:inline-size]">
-          <p
-            className="hero-pixel-name"
-            aria-label={site.name}
-          >
-            {name.split("").map((char, i) => (
-              <span
-                key={i}
-                className={`hero-pixel-char${char === " " ? " w-[0.45em]" : ""}`}
-              >
-                {char === " " ? "\u00A0" : char}
-              </span>
-            ))}
-          </p>
+          <PixelName name={site.name} id="hero-title" />
         </div>
       </div>
     </section>

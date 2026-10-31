@@ -32,15 +32,14 @@ const reducedMotion = () => window.matchMedia("(prefers-reduced-motion: reduce)"
  * Numbered list of case studies. One state drives hover and keyboard focus alike: the active row's
  * text shifts 8px, an accent hairline fills along its bottom and the other rows dim to 70% (every
  * element, tag chips included, stays at or above 3:1). On a fine pointer a cover preview follows the
- * cursor with a "View" label; keyboard focus and reduced motion anchor the preview above the row. Touch devices get a small
+ * cursor; keyboard focus and reduced motion anchor the preview above the row. Touch devices get a small
  * thumbnail per row and a pressed state, never the preview.
  */
 export function WorkList({ title, empty, rows }: { title: string; empty: string; rows: WorkRow[] }) {
   const [active, setActive] = useState<number | null>(null);
   const [mode, setMode] = useState<"pointer" | "anchored" | null>(null);
   const preview = useRef<HTMLDivElement>(null);
-  const cursor = useRef<HTMLDivElement>(null);
-  const motion = useRef({ x: 0, y: 0, cx: 0, cy: 0, tilt: 0, lastX: 0, lastT: 0, frame: 0 });
+  const motion = useRef({ x: 0, y: 0, tilt: 0, lastX: 0, lastT: 0, frame: 0 });
   const anchoredRow = useRef<HTMLElement | null>(null);
 
   useEffect(() => () => cancelAnimationFrame(motion.current.frame), []);
@@ -50,8 +49,6 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
     const m = motion.current;
     m.frame = 0;
     if (preview.current) preview.current.style.transform = `translate3d(${m.x}px, ${m.y}px, 0) rotate(${m.tilt}deg)`;
-    // The 64px "View" label is centred on the cursor itself.
-    if (cursor.current) cursor.current.style.transform = `translate3d(${m.cx - 32}px, ${m.cy - 32}px, 0)`;
     if (Math.abs(m.tilt) > 0.05) {
       m.tilt *= 0.85;
       m.frame = requestAnimationFrame(paint);
@@ -68,8 +65,6 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
     m.tilt = Math.max(-MAX_TILT, Math.min(MAX_TILT, velocity * 4));
     m.lastX = event.clientX;
     m.lastT = now;
-    m.cx = event.clientX;
-    m.cy = event.clientY;
     // Right of the cursor, flipping left near the right edge; kept clear of the header and the bottom.
     const right = event.clientX + 32;
     m.x = right + PREVIEW_W > window.innerWidth - 16 ? event.clientX - 32 - PREVIEW_W : right;
@@ -149,8 +144,6 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
                 onBlur={clear}
                 className={cn(
                   "group/row relative grid grid-cols-[2.5rem_minmax(0,1fr)_auto] items-center gap-x-4 border-b py-6 active:bg-muted md:grid-cols-[3rem_minmax(0,1fr)_minmax(0,15rem)_3.5rem_auto] md:gap-x-6",
-                  // The system cursor hides only while the "View" label stands in for it.
-                  mode === "pointer" && "cursor-none",
                 )}
               >
                 <span className="label self-baseline pt-1">{row.n}</span>
@@ -207,7 +200,7 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
         </ul>
       )}
 
-      {/* Cover preview and "View" cursor label. Decorative: the row link carries the name. */}
+      {/* Cover preview. Decorative: the row link carries the name. */}
       <div
         ref={preview}
         aria-hidden
@@ -226,16 +219,6 @@ export function WorkList({ title, empty, rows }: { title: string; empty: string;
             className="size-full object-cover"
           />
         )}
-      </div>
-      <div
-        ref={cursor}
-        aria-hidden
-        className={cn(
-          "label pointer-events-none fixed top-0 left-0 z-30 flex size-16 items-center justify-center rounded-full bg-primary text-primary-foreground transition-opacity duration-200",
-          mode === "pointer" ? "opacity-100" : "opacity-0",
-        )}
-      >
-        View
       </div>
     </section>
   );

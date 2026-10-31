@@ -3,6 +3,7 @@ import { ArrowUpRight, Mail } from "lucide-react";
 import {
   CopyEmailButton,
   ResumeDownloadAction,
+  ServicesList,
   SkillsMatrix,
   TimelineList,
 } from "@/components/site/about-sections";
@@ -35,16 +36,13 @@ export default function AboutPage() {
       {/* Intro Hero Section */}
       <section className="container-site pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="flex flex-col gap-6 max-w-3xl">
-          <div className="flex items-center gap-3">
-            <p className="label text-muted-foreground">{about.eyebrow}</p>
-            <Badge variant="chip" className="text-[10px]">
-              {about.introDraftNotice}
-            </Badge>
-          </div>
+          <Badge variant="chip" className="self-start text-[10px]">
+            {about.introDraftNotice}
+          </Badge>
 
-          <h1 className="text-display text-foreground tracking-tight">
-            I lead design for platforms where people and AI agents work together.
-          </h1>
+          <h1 className="text-display text-foreground tracking-tight">{about.heading}</h1>
+
+          <p className="text-h3 font-medium tracking-tight text-foreground text-balance">{about.lead}</p>
 
           <div className="mt-4 flex flex-col gap-4 text-body text-muted-foreground leading-relaxed">
             {about.intro.map((para, i) => (
@@ -72,10 +70,17 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* DRAFT: edit the services list */}
+      <section aria-labelledby="services-title" className="container-site py-section border-t border-border">
+        <h2 id="services-title" className="text-h2 text-foreground">
+          Services
+        </h2>
+        <ServicesList items={about.services} />
+      </section>
+
       {/* Experience & Background Section */}
       <section className="container-site py-section border-t border-border">
-        <div className="mb-12 flex flex-col gap-2">
-          <p className="label text-muted-foreground">01 / Background</p>
+        <div className="mb-12">
           <h2 className="text-h2 text-foreground">Experience & Education</h2>
         </div>
 
@@ -84,8 +89,7 @@ export default function AboutPage() {
 
       {/* Skills & Tools Section */}
       <section className="container-site py-section border-t border-border">
-        <div className="mb-12 flex flex-col gap-2">
-          <p className="label text-muted-foreground">02 / Competencies</p>
+        <div className="mb-12">
           <h2 className="text-h2 text-foreground">Skills & Tooling</h2>
         </div>
 
@@ -95,7 +99,6 @@ export default function AboutPage() {
       {/* Bottom Contact Section */}
       <section className="container-site py-section border-t border-border">
         <div className="flex flex-col gap-6 max-w-2xl">
-          <p className="label text-muted-foreground">03 / Contact</p>
           <h2 className="text-display text-foreground">Have a challenge in enterprise AI?</h2>
           <p className="text-body text-muted-foreground">
             Whether exploring an advisory engagement, platform PoC, or full-time leadership role, let&apos;s talk.

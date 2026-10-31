@@ -375,6 +375,25 @@ body:has(#hero-title) [data-header-role] {
   }
 }
 
+/* On fine pointers the cursor dot (components/site/cursor-dot.tsx) stands in for the system cursor. */
+html.has-cursor-dot,
+html.has-cursor-dot * {
+  cursor: none !important;
+}
+
+html.has-cursor-dot
+  :is(
+    input:not([type="button"], [type="submit"], [type="reset"], [type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="file"]),
+    textarea,
+    [contenteditable="true"]
+  ) {
+  cursor: text !important;
+}
+
+html.has-cursor-dot select {
+  cursor: default !important;
+}
+
 /* Pixel name styling (inspired by jithinrp.com with signature pixel pink) */
 .hero-pixel-name {
   font-family: "Geist Pixel", monospace;
@@ -389,6 +408,27 @@ body:has(#hero-title) [data-header-role] {
   width: 100%;
   justify-content: space-between;
   align-items: baseline;
+}
+
+/*
+ * While the name builds on its canvas the real glyphs wait invisibly (still read by assistive tech).
+ * Should the script never run, they appear after 4.5s regardless.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-pixel-name[data-build="pending"] {
+    opacity: 0;
+    animation: hero-name-fallback 0s 4.5s forwards;
+  }
+
+  .hero-pixel-name[data-build="running"] {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-name-fallback {
+  to {
+    opacity: 1;
+  }
 }
 
 .hero-pixel-char {

@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Check, Copy, Download } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import type { SkillCategory, TimelineEntry } from "@/content/about";
+import type { Service, SkillCategory, TimelineEntry } from "@/content/about";
 
 export function CopyEmailButton({ email }: { email: string }) {
   const [copied, setCopied] = useState(false);
@@ -94,6 +94,19 @@ export function TimelineList({ items }: { items: readonly TimelineEntry[] }) {
         </li>
       ))}
     </ol>
+  );
+}
+
+export function ServicesList({ items }: { items: readonly Service[] }) {
+  return (
+    <ul className="mt-10 divide-y divide-border border-y border-border">
+      {items.map((item) => (
+        <li key={item.name} className="flex flex-col gap-1 py-5 md:flex-row md:items-baseline md:gap-12">
+          <span className="font-semibold text-foreground md:w-96 md:shrink-0">{item.name}</span>
+          <span className="text-body text-muted-foreground">{item.description}</span>
+        </li>
+      ))}
+    </ul>
   );
 }
 

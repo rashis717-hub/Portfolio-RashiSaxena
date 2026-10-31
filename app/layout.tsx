@@ -3,6 +3,7 @@ import path from "node:path";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@/components/site/analytics";
+import { CursorDot } from "@/components/site/cursor-dot";
 import { RouteFocus } from "@/components/site/route-focus";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
@@ -95,6 +96,7 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <SiteFooter name={site.name} line={supplied(site.footer)} links={links} />
           <RouteFocus />
           <Analytics />
+          <CursorDot />
         </ThemeProvider>
       </body>
     </html>

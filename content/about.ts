@@ -11,6 +11,11 @@ export type TimelineEntry = {
   isEducation?: boolean;
 };
 
+export type Service = {
+  name: string;
+  description: string;
+};
+
 export type SkillCategory = {
   name: string;
   skills: readonly string[];
@@ -18,13 +23,27 @@ export type SkillCategory = {
 
 export const about = {
   title: "About",
-  eyebrow: "UX Lead · Enterprise & Agentic AI",
+  heading: "UX Lead",
+  lead: "I lead design for platforms where people and AI agents work together.",
   intro: [
     "I am a UX Lead specialising in enterprise B2B AI platforms, agent experience (AX), and human-in-the-loop governance.",
     "At Covasant, I lead product design across interconnected agent management, meeting intelligence, and market intelligence platforms deployed with enterprise customers including Motilal Oswal Financial Services and MYK.",
     "My focus is designing systems where people and autonomous agents collaborate with verifiable trust: clear hand-offs, visible progress, and auditable governance.",
   ],
   introDraftNotice: "Drafted from résumé for review",
+  // DRAFT: edit the services list
+  services: [
+    { name: "Enterprise AI product design", description: "From discovery to developer handoff." },
+    { name: "Agent experience (AX) design", description: "How agents and people share control." },
+    { name: "Conversational and generative UI", description: "Components agents can use inside a chat (A2UI)." },
+    { name: "Information architecture and platform UX", description: "Complex workflows, roles and dashboards." },
+    {
+      name: "Design systems and AI-ready documentation",
+      description: "The files designers, developers and AI agents build from.",
+    },
+    { name: "Brand identity for products", description: "Names, marks and the visual language around them." },
+    { name: "Prototyping and front-end builds", description: "Interactive prototypes and production-ready React." },
+  ] satisfies Service[],
   timeline: [
     {
       id: "covasant",

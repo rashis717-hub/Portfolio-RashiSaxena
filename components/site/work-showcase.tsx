@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Lock } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { site } from "@/content/site";
 import { publicFileExists } from "@/lib/site-files";
 import { cn } from "@/lib/utils";
 import type { ProjectFrontmatter } from "@/lib/schema";
@@ -42,21 +43,13 @@ export function WorkShowcase({ projects }: { projects: ProjectItem[] }) {
   return (
     <section id="work" aria-labelledby="works-title" className="border-b border-border">
       <div className="container-site py-12 md:py-16 border-b border-border">
-        <div className="flex items-center justify-between">
-          <div>
-            <span className="label text-accent-strong">02 / Portfolio</span>
-            <h2 id="works-title" className="text-display font-medium tracking-tight text-foreground mt-2">
-              Selected Works
-            </h2>
-          </div>
-          <span className="label text-muted-foreground hidden sm:inline">
-            {projects.length} Case Studies
-          </span>
-        </div>
+        <h2 id="works-title" className="text-display font-medium tracking-tight text-foreground">
+          {site.work.title}
+        </h2>
       </div>
 
       <div className="divide-y divide-border">
-        {projects.map((project, idx) => {
+        {projects.map((project) => {
           const hasCover = !project.redact && publicFileExists(project.cover);
           const isPrivate = project.visibility === "private";
 
@@ -70,9 +63,7 @@ export function WorkShowcase({ projects }: { projects: ProjectItem[] }) {
                 <div className="lg:col-span-4 flex flex-col justify-between h-full gap-6">
                   <div className="flex flex-col gap-3">
                     <div className="flex items-center gap-2">
-                      <span className="label text-accent-strong">
-                        {(idx + 1).toString().padStart(2, "0")} / {project.year}
-                      </span>
+                      <span className="label text-accent-strong">{project.year}</span>
                       {isPrivate && (
                         <Badge variant="outline" className="text-[10px] gap-1">
                           <Lock className="size-2.5" />

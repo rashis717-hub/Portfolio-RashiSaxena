@@ -69,7 +69,7 @@ export const site = {
     rotatingSentence: "Agent experience, design systems and platform UX.",
     workCta: "View work",
     resumeCta: "Resume",
-    location: "Hyderabad, India",
+    location: "New Delhi, India",
   },
   work: {
     title: "Selected work",
@@ -77,34 +77,24 @@ export const site = {
     empty: "Case studies are being written up.",
     showPrivateInList: false,
   },
-  // Portfolio-level headline metrics (Correction C04).
-  stats,
-  howIWork: {
-    title: "How I work",
-    draft: false,
+  // Grey logo strip above Selected work. Heights balance the set: wide wordmarks sit lower than
+  // squarer marks. Sources and licence notes: /public/logos/SOURCES.md.
+  logos: {
+    label: "Companies I have worked with",
     items: [
-      {
-        title: "Agent experience",
-        image: "/home/how-agent-experience.webp",
-        imageAlt: "Multi-select question interface with progress chips, option descriptions, custom Other input, and navigation actions",
-        body: "I design how people direct, review and correct AI agents inside enterprise products. The aim is work people can trust: clear hand-offs, visible progress and an easy way to step in.",
-      },
-      {
-        title: "Platform UX at scale",
-        image: "/home/how-platform-ux.webp",
-        imageAlt: "Field operations health heat map with hierarchy level tabs, operational status metrics, and regional performance scores",
-        body: "I build design systems and platform foundations so product teams can ship consistent interfaces across complex multi-tier enterprise hierarchies.",
-      },
-      {
-        title: "Governed automation",
-        image: "/home/how-governed-automation.webp",
-        imageAlt: "Governed approval gate panel with Approve, Request change, and Reject actions",
-        body: "I design human-in-the-loop controls and approval gates so automated agents can take high-stakes actions with verified permissions and clear audit trails.",
-      },
+      { name: "Godrej", src: "/logos/godrej.svg", height: 26 },
+      { name: "Avendus", src: "/logos/avendus.svg", height: 18 },
+      { name: "Zebra Technologies", src: "/logos/zebra.svg", height: 26 },
+      { name: "Covasant", src: "/logos/covasant.svg", height: 18 },
+      { name: "IBM", src: "/logos/ibm.svg", height: 22 },
+      { name: "BCG", src: "/logos/bcg.svg", height: 19 },
+      { name: "MYK Laticrete", src: "/logos/myk.svg", height: 14 },
     ],
   },
+  // Portfolio-level headline metrics (Correction C04).
+  stats,
   contact: {
-    line: "Have a problem in enterprise AI? Let's talk.",
+    line: "Have an idea for enterprise AI? Let's talk.",
     emailCta: "Email me",
     linkedinCta: "LinkedIn",
   },
